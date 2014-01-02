@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListDeletedfeedbackTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+        <h:form styleClass="jsfcrud_list_form">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:outputText escape="false" value="#{bundle.ListDeletedfeedbackEmpty}" rendered="#{deletedfeedbackController.items.rowCount == 0}"/>
+            <h:panelGroup rendered="#{deletedfeedbackController.items.rowCount > 0}">
+                <h:outputText value="#{deletedfeedbackController.pagination.pageFirstItem + 1}..#{deletedfeedbackController.pagination.pageLastItem + 1}/#{deletedfeedbackController.pagination.itemsCount}"/>&nbsp;
+                <h:commandLink action="#{deletedfeedbackController.previous}" value="#{bundle.Previous} #{deletedfeedbackController.pagination.pageSize}" rendered="#{deletedfeedbackController.pagination.hasPreviousPage}"/>&nbsp;
+                <h:commandLink action="#{deletedfeedbackController.next}" value="#{bundle.Next} #{deletedfeedbackController.pagination.pageSize}" rendered="#{deletedfeedbackController.pagination.hasNextPage}"/>&nbsp;
+                <h:dataTable value="#{deletedfeedbackController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListDeletedfeedbackTitle_id}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListDeletedfeedbackTitle_usernamedelete}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.usernamedelete}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListDeletedfeedbackTitle_passworddelete}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.passworddelete}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListDeletedfeedbackTitle_reasonfordelete}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.reasonfordelete}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListDeletedfeedbackTitle_howmanydates}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.howmanydates}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListDeletedfeedbackTitle_suggestions}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.suggestions}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListDeletedfeedbackTitle_recommendation}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.recommendation}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{deletedfeedbackController.prepareView}" value="#{bundle.ListDeletedfeedbackViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{deletedfeedbackController.prepareEdit}" value="#{bundle.ListDeletedfeedbackEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{deletedfeedbackController.destroy}" value="#{bundle.ListDeletedfeedbackDestroyLink}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:panelGroup>
+            <br />
+            <h:commandLink action="#{deletedfeedbackController.prepareCreate}" value="#{bundle.ListDeletedfeedbackCreateLink}"/>
+            <br />
+            <br />
+            <h:commandLink value="#{bundle.ListDeletedfeedbackIndexLink}" action="/index" immediate="true" />
+        </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

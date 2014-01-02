@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewHasviewedprofileTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewHasviewedprofileLabel_id}"/>
+                    <h:outputText value="#{hasviewedprofileController.selected.id}" title="#{bundle.ViewHasviewedprofileTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewHasviewedprofileLabel_idcurrent}"/>
+                    <h:outputText value="#{hasviewedprofileController.selected.idcurrent}" title="#{bundle.ViewHasviewedprofileTitle_idcurrent}"/>
+                    <h:outputText value="#{bundle.ViewHasviewedprofileLabel_idhvperson}"/>
+                    <h:outputText value="#{hasviewedprofileController.selected.idhvperson}" title="#{bundle.ViewHasviewedprofileTitle_idhvperson}"/>
+                    <h:outputText value="#{bundle.ViewHasviewedprofileLabel_username}"/>
+                    <h:outputText value="#{hasviewedprofileController.selected.username}" title="#{bundle.ViewHasviewedprofileTitle_username}"/>
+                    <h:outputText value="#{bundle.ViewHasviewedprofileLabel_now}"/>
+                    <h:outputText value="#{hasviewedprofileController.selected.now}" title="#{bundle.ViewHasviewedprofileTitle_now}"/>
+                    <h:outputText value="#{bundle.ViewHasviewedprofileLabel_imageurl}"/>
+                    <h:outputText value="#{hasviewedprofileController.selected.imageurl}" title="#{bundle.ViewHasviewedprofileTitle_imageurl}"/>
+                    <h:outputText value="#{bundle.ViewHasviewedprofileLabel_city}"/>
+                    <h:outputText value="#{hasviewedprofileController.selected.city}" title="#{bundle.ViewHasviewedprofileTitle_city}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{hasviewedprofileController.destroyAndView}" value="#{bundle.ViewHasviewedprofileDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewHasviewedprofileEditLink}"/>
+                <br />
+                <h:commandLink action="#{hasviewedprofileController.prepareCreate}" value="#{bundle.ViewHasviewedprofileCreateLink}" />
+                <br />
+                <h:commandLink action="#{hasviewedprofileController.prepareList}" value="#{bundle.ViewHasviewedprofileShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewHasviewedprofileIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

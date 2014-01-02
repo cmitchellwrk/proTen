@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+    <h:body>
+
+    	<ui:composition template="/templatecsstest.xhtml">
+
+
+            <ui:define   name="contentten">
+
+
+                 <h:form>
+
+
+
+                         <h:outputText  style=" font-size: larger; font-weight: bold;color:#2681fc ;  "   value="You can limit the people who contact you by selecting the options below.
+                                   For example, if you select 'women' under gender, only women will be allowed to contact you. " >
+
+                    </h:outputText>
+
+
+
+
+                    <h:panelGrid  cellpadding="0"  cellspacing="40px"    columns="4">
+
+
+
+
+
+              <h:outputLabel for="eyed"      style="color:black;  font-weight: bold;"   value="#{bundle.ListMailsettingsTitle_id}:"/>
+
+               <p:inputText  id="eyed"   style="color:black;  font-weight: bold;"  required="true"    value="#{inboxControllerTwo.selectedMail.id}"    />
+
+
+
+
+
+                <h:outputLabel   for="idmember"     style="color:black;  font-weight: bold;"   value="#{bundle.ListMailsettingsTitle_idmember}:"/>
+
+
+                        <p:inputText id="idmember" style="color:black;  font-weight: bold;" required="true"    value="#{inboxControllerTwo.selectedMail.idmember}"   />
+
+
+
+
+
+
+                  <h:outputLabel    for="gender"  style="color:black;  font-weight: bold;"   value="#{bundle.ListMailsettingsTitle_gender}:"/>
+
+
+                        <p:selectOneMenu style="  font-size: larger; font-weight: bold;"   id = "gender"   value="#{inboxControllerTwo.selectedMail.gender}"  required="true" >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberSettingsBean.gend}"/>
+                        </p:selectOneMenu>
+
+
+
+
+
+
+                  <h:outputLabel for="firstcontactmessagesize"    style="color:black;  font-weight: bold;"  value="#{bundle.ListMailsettingsTitle_firstcontactmessgesize}:"/>
+
+
+
+                        <p:selectOneMenu style="  font-size: larger; font-weight: bold;"  id = "firstcontactmessagesize" value="#{inboxControllerTwo.selectedMail.firstcontactmessgesize}"  required="true"    >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberSettingsBean.firstcontactmsgsze}"/>
+                        </p:selectOneMenu>
+
+
+
+
+
+
+
+                    <h:outputLabel for="agefrom"   style="color:black;  font-weight: bold;"   value="#{bundle.ListMailsettingsTitle_agefrom}:"/>
+
+
+                        <p:selectOneMenu style="  font-size: larger; font-weight: bold;"  id = "agefrom" value="#{inboxControllerTwo.selectedMail.agefrom}"  required="true" >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberSettingsBean.age_from}"/>
+                        </p:selectOneMenu>
+
+
+
+
+
+
+
+                   <h:outputLabel   for="ageto"  style="color:black;  font-weight: bold;"   value="#{bundle.ListMailsettingsTitle_ageto}:"/>
+
+
+
+                        <p:selectOneMenu style="  font-size: larger; font-weight: bold;"  id = "ageto" value="#{inboxControllerTwo.selectedMail.ageto}"  required="true" >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberSettingsBean.age_to}"/>
+                        </p:selectOneMenu>
+
+
+
+
+                             <h:outputLabel for="within"   style="color:black;  font-weight: bold;"   value="#{bundle.ListMailsettingsTitle_within}:"/>
+
+
+                        <p:selectOneMenu style="  font-size: larger; font-weight: bold;"  id = "within" value="#{inboxControllerTwo.selectedMail.within}"  required="true" >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberSettingsBean.withinn}"/>
+                        </p:selectOneMenu>
+
+
+
+
+                    </h:panelGrid>
+
+
+
+
+
+
+
+
+                    <br>
+
+                    </br>
+
+
+                    <h:outputText  style=" font-size: larger; font-weight: bold; color:#2681fc ;  "   value="Select the boxes below if you don't want people
+                                   to contact you looking for any of the following:">
+
+
+                    </h:outputText>
+
+
+
+
+                    <h:panelGrid cellpadding="0"  cellspacing="40px"    columns="2">
+
+
+
+
+
+
+                        <h:outputText style="color:black;  font-weight: bold;"   value="#{bundle.ListMailsettingsTitle_hangout}:"/>
+
+                        <h:selectBooleanCheckbox  id = "hangout" value="#{inboxControllerTwo.selectedMail.hangout}"  required="true" >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberSettingsBean.hangout}"/>
+
+                        </h:selectBooleanCheckbox>
+
+
+
+
+
+                        <h:outputText style="color:black;  font-weight: bold;"   value="#{bundle.ListMailsettingsTitle_friendship}:"/>
+
+
+                        <h:selectBooleanCheckbox  id = "friendship" value="#{inboxControllerTwo.selectedMail.friendship}"  required="true" >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberSettingsBean.friendship}"/>
+
+                        </h:selectBooleanCheckbox>
+
+
+
+                        <h:outputText style="color:black;  font-weight: bold;"   value="#{bundle.ListMailsettingsTitle_activitypartner}:"/>
+
+
+
+                        <h:selectBooleanCheckbox  id = "activitypartner" value="#{inboxControllerTwo.selectedMail.activitypartner}"  required="true" >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberSettingsBean.activitypartner}"/>
+
+                        </h:selectBooleanCheckbox>
+
+
+
+
+
+                        <h:outputText style="color:black;  font-weight: bold;"   value="#{bundle.ListMailsettingsTitle_dating}:"/>
+
+                        <h:selectBooleanCheckbox  id = "dating" value="#{inboxControllerTwo.selectedMail.dating}"  required="true" >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberSettingsBean.dating}"/>
+
+                        </h:selectBooleanCheckbox>
+
+
+
+
+
+                        <h:outputText  style="color:black;  font-weight: bold;"  value="#{bundle.ListMailsettingsTitle_longterm}:"/>
+
+                        <h:selectBooleanCheckbox  id = "longterm" value="#{inboxControllerTwo.selectedMail.longterm}"  required="true" >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberSettingsBean.longterm}"/>
+
+                        </h:selectBooleanCheckbox>
+
+
+
+
+
+                        <h:outputText  style="color:black;  font-weight: bold;"   value="#{bundle.ListMailsettingsTitle_intimateencounter}:"/>
+
+
+                        <h:selectBooleanCheckbox  id = "intimateencounter" value="#{inboxControllerTwo.selectedMail.intimateencounter}"  required="true" >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberSettingsBean.intimateencounter}"/>
+
+                        </h:selectBooleanCheckbox>
+
+
+
+
+
+                        <h:outputText style="color:black;  font-weight: bold;"   value="#{bundle.ListMailsettingsTitle_talkemail}:"/>
+
+
+
+                        <h:selectBooleanCheckbox  id = "talkemail" value="#{inboxControllerTwo.selectedMail.talkemail}"  required="true" >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberSettingsBean.talkemail}"/>
+
+                        </h:selectBooleanCheckbox>
+
+
+
+
+
+
+
+
+
+                        <h:outputText  style="color:black;  font-weight: bold;"   value="#{bundle.ListMailsettingsTitle_otherrelationship}:"/>
+
+                        <h:selectBooleanCheckbox  id = "otherrelashionship" value="#{inboxControllerTwo.selectedMail.otherrelationship}"  required="true" >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberSettingsBean.otherrelationship}"/>
+
+                        </h:selectBooleanCheckbox>
+
+
+
+
+
+                        <h:outputText style="color:black;  font-weight: bold;"   value="#{bundle.ListMailsettingsTitle_usedrugs}:"/>
+
+
+                        <h:selectBooleanCheckbox  id = "usedrugs" value="#{inboxControllerTwo.selectedMail.usedrugs}"  required="true" >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberSettingsBean.usedrugs}"/>
+
+                        </h:selectBooleanCheckbox>
+
+
+
+
+
+
+
+
+
+                        <h:outputText style="color:black;  font-weight: bold;"   value="#{bundle.ListMailsettingsTitle_smoke}:"/>
+
+
+                        <h:selectBooleanCheckbox  id = "smoke" value="#{inboxControllerTwo.selectedMail.smoke}"  required="true" >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberSettingsBean.smoke}"/>
+
+                        </h:selectBooleanCheckbox>
+
+
+
+                        <h:outputText style="color:black;  font-weight: bold;"   value="#{bundle.ListMailsettingsTitle_havemessagedintenct}:"/>
+
+                        <h:selectBooleanCheckbox  id = "havemessagedintenct" value="#{inboxControllerTwo.selectedMail.havemessagedintenct}"  required="true" >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberSettingsBean.havmessageintenct}"/>
+
+                        </h:selectBooleanCheckbox>
+
+
+
+
+
+                        <h:outputText style="color:black;  font-weight: bold;"   value="Married:"/>
+
+
+
+
+                        <h:selectBooleanCheckbox  id = "email1" value="#{inboxControllerTwo.selectedMail.email1}"  required="true" >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberSettingsBean.email1}"/>
+
+                        </h:selectBooleanCheckbox>
+
+
+
+                        <h:outputText style="color:black;  font-weight: bold;"   value="#{bundle.ListMailsettingsTitle_email2}:"/>
+
+
+
+
+                        <h:outputText style="color:black;  font-weight: bold;"   value="#{inboxControllerTwo.selectedMail.email2}"/>
+
+
+                        <h:outputText style="color:black;  font-weight: bold;"   value="#{bundle.ListMailsettingsTitle_email3}:"/>
+
+
+
+
+                        <h:outputText style="color:black;  font-weight: bold;"   value="#{inboxControllerTwo.selectedMail.email3}"/>
+
+
+
+                        <h:outputText style="color:black;  font-weight: bold;"   value="#{bundle.ListMailsettingsTitle_email4}:"/>
+
+
+
+                        <h:outputText style="color:black;  font-weight: bold;"   value="#{inboxControllerTwo.selectedMail.email4}"/>
+
+
+
+
+
+
+                        <h:outputText style="color:black;  font-weight: bold;"   value="#{bundle.ListMailsettingsTitle_email5}:"/>
+
+
+
+                        <h:outputText style="color:black;  font-weight: bold;"   value="#{inboxControllerTwo.selectedMail.email5}"/>
+
+
+
+
+
+
+
+                    </h:panelGrid>
+
+                     <br>
+                     </br>
+
+
+
+                    <h:outputText style="color:#2681fc; font-weight: bold; "  value="Click the button below to save your new settings."/>
+
+                    <br>
+
+                    </br>
+
+                    <h:commandButton styleClass="button" action="#{inboxControllerTwo.prepareUpdateMailSettings}"    type="submit" value="Update Mail Setings"   />
+
+
+
+
+                </h:form>
+
+            </ui:define>
+
+    	</ui:composition>
+
+    </h:body>
+
+</html>

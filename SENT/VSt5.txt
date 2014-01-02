@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+    <h:body>
+
+    	<ui:composition template="/templatecsstest.xhtml">
+
+
+            <ui:define   name="contentten">
+
+  <h:form >
+
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListPhotosEmpty}" rendered="#{photosController.items.rowCount == 0}"/>
+             
+                <h:panelGroup rendered="true">
+
+                  
+
+                    <h:dataTable value="#{photosController.itemstwo}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPhotosTitle_photouserid}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.photouserid}"/>
+                        </h:column>
+
+
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPhotosTitle_imageurl1a}"/>
+                            </f:facet>
+                            <h:outputLink styleClass="thumbnail" value="#thumb">
+
+
+                                <h:graphicImage     height="95"  width ="95"  style=" border-color: #333"      url  = "#{item.imageurl1a}"/>
+
+                                <span>
+
+                                    <h:graphicImage    url  = "#{item.imageurl1b}"/>
+
+                                </span>
+
+
+
+
+                            </h:outputLink>
+
+                        </h:column>
+
+
+
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPhotosTitle_imageurl2a}"/>
+                            </f:facet>
+
+                            <h:outputLink styleClass="thumbnail" value="#thumb">
+
+                                <h:graphicImage     height="95"  width ="95"  style=" border-color: #333"      url  = "#{item.imageurl2a}"/>
+
+
+                                <span>
+
+                                    <h:graphicImage    url  = "#{item.imageurl2b}"/>
+
+                                </span>
+
+
+
+
+                            </h:outputLink>
+
+
+                        </h:column>
+
+
+
+
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPhotosTitle_imageurl3a}"/>
+                            </f:facet>
+
+                            <h:outputLink styleClass="thumbnail" value="#thumb">
+
+                                <h:graphicImage     height="95"  width ="95"  style=" border-color: #333"      url  = "#{item.imageurl3a}"/>
+
+
+                                <span>
+
+                                    <h:graphicImage    url  = "#{item.imageurl3b}"/>
+
+                                </span>
+
+
+                            </h:outputLink>
+
+
+                        </h:column>
+
+
+
+
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPhotosTitle_imageurl4a}"/>
+                            </f:facet>
+
+                            <h:outputLink styleClass="thumbnail" value="#thumb">
+
+                                <h:graphicImage      height="95"  width ="95"  style=" border-color: #333"      url  = "#{item.imageurl4a}"/>
+
+                                <span>
+
+                                    <h:graphicImage    url  = "#{item.imageurl4b}"/>
+
+                                </span>
+
+
+
+
+                            </h:outputLink>
+
+                        </h:column>
+
+
+
+
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPhotosTitle_imageurl5a}"/>
+                            </f:facet>
+
+
+                            <h:outputLink styleClass="thumbnail" value="#thumb">
+
+
+                                <h:graphicImage      height="95"  width ="95"  style=" border-color: #333"      url  = "#{item.imageurl5a}"/>
+
+
+                                <span>
+
+                                    <h:graphicImage    url  = "#{item.imageurl5b}"/>
+
+                                </span>
+
+
+                            </h:outputLink>
+
+
+                        </h:column>
+
+
+
+                   
+                    </h:dataTable>
+                </h:panelGroup>
+               
+
+                    <br />
+              <h:commandButton styleClass="button"          action="#{membersControllerFive.prepareCreateInbox}" value="Send a message to this member"/>
+                    <br />
+                    <br />
+               <h:commandButton styleClass="button"        action="#{membersControllerFive.createFavorites}" value="Add to favorites"/>
+
+
+
+
+            </h:form>
+
+
+
+            <h:form>
+                <h:panelGrid  style="color:#2681fc;"  columns="2">
+
+
+
+
+
+
+                        <h:outputText value="#{bundle.ViewMembersLabel_userid}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.userid}" title="#{bundle.ViewMembersTitle_userid}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_username}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.username}" title="#{bundle.ViewMembersTitle_username}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_password}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.password}" title="#{bundle.ViewMembersTitle_password}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_now}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.now}" title="#{bundle.ViewMembersTitle_now}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_email}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.email}" title="#{bundle.ViewMembersTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_imageurl}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.imageurl}" title="#{bundle.ViewMembersTitle_imageurl}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_birthMonth}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.birthMonth}" title="#{bundle.ViewMembersTitle_birthMonth}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_birthDay}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.birthDay}" title="#{bundle.ViewMembersTitle_birthDay}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_birthYear}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.birthYear}" title="#{bundle.ViewMembersTitle_birthYear}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_city}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.city}" title="#{bundle.ViewMembersTitle_city}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_states}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.states}" title="#{bundle.ViewMembersTitle_states}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_country}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.country}" title="#{bundle.ViewMembersTitle_country}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_zipcode}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.zipcode}" title="#{bundle.ViewMembersTitle_zipcode}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_lat}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.lat}" title="#{bundle.ViewMembersTitle_lat}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_lon}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.lon}" title="#{bundle.ViewMembersTitle_lon}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_gender}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.gender}" title="#{bundle.ViewMembersTitle_gender}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_seekingA}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.seekingA}" title="#{bundle.ViewMembersTitle_seekingA}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_lookingFor}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.lookingFor}" title="#{bundle.ViewMembersTitle_lookingFor}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_sign}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.sign}" title="#{bundle.ViewMembersTitle_sign}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_ethnicity}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.ethnicity}" title="#{bundle.ViewMembersTitle_ethnicity}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_height}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.height}" title="#{bundle.ViewMembersTitle_height}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_hairColor}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.hairColor}" title="#{bundle.ViewMembersTitle_hairColor}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_bodyType}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.bodyType}" title="#{bundle.ViewMembersTitle_bodyType}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_car}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.car}" title="#{bundle.ViewMembersTitle_car}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_education}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.education}" title="#{bundle.ViewMembersTitle_education}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_hasChildren}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.hasChildren}" title="#{bundle.ViewMembersTitle_hasChildren}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_wantsChildren}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.wantsChildren}" title="#{bundle.ViewMembersTitle_wantsChildren}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_married}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.married}" title="#{bundle.ViewMembersTitle_married}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_smoker}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.smoker}" title="#{bundle.ViewMembersTitle_smoker}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_drink}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.drink}" title="#{bundle.ViewMembersTitle_drink}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_drugs}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.drugs}" title="#{bundle.ViewMembersTitle_drugs}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_religion}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.religion}" title="#{bundle.ViewMembersTitle_religion}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_description}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.description}" title="#{bundle.ViewMembersTitle_description}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_income}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.income}" title="#{bundle.ViewMembersTitle_income}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_profession}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.profession}" title="#{bundle.ViewMembersTitle_profession}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_headline}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.headline}" title="#{bundle.ViewMembersTitle_headline}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_interests}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.interests}" title="#{bundle.ViewMembersTitle_interests}"/>
+                        <h:outputText value="#{bundle.ViewMembersLabel_searchrankscore}"/>
+                        <h:outputText value="#{inboxControllerTwo.selectedMem.searchrankscore}" title="#{bundle.ViewMembersTitle_searchrankscore}"/>
+
+
+
+
+
+
+                </h:panelGrid>
+                <br />
+               
+            </h:form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ui:define>
+
+
+
+
+
+
+
+
+
+
+
+
+    	</ui:composition>
+
+    </h:body>
+
+</html>

@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+
+        Welcome!
+
+        <br />
+
+        <br />
+
+        <ul class="tablist">
+
+ <li>
+
+                <h:form>
+                    <h:commandLink action="/inbox/ListUsr" value="Show all inbox items"/>
+                </h:form>
+
+            </li>
+
+             <li>
+                <h:form>
+                    <h:commandLink action="/sent/List" value="Show all sent items"/>
+                </h:form>
+            </li>
+
+             <li>
+
+                <h:form>
+                    <h:commandLink action="#{photosControllerTwo.findPhotoPage}" value="Manage my photos"/>
+                </h:form>
+
+            </li>
+
+
+  <li>
+
+                <h:form>
+                    <h:commandLink action= "#{membersController.prepareEditTwo}" value="Edit  my profile"/>
+                </h:form>
+
+            </li>
+
+
+            <li>
+                <h:form>
+
+                    <h:commandLink action="/SearchRad" value="Search for other  members"/>
+
+                </h:form>
+
+            </li>
+
+
+            <li>
+
+                <h:form>
+                    <h:commandLink action="/blocked/List" value="Show all blocked members"/>
+                </h:form>
+
+            </li>
+
+            <li>
+
+                <h:form>
+                    <h:commandLink action="/favorites/List" value="Show my favorite members"/>
+                </h:form>
+
+            </li>
+
+            <li>
+
+                <h:form>
+                    <h:commandLink action="/gifts/List" value="Show gifts "/>
+                </h:form>
+
+            </li>
+
+            <li>
+
+                <h:form>
+                    <h:commandLink action="/hasviewedprofiletwo/List" value="Show members that viewed my profile"/>
+                </h:form>
+
+            </li>
+
+
+
+        </ul>
+
+        <br />
+
+        <br />
+
+        <ul class="tablist">
+
+            <li>
+
+                <h:form>
+                    <h:commandLink action="/mailsettings/List2_1" value="Mailsettings"/>
+                </h:form>
+
+            </li>
+
+            <li>
+
+
+
+                <h:form>
+                    <h:commandLink action="/matchquestions/List" value="Show All Matchquestions Items"/>
+                </h:form>
+
+
+            </li>
+
+            <li>
+
+
+                <h:form>
+                    <h:commandLink action="/membergenquestions/List" value="Show All Membergenquestions Items"/>
+                </h:form>
+
+            </li>
+
+            <li>
+
+
+
+
+                <h:form>
+                    <h:commandLink action="/members/List" value="Show All Members Items"/>
+                </h:form>
+
+
+            </li>
+
+
+            <li>
+
+
+                <h:form>
+                    <h:commandLink action="/sendhistoryintimate/List" value="Show All Sendhistoryintimate Items"/>
+                </h:form>
+
+
+            </li>
+        </ul>
+
+
+        <br />
+
+        <br />
+
+        <ul class="tablist">
+            <li>
+
+                <h:form>
+                    <h:commandLink action="/abuse/List" value="Show All Abuse Items"/>
+                </h:form>
+
+            </li>
+
+            <li>
+
+
+                <h:form>
+                    <h:commandLink action="/basicquestionsone/List" value="Show All Basicquestionsone Items"/>
+                </h:form>
+
+            </li>
+
+            <li>
+
+
+                <h:form>
+                    <h:commandLink action="/similarmembers/List" value="Show All Similarmembers Items"/>
+                </h:form>
+            </li>
+
+            <li>
+
+
+                <h:form>
+                    <h:commandLink action="/umightlike/List" value="Show All Umightlike Items"/>
+                </h:form>
+
+            </li>
+
+            <li>
+
+
+
+                <h:form>
+                    <h:commandLink action="/urecenttlyvisited/List" value="Show All Urecenttlyvisited Items"/>
+                </h:form>
+            </li>
+
+
+        </ul>
+
+
+        <br />
+
+        <br />
+
+        <h:form>
+            <h:commandLink action="/login" value="Login"/>
+        </h:form>
+
+
+        <br />
+
+        <br />
+
+
+
+                <h:form>
+
+                    <h:commandLink action= "#{membersController.logout}" value="Logout"/>
+
+                </h:form>
+
+
+
+
+
+
+
+
+
+</h:body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
+

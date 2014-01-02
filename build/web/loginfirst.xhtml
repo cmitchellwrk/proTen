@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <body>
+
+        <h:head>
+
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <title>Hitmeupdate.com is 100% free online dating</title>
+            <p:resources />
+        </h:head>
+
+
+
+
+        <ui:composition template="/templates/templateFour.xhtml">
+
+<ui:define name="title">Hitmeupdate will find me a date with local singles for free</ui:define>
+
+
+
+            <ui:define name="box2">
+
+                <h:outputText style=" font-weight: bold;color:#2681fc ;  " value="Already a member? Sign in here:"/>
+                <br>
+
+                </br>
+                <h:form>
+                    <h:outputText style=" font-weight: bold;color:#2681fc ;  " value="Username:"/>
+                    <p:inputText style=" font-size: larger "     id="username" value="#{membersController.username}">
+
+                    </p:inputText>
+
+                    <br />
+                    <br />
+                    <h:outputText style=" font-weight: bold;color:#2681fc ;   " value="Password:"/>
+                    <p:inputText  style=" font-size: larger "  id="password" value="#{membersController.password}">
+
+                    </p:inputText>
+
+                    <br />
+                    <br />
+
+                    <h:commandButton styleClass="button" action="#{membersController.login}" type="submit" value="Login"   />
+
+                </h:form>
+
+                <br />
+
+                 <h:form>
+                    <h:commandLink style="color:#2681fc; text-decoration:none; font-weight:bold;  " action="/footerpages/passwordfind.xhtml" value="Forgot your password?"/>
+                </h:form>
+
+              
+                <br />
+
+                <h:form>
+                    <h:commandLink style="color:#2681fc; text-decoration:none; font-weight:bold;  " action="/members/quicksignup" value="Sign up, it's free!"/>
+                </h:form>
+
+
+
+
+            </ui:define>
+
+
+
+
+            <ui:define name="box3">
+
+                <h:graphicImage value="/resources/css/images/istock.jpg"/>
+
+            </ui:define>
+
+
+
+
+            <ui:define  name="box4">
+
+
+                <h:form>
+
+
+
+                    <h:outputText  value="Hitmeupdate.com was designed for people like you who want to enjoy the all the benefits &lt;br /&gt;  of online dating without all the hidden fees, secret charges and cost found on all the &lt;br /&gt; dating websites today." escape="false"   style=" width:60px;color:#2681fc ;" >
+
+                    </h:outputText>
+
+
+                    <br>
+
+                    </br>
+
+
+                    <h:outputText value="When you use Hitmeupif.com, you don't just sign up for free, you use the entire site &lt;br /&gt; and  all of its features for free. We also don't limit who you can see based on how attractive we think you are or anything of the sort." escape="false"   style=" width:60px;color:#2681fc ;" >
+
+                    </h:outputText>
+
+                    <br>
+
+                    </br>
+
+
+                    <h:outputText value="People today are busy and finding the right person often takes time and work. Hitmeupdate.com  &lt;br /&gt;  was created to save you time and eliminate the work required to find that special someone. &lt;br /&gt; You have nothing to lose. Get started now and find the one for you today!    " escape="false"   style=" width:60px;color:#2681fc ;" >
+
+                    </h:outputText>
+
+
+
+
+                </h:form>
+
+            </ui:define>
+
+
+
+
+            <ui:define name="box5">
+
+                <h:form>
+
+
+
+                    <h:outputText value="Step 1: " style="font-weight: bold;color:#2681fc ;" />    <h:commandLink style="color:#2681fc; text-decoration:none; font-weight:bold;  " action="/members/signup" value="Sign up, by clicking here!"/>
+                    <br>
+
+                    </br>
+
+
+                    <h:outputText value="Step 2: " style="font-weight: bold;color:#2681fc ;" />   <h:outputText value="Search for profiles or check out your matches." style="color:#2681fc ;" />
+
+                    <br>
+
+                    </br>
+
+                    <h:outputText value="Step 3: " style="font-weight: bold;color:#2681fc ;" />   <h:outputText value="Find the one for you." style="color:#2681fc ;" />
+
+
+
+                </h:form>
+
+
+
+            </ui:define>
+
+
+
+
+
+
+        </ui:composition>
+
+
+
+
+    </body>
+</html>

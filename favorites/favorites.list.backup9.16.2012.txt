@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+    <h:body>
+
+    	<ui:composition template="/templatecsstest.xhtml">
+
+
+
+
+            <ui:define   name="contentten">
+
+<h:form >
+
+
+
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+
+                <h:outputText escape="false" value="#{bundle.ListFavoritesEmpty}" rendered="#{favoritesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{favoritesController.items.rowCount > 0}">
+
+                    <h:outputText style="color:#2681fc;"    value="#{favoritesController.pagination.pageFirstItem + 1}..#{favoritesController.pagination.pageLastItem + 1}/#{favoritesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{favoritesController.previous}" value="#{bundle.Previous} #{favoritesController.pagination.pageSize}" rendered="#{favoritesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{favoritesController.next}" value="#{bundle.Next} #{favoritesController.pagination.pageSize}" rendered="#{favoritesController.pagination.hasNextPage}"/>&nbsp;
+
+
+
+                    <p:dataTable value="#{favoritesController.items}" var="item"   style=" color:black; border:solid 0px">
+
+                        <p:column style=" border-width:0px"    >
+                            <f:facet name="header">
+                                <h:outputText  style="color:#2681fc;"  value="#{bundle.ListFavoritesTitle_id}"/>
+                            </f:facet>
+                            <h:outputText  style="color:#2681fc;"  value="#{item.id}"/>
+                        </p:column>
+
+                        <p:column style=" border-width:0px"   >
+                            <f:facet name="header">
+                                <h:outputText  style="color:#2681fc;"   value="#{bundle.ListFavoritesTitle_idcurrent}"/>
+                            </f:facet>
+                            <h:outputText  style="color:#2681fc;"   value="#{item.idcurrent}"/>
+                        </p:column>
+
+                        <p:column style=" border-width:0px"   >
+                            <f:facet name="header">
+                                <h:outputText   style="color:#2681fc;"   value="#{bundle.ListFavoritesTitle_idfavperson}"/>
+                            </f:facet>
+                            <h:outputText  style="color:#2681fc;"   value="#{item.idfavperson}"/>
+                        </p:column>
+
+
+                        <p:column style=" border-width:0px"    >
+                            <f:facet name="header">
+                                <h:outputText  style="color:#2681fc;"   value="#{bundle.ListFavoritesTitle_username}"/>
+                            </f:facet>
+                            <h:outputText  style="color:#2681fc;"    value="#{item.username}"/>
+                        </p:column>
+
+
+                        <p:column  style=" border-width:0px"  >
+                            <f:facet name="header">
+                                <h:outputText  style="color:#2681fc;"    value="#{bundle.ListFavoritesTitle_now}"/>
+                            </f:facet>
+                            <h:outputText   style="color:#2681fc;"   value="#{item.now}"/>
+                        </p:column>
+
+
+                        <p:column  style=" border-width:0px"  >
+                            <f:facet name="header">
+                                <h:outputText  style="color:#2681fc;"   value="#{bundle.ListFavoritesTitle_imageurl}"/>
+                            </f:facet>
+
+
+                            <h:graphicImage   height="95"  width ="95"   url ="#{item.imageurl}"/>
+
+
+                        </p:column>
+
+
+                        <p:column style=" border-width:0px"   >
+                            <f:facet name="header">
+                                <h:outputText  style="color:#2681fc;"    value="#{bundle.ListFavoritesTitle_city}"/>
+                            </f:facet>
+                            <h:outputText   style="color:#2681fc;"    value="#{item.city}"/>
+                        </p:column>
+
+
+                        <p:column  style=" border-width:0px"  >
+                            <f:facet name="header">
+                                <h:outputText  style="color:#2681fc;"    value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{favoritesController.prepareView}" value="#{bundle.ListFavoritesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{favoritesController.prepareEdit}" value="#{bundle.ListFavoritesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{favoritesController.destroy}" value="#{bundle.ListFavoritesDestroyLink}"/>
+                        </p:column>
+
+
+
+                    </p:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{favoritesController.prepareCreate}" value="#{bundle.ListFavoritesCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListFavoritesIndexLink}" action="/index" immediate="true" />
+            </h:form>
+
+
+
+
+
+
+
+            </ui:define>
+
+
+
+
+
+
+
+
+
+
+
+
+    	</ui:composition>
+
+    </h:body>
+
+</html>

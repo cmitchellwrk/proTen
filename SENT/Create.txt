@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateSentTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateSentLabel_removesntmsg}" for="removesntmsg" />
+                    <h:inputText id="removesntmsg" value="#{sentController.selected.removesntmsg}" title="#{bundle.CreateSentTitle_removesntmsg}" required="true" requiredMessage="#{bundle.CreateSentRequiredMessage_removesntmsg}"/>
+                    <h:outputLabel value="#{bundle.CreateSentLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{sentController.selected.id}" title="#{bundle.CreateSentTitle_id}" required="true" requiredMessage="#{bundle.CreateSentRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateSentLabel_replyToId}" for="replyToId" />
+                    <h:inputText id="replyToId" value="#{sentController.selected.replyToId}" title="#{bundle.CreateSentTitle_replyToId}" required="true" requiredMessage="#{bundle.CreateSentRequiredMessage_replyToId}"/>
+                    <h:outputLabel value="#{bundle.CreateSentLabel_imageurl}" for="imageurl" />
+                    <h:inputText id="imageurl" value="#{sentController.selected.imageurl}" title="#{bundle.CreateSentTitle_imageurl}" required="true" requiredMessage="#{bundle.CreateSentRequiredMessage_imageurl}"/>
+                    <h:outputLabel value="#{bundle.CreateSentLabel_sendtoid}" for="sendtoid" />
+                    <h:inputText id="sendtoid" value="#{sentController.selected.sendtoid}" title="#{bundle.CreateSentTitle_sendtoid}" required="true" requiredMessage="#{bundle.CreateSentRequiredMessage_sendtoid}"/>
+                    <h:outputLabel value="#{bundle.CreateSentLabel_sendfromid}" for="sendfromid" />
+                    <h:inputText id="sendfromid" value="#{sentController.selected.sendfromid}" title="#{bundle.CreateSentTitle_sendfromid}" required="true" requiredMessage="#{bundle.CreateSentRequiredMessage_sendfromid}"/>
+                    <h:outputLabel value="#{bundle.CreateSentLabel_sentFrom}" for="sentFrom" />
+                    <h:inputText id="sentFrom" value="#{sentController.selected.sentFrom}" title="#{bundle.CreateSentTitle_sentFrom}" required="true" requiredMessage="#{bundle.CreateSentRequiredMessage_sentFrom}"/>
+                    <h:outputLabel value="#{bundle.CreateSentLabel_sentTo}" for="sentTo" />
+                    <h:inputText id="sentTo" value="#{sentController.selected.sentTo}" title="#{bundle.CreateSentTitle_sentTo}" required="true" requiredMessage="#{bundle.CreateSentRequiredMessage_sentTo}"/>
+                    <h:outputLabel value="#{bundle.CreateSentLabel_subject}" for="subject" />
+                    <h:inputText id="subject" value="#{sentController.selected.subject}" title="#{bundle.CreateSentTitle_subject}" required="true" requiredMessage="#{bundle.CreateSentRequiredMessage_subject}"/>
+                    <h:outputLabel value="#{bundle.CreateSentLabel_messageDate}" for="messageDate" />
+                    <h:inputText id="messageDate" value="#{sentController.selected.messageDate}" title="#{bundle.CreateSentTitle_messageDate}" required="true" requiredMessage="#{bundle.CreateSentRequiredMessage_messageDate}"/>
+                    <h:outputLabel value="#{bundle.CreateSentLabel_msgText}" for="msgText" />
+                    <h:inputTextarea rows="4" cols="30" id="msgText" value="#{sentController.selected.msgText}" title="#{bundle.CreateSentTitle_msgText}" required="true" requiredMessage="#{bundle.CreateSentRequiredMessage_msgText}"/>
+                    <h:outputLabel value="#{bundle.CreateSentLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{sentController.selected.status}" title="#{bundle.CreateSentTitle_status}" required="true" requiredMessage="#{bundle.CreateSentRequiredMessage_status}"/>
+                    <h:outputLabel value="#{bundle.CreateSentLabel_now}" for="now" />
+                    <h:inputText id="now" value="#{sentController.selected.now}" title="#{bundle.CreateSentTitle_now}" required="true" requiredMessage="#{bundle.CreateSentRequiredMessage_now}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{sentController.create}" value="#{bundle.CreateSentSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{sentController.prepareList}" value="#{bundle.CreateSentShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateSentIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

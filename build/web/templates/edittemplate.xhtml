@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title><ui:insert name="title">Hitmeupdate.com is 100% free online dating. No charges at all!</ui:insert></title>
+
+
+        <h:outputStylesheet name="css/style.css"/>
+
+    </h:head>
+
+
+
+
+    <f:event listener="#{membersController.checkLogin}" type="preRenderView" />
+
+
+
+
+
+    <h:body>
+
+
+        <!-- WRAPPER -->
+        <div id="wrapperten">
+
+
+            <!-- HEADER -->
+            <div id="headertwelve">
+                <!-- ENDS Social -->
+                <!-- Navigation -->
+
+
+                <h:outputLink value="/proTen/faces/inbox/yourmessages.xhtml" style=" font-weight: bolder; font-size:23px; text-decoration: none; color:#ffffff;" ><h:outputText value="Hitmeupdate.com" style=" font-weight: bolder; font-size:26px; text-decoration: none; color:#ffffff; " /> </h:outputLink>
+                <br>
+
+                </br>
+
+                <p style="margin: 0px; font-weight: bolder; font-size:18px;"  > Hitmeupdate.com is a 100% free dating site. There are no subscription fees or charges of any kind.</p>
+
+                <p style="margin: 0px; font-weight: bolder; font-size:18px; color:#2681fc;  "  >Make changes to your profile below.</p>
+
+
+                <br />
+
+                <!-- Navigation -->
+
+                <!-- search -->
+
+                <!-- ENDS search -->
+
+                <!-- headline -->
+
+                <!-- ENDS headline -->
+
+                <!-- Slider -->
+
+
+
+                <!-- ENDS Slider -->
+
+            </div>
+            <!-- ENDS HEADER -->
+
+
+
+            <!-- MAIN -->
+            <div id="mainten">
+
+                <!-- content -->
+                <div id="contentten">
+
+                    <ui:insert  name="contentten">Default value for Content</ui:insert>
+
+                   
+
+                </div>
+                <!-- ENDS content -->
+
+              
+
+
+
+            
+            </div>
+
+
+
+
+
+
+
+
+
+            <!-- FOOTER -->
+            <div id="footer">
+
+                <!-- footer-cols -->
+
+                <!-- ENDS footer-cols -->
+
+                <!-- Bottom -->
+                <div id="bottom">
+
+                    <ul id="navlist">
+
+                        <li>
+                            <h:form>
+
+                                <h:commandLink style=" color:#2681fc; " value="about" action="/footerpages/about.xhtml" ></h:commandLink>
+
+                            </h:form>
+                        </li>
+                        <li>
+
+                            <h:form>
+
+                                <h:commandLink style=" color:#2681fc; " value="terms" action="/footerpages/terms.xhtml"></h:commandLink>
+
+                            </h:form>
+
+                        </li>
+
+                        <li>
+                            <h:form>
+
+                                <h:commandLink style=" color:#2681fc; " value="contact" action="/footerpages/contact.xhtml"></h:commandLink>
+
+                            </h:form>
+
+                        </li>
+
+                        <li>
+                            <h:form>
+
+                                <h:commandLink style=" color:#2681fc; " value="online safety" action="/footerpages/safety.xhtml"></h:commandLink>
+
+                            </h:form>
+
+                        </li>
+
+                        <li>
+                            <h:form>
+
+                                <h:commandLink style=" color:#2681fc; " value="privacy policy" action="/footerpages/privacy.xhtml"></h:commandLink>
+
+                            </h:form>
+                        </li>
+
+                    </ul>
+
+
+                    <br>
+                        
+                    </br>
+
+                <h:outputText style="color:#2681fc;  " value=" Copyright 2013 Hitmeupdate.com  "/>
+
+
+
+                    <!--bottom-->
+                </div>
+
+            </div>
+
+
+
+            <!-- ENDS FOOTER -->
+
+        </div>
+        <!-- ENDS WRAPPER -->
+
+
+    </h:body>
+
+</html>

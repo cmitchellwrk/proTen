@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+    <h:body>
+
+
+        <style type="text/css">
+
+
+
+
+        </style>
+
+        <ui:composition template="/templates/templatered.xhtml">
+
+            <ui:define name="title">Reply singles message | Hitmeupdate </ui:define>
+
+
+
+            <ui:define   name="contentten">
+
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+
+
+                <h:form  >
+
+                    <h:panelGrid  columns="2"   >
+
+
+                        <h:outputText      value=""/>
+
+                        <h:graphicImage   width="95" height="95"         value="#{inboxControllerTwo.selected.imageurl}" />
+
+
+                        <h:outputText  style="color:black"  value="Sent From"/>
+
+                        <h:outputText  style="color:black"  value="#{inboxControllerTwo.selected.sentFrom}" title="#{bundle.ViewInboxTitle_sentFrom}"/>
+
+                        <h:outputText  style="color:black"  value="Sent To"/>
+
+                        <h:outputText  style="color:black"  value="#{inboxControllerTwo.selected.sentTo}" title="#{bundle.ViewInboxTitle_sentTo}"/>
+
+                        <h:outputText  style="color:black"  value="Subject"/>
+                        <h:outputText  style="color:black"  value="#{inboxControllerTwo.selected.subject}" title="#{bundle.ViewInboxTitle_subject}"/>
+
+                        <h:outputText  style="color:black"  value="Date"/>
+                        <h:outputText  style="color:black"  value="#{inboxControllerTwo.selected.messageDate}" title="#{bundle.ViewInboxTitle_messageDate}"/>
+
+
+                        <h:outputText  style="color:black"  value="Status"/>
+                        <h:outputText  style="color:black"  value="#{inboxControllerTwo.selected.status}" title="#{bundle.ViewInboxTitle_status}"/>
+
+                        <h:outputText  style="color:black"  value="Now"/>
+                        <h:outputText  style="color:black"  value="#{inboxControllerTwo.selected.now}" title="#{bundle.ViewInboxTitle_now}"/>
+
+
+
+                        <h:outputText  style="color:black"  value="Message"  />
+
+                        <h:inputTextarea rows="10" cols="70"  style="color:black; border:0; " readonly="true" value="#{inboxControllerTwo.selected.msgText}"  title="#{bundle.ViewInboxTitle_msgText}"/>
+
+
+                    </h:panelGrid>
+                    <br />
+
+
+                  <h:commandButton styleClass="button"        action="#{inboxControllerTwo.prepareCreatereply}" value="reply"/>
+                    <br />
+                    <br/>
+
+                   <h:commandButton styleClass="button"      action="#{inboxControllerTwo.createblock}" value="Block User"/>
+                    <br />
+                    <br/>
+
+                </h:form>
+
+
+
+                <h:form>
+
+                    <h:outputText style="color:black; margin-left:400px;"   value=" The message above replied to the message below." />
+                    <br/>
+
+                    <h:panelGrid  style=" white-space:pre-wrap;"   columns="2"   >
+
+
+                        <h:outputText      value=""/>
+
+
+                        <h:graphicImage   width="95" height="95"     value="#{inboxControllerTwo.selectedTwo.imageurl}" />
+
+
+
+
+                        <h:outputText  style="color:black"     value="Sent From"/>
+                        <h:outputText  style="color:black"   value="#{inboxControllerTwo.selectedTwo.sentFrom}" title="#{bundle.ViewInboxTitle_sentFrom}"/>
+
+
+                        <h:outputText  style="color:black"    value="Sent To"/>
+                        <h:outputText  style="color:black"   value="#{inboxControllerTwo.selectedTwo.sentTo}" title="#{bundle.ViewInboxTitle_sentTo}"/>
+
+
+                        <h:outputText  style="color:black"   value="Subject"/>
+                        <h:outputText  style="color:black"   value="#{inboxControllerTwo.selectedTwo.subject}" title="#{bundle.ViewInboxTitle_subject}"/>
+
+
+                        <h:outputText  style="color:black"   value="Date"/>
+                        <h:outputText  style="color:black"   value="#{inboxControllerTwo.selectedTwo.messageDate}" title="#{bundle.ViewInboxTitle_messageDate}"/>
+
+
+                        <h:outputText  style="color:black"  value="Status"/>
+                        <h:outputText  style="color:black"   value="#{inboxControllerTwo.selectedTwo.status}" title="#{bundle.ViewInboxTitle_status}"/>
+
+
+                        <h:outputText  style="color:black"   value="Now"/>
+                        <h:outputText  style="color:black"    value="#{inboxControllerTwo.selectedTwo.now}" title="#{bundle.ViewInboxTitle_now}"/>
+
+
+                        <h:outputText  style="color:black"   value="Message"/>
+                        <h:inputTextarea rows="10" cols="70"    style="color:black; border:0; " readonly="true"    value="#{inboxControllerTwo.selectedTwo.msgText}" title="#{bundle.ViewInboxTitle_msgText}"/>
+
+
+                    </h:panelGrid>
+
+
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+
+</html>

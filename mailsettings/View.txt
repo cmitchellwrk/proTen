@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewMailsettingsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_id}"/>
+                    <h:outputText value="#{mailsettingsController.selected.id}" title="#{bundle.ViewMailsettingsTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_idmember}"/>
+                    <h:outputText value="#{mailsettingsController.selected.idmember}" title="#{bundle.ViewMailsettingsTitle_idmember}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_gender}"/>
+                    <h:outputText value="#{mailsettingsController.selected.gender}" title="#{bundle.ViewMailsettingsTitle_gender}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_country}"/>
+                    <h:outputText value="#{mailsettingsController.selected.country}" title="#{bundle.ViewMailsettingsTitle_country}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_firstcontactmessgesize}"/>
+                    <h:outputText value="#{mailsettingsController.selected.firstcontactmessgesize}" title="#{bundle.ViewMailsettingsTitle_firstcontactmessgesize}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_agefrom}"/>
+                    <h:outputText value="#{mailsettingsController.selected.agefrom}" title="#{bundle.ViewMailsettingsTitle_agefrom}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_ageto}"/>
+                    <h:outputText value="#{mailsettingsController.selected.ageto}" title="#{bundle.ViewMailsettingsTitle_ageto}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_within}"/>
+                    <h:outputText value="#{mailsettingsController.selected.within}" title="#{bundle.ViewMailsettingsTitle_within}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_hangout}"/>
+                    <h:outputText value="#{mailsettingsController.selected.hangout}" title="#{bundle.ViewMailsettingsTitle_hangout}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_friendship}"/>
+                    <h:outputText value="#{mailsettingsController.selected.friendship}" title="#{bundle.ViewMailsettingsTitle_friendship}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_activitypartner}"/>
+                    <h:outputText value="#{mailsettingsController.selected.activitypartner}" title="#{bundle.ViewMailsettingsTitle_activitypartner}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_dating}"/>
+                    <h:outputText value="#{mailsettingsController.selected.dating}" title="#{bundle.ViewMailsettingsTitle_dating}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_longterm}"/>
+                    <h:outputText value="#{mailsettingsController.selected.longterm}" title="#{bundle.ViewMailsettingsTitle_longterm}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_intimateencounter}"/>
+                    <h:outputText value="#{mailsettingsController.selected.intimateencounter}" title="#{bundle.ViewMailsettingsTitle_intimateencounter}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_talkemail}"/>
+                    <h:outputText value="#{mailsettingsController.selected.talkemail}" title="#{bundle.ViewMailsettingsTitle_talkemail}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_otherrelationship}"/>
+                    <h:outputText value="#{mailsettingsController.selected.otherrelationship}" title="#{bundle.ViewMailsettingsTitle_otherrelationship}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_usedrugs}"/>
+                    <h:outputText value="#{mailsettingsController.selected.usedrugs}" title="#{bundle.ViewMailsettingsTitle_usedrugs}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_smoke}"/>
+                    <h:outputText value="#{mailsettingsController.selected.smoke}" title="#{bundle.ViewMailsettingsTitle_smoke}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_havemessagedintenct}"/>
+                    <h:outputText value="#{mailsettingsController.selected.havemessagedintenct}" title="#{bundle.ViewMailsettingsTitle_havemessagedintenct}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_emailaddress}"/>
+                    <h:outputText value="#{mailsettingsController.selected.emailaddress}" title="#{bundle.ViewMailsettingsTitle_emailaddress}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_email1}"/>
+                    <h:outputText value="#{mailsettingsController.selected.email1}" title="#{bundle.ViewMailsettingsTitle_email1}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_email2}"/>
+                    <h:outputText value="#{mailsettingsController.selected.email2}" title="#{bundle.ViewMailsettingsTitle_email2}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_email3}"/>
+                    <h:outputText value="#{mailsettingsController.selected.email3}" title="#{bundle.ViewMailsettingsTitle_email3}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_email4}"/>
+                    <h:outputText value="#{mailsettingsController.selected.email4}" title="#{bundle.ViewMailsettingsTitle_email4}"/>
+                    <h:outputText value="#{bundle.ViewMailsettingsLabel_email5}"/>
+                    <h:outputText value="#{mailsettingsController.selected.email5}" title="#{bundle.ViewMailsettingsTitle_email5}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{mailsettingsController.destroyAndView}" value="#{bundle.ViewMailsettingsDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewMailsettingsEditLink}"/>
+                <br />
+                <h:commandLink action="#{mailsettingsController.prepareCreate}" value="#{bundle.ViewMailsettingsCreateLink}" />
+                <br />
+                <h:commandLink action="#{mailsettingsController.prepareList}" value="#{bundle.ViewMailsettingsShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewMailsettingsIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditMailsettingsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{mailsettingsController.selected.id}" title="#{bundle.EditMailsettingsTitle_id}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_idmember}" for="idmember" />
+                    <h:inputText id="idmember" value="#{mailsettingsController.selected.idmember}" title="#{bundle.EditMailsettingsTitle_idmember}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_idmember}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_gender}" for="gender" />
+                    <h:inputText id="gender" value="#{mailsettingsController.selected.gender}" title="#{bundle.EditMailsettingsTitle_gender}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_gender}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_country}" for="country" />
+                    <h:inputText id="country" value="#{mailsettingsController.selected.country}" title="#{bundle.EditMailsettingsTitle_country}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_country}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_firstcontactmessgesize}" for="firstcontactmessgesize" />
+                    <h:inputText id="firstcontactmessgesize" value="#{mailsettingsController.selected.firstcontactmessgesize}" title="#{bundle.EditMailsettingsTitle_firstcontactmessgesize}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_firstcontactmessgesize}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_agefrom}" for="agefrom" />
+                    <h:inputText id="agefrom" value="#{mailsettingsController.selected.agefrom}" title="#{bundle.EditMailsettingsTitle_agefrom}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_agefrom}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_ageto}" for="ageto" />
+                    <h:inputText id="ageto" value="#{mailsettingsController.selected.ageto}" title="#{bundle.EditMailsettingsTitle_ageto}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_ageto}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_within}" for="within" />
+                    <h:inputText id="within" value="#{mailsettingsController.selected.within}" title="#{bundle.EditMailsettingsTitle_within}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_within}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_hangout}" for="hangout" />
+                    <h:inputText id="hangout" value="#{mailsettingsController.selected.hangout}" title="#{bundle.EditMailsettingsTitle_hangout}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_hangout}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_friendship}" for="friendship" />
+                    <h:inputText id="friendship" value="#{mailsettingsController.selected.friendship}" title="#{bundle.EditMailsettingsTitle_friendship}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_friendship}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_activitypartner}" for="activitypartner" />
+                    <h:inputText id="activitypartner" value="#{mailsettingsController.selected.activitypartner}" title="#{bundle.EditMailsettingsTitle_activitypartner}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_activitypartner}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_dating}" for="dating" />
+                    <h:inputText id="dating" value="#{mailsettingsController.selected.dating}" title="#{bundle.EditMailsettingsTitle_dating}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_dating}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_longterm}" for="longterm" />
+                    <h:inputText id="longterm" value="#{mailsettingsController.selected.longterm}" title="#{bundle.EditMailsettingsTitle_longterm}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_longterm}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_intimateencounter}" for="intimateencounter" />
+                    <h:inputText id="intimateencounter" value="#{mailsettingsController.selected.intimateencounter}" title="#{bundle.EditMailsettingsTitle_intimateencounter}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_intimateencounter}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_talkemail}" for="talkemail" />
+                    <h:inputText id="talkemail" value="#{mailsettingsController.selected.talkemail}" title="#{bundle.EditMailsettingsTitle_talkemail}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_talkemail}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_otherrelationship}" for="otherrelationship" />
+                    <h:inputText id="otherrelationship" value="#{mailsettingsController.selected.otherrelationship}" title="#{bundle.EditMailsettingsTitle_otherrelationship}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_otherrelationship}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_usedrugs}" for="usedrugs" />
+                    <h:inputText id="usedrugs" value="#{mailsettingsController.selected.usedrugs}" title="#{bundle.EditMailsettingsTitle_usedrugs}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_usedrugs}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_smoke}" for="smoke" />
+                    <h:inputText id="smoke" value="#{mailsettingsController.selected.smoke}" title="#{bundle.EditMailsettingsTitle_smoke}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_smoke}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_havemessagedintenct}" for="havemessagedintenct" />
+                    <h:inputText id="havemessagedintenct" value="#{mailsettingsController.selected.havemessagedintenct}" title="#{bundle.EditMailsettingsTitle_havemessagedintenct}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_havemessagedintenct}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_emailaddress}" for="emailaddress" />
+                    <h:inputText id="emailaddress" value="#{mailsettingsController.selected.emailaddress}" title="#{bundle.EditMailsettingsTitle_emailaddress}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_emailaddress}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_email1}" for="email1" />
+                    <h:inputText id="email1" value="#{mailsettingsController.selected.email1}" title="#{bundle.EditMailsettingsTitle_email1}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_email1}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_email2}" for="email2" />
+                    <h:inputText id="email2" value="#{mailsettingsController.selected.email2}" title="#{bundle.EditMailsettingsTitle_email2}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_email2}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_email3}" for="email3" />
+                    <h:inputText id="email3" value="#{mailsettingsController.selected.email3}" title="#{bundle.EditMailsettingsTitle_email3}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_email3}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_email4}" for="email4" />
+                    <h:inputText id="email4" value="#{mailsettingsController.selected.email4}" title="#{bundle.EditMailsettingsTitle_email4}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_email4}"/>
+                    <h:outputLabel value="#{bundle.EditMailsettingsLabel_email5}" for="email5" />
+                    <h:inputText id="email5" value="#{mailsettingsController.selected.email5}" title="#{bundle.EditMailsettingsTitle_email5}" required="true" requiredMessage="#{bundle.EditMailsettingsRequiredMessage_email5}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{mailsettingsController.update}" value="#{bundle.EditMailsettingsSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditMailsettingsViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{mailsettingsController.prepareList}" value="#{bundle.EditMailsettingsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditMailsettingsIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

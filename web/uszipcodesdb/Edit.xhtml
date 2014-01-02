@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditUszipcodesdbTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditUszipcodesdbLabel_zipcode}" for="zipcode" />
+                    <h:inputText id="zipcode" value="#{uszipcodesdbController.selected.zipcode}" title="#{bundle.EditUszipcodesdbTitle_zipcode}" required="true" requiredMessage="#{bundle.EditUszipcodesdbRequiredMessage_zipcode}"/>
+                    <h:outputLabel value="#{bundle.EditUszipcodesdbLabel_city}" for="city" />
+                    <h:inputText id="city" value="#{uszipcodesdbController.selected.city}" title="#{bundle.EditUszipcodesdbTitle_city}" required="true" requiredMessage="#{bundle.EditUszipcodesdbRequiredMessage_city}"/>
+                    <h:outputLabel value="#{bundle.EditUszipcodesdbLabel_state}" for="state" />
+                    <h:inputText id="state" value="#{uszipcodesdbController.selected.state}" title="#{bundle.EditUszipcodesdbTitle_state}" required="true" requiredMessage="#{bundle.EditUszipcodesdbRequiredMessage_state}"/>
+                    <h:outputLabel value="#{bundle.EditUszipcodesdbLabel_latitude}" for="latitude" />
+                    <h:inputText id="latitude" value="#{uszipcodesdbController.selected.latitude}" title="#{bundle.EditUszipcodesdbTitle_latitude}" required="true" requiredMessage="#{bundle.EditUszipcodesdbRequiredMessage_latitude}"/>
+                    <h:outputLabel value="#{bundle.EditUszipcodesdbLabel_longitude}" for="longitude" />
+                    <h:inputText id="longitude" value="#{uszipcodesdbController.selected.longitude}" title="#{bundle.EditUszipcodesdbTitle_longitude}" required="true" requiredMessage="#{bundle.EditUszipcodesdbRequiredMessage_longitude}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{uszipcodesdbController.update}" value="#{bundle.EditUszipcodesdbSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditUszipcodesdbViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{uszipcodesdbController.prepareList}" value="#{bundle.EditUszipcodesdbShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditUszipcodesdbIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

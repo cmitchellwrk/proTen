@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+    <h:body>
+
+        <ui:composition template="/templates/templatered.xhtml">
+
+<ui:define name="title">Singles message reply | Hitmeupdate </ui:define>
+
+            <ui:define   name="contentten">
+
+
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+
+
+                <h:form>
+                    <h:panelGrid style=" white-space:pre-wrap;"     width="750px"         columns="2">
+
+
+
+                        <h:outputLabel style="color:black" value="#{bundle.CreateInboxLabel_sentFrom}" for="sentFrom" />
+                        <h:inputText id="sentFrom" value="#{inboxControllerTwo.selected.sentFrom}" readonly="true"  title="#{bundle.CreateInboxTitle_sentFrom}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_sentFrom}"/>
+
+                        <h:outputLabel style="color:black" value="#{bundle.CreateInboxLabel_sentTo}" for="sentTo" />
+                        <h:inputText id="sentTo" value="#{inboxControllerTwo.selected.sentTo}" readonly="true"  title="#{bundle.CreateInboxTitle_sentTo}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_sentTo}"/>
+
+                        <h:outputLabel style="color:black" value="#{bundle.CreateInboxLabel_subject}" for="subject" />
+                        <h:inputText id="subject" value="#{inboxControllerTwo.selected.subject}" readonly="true"  title="#{bundle.CreateInboxTitle_subject}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_subject}"/>
+
+
+                        <h:outputLabel style="color:black"  value="#{bundle.CreateInboxLabel_msgText}" for="msgText" />
+                        <h:inputTextarea  rows="5" cols="70" id="msgText" value="#{inboxControllerTwo.selected.msgText}" title="#{bundle.CreateInboxTitle_msgText}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_msgText}"/>
+
+
+                    </h:panelGrid>
+                    <br />
+                    <h:commandButton styleClass="button"        action="#{inboxControllerTwo.createFromReply}" value="Send" />
+
+
+
+                    <br />
+
+                </h:form>
+
+
+
+
+            </ui:define>
+
+
+
+
+
+
+
+
+
+
+
+
+        </ui:composition>
+
+    </h:body>
+
+</html>

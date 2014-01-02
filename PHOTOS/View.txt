@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPhotosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPhotosLabel_photouserid}"/>
+                    <h:outputText value="#{photosController.selected.photouserid}" title="#{bundle.ViewPhotosTitle_photouserid}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl1a}"/>
+                    <h:outputText value="#{photosController.selected.imageurl1a}" title="#{bundle.ViewPhotosTitle_imageurl1a}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl1b}"/>
+                    <h:outputText value="#{photosController.selected.imageurl1b}" title="#{bundle.ViewPhotosTitle_imageurl1b}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl2a}"/>
+                    <h:outputText value="#{photosController.selected.imageurl2a}" title="#{bundle.ViewPhotosTitle_imageurl2a}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl2b}"/>
+                    <h:outputText value="#{photosController.selected.imageurl2b}" title="#{bundle.ViewPhotosTitle_imageurl2b}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl3a}"/>
+                    <h:outputText value="#{photosController.selected.imageurl3a}" title="#{bundle.ViewPhotosTitle_imageurl3a}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl3b}"/>
+                    <h:outputText value="#{photosController.selected.imageurl3b}" title="#{bundle.ViewPhotosTitle_imageurl3b}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl4a}"/>
+                    <h:outputText value="#{photosController.selected.imageurl4a}" title="#{bundle.ViewPhotosTitle_imageurl4a}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl4b}"/>
+                    <h:outputText value="#{photosController.selected.imageurl4b}" title="#{bundle.ViewPhotosTitle_imageurl4b}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl5a}"/>
+                    <h:outputText value="#{photosController.selected.imageurl5a}" title="#{bundle.ViewPhotosTitle_imageurl5a}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl5b}"/>
+                    <h:outputText value="#{photosController.selected.imageurl5b}" title="#{bundle.ViewPhotosTitle_imageurl5b}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl6a}"/>
+                    <h:outputText value="#{photosController.selected.imageurl6a}" title="#{bundle.ViewPhotosTitle_imageurl6a}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl6b}"/>
+                    <h:outputText value="#{photosController.selected.imageurl6b}" title="#{bundle.ViewPhotosTitle_imageurl6b}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl7a}"/>
+                    <h:outputText value="#{photosController.selected.imageurl7a}" title="#{bundle.ViewPhotosTitle_imageurl7a}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl7b}"/>
+                    <h:outputText value="#{photosController.selected.imageurl7b}" title="#{bundle.ViewPhotosTitle_imageurl7b}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl8a}"/>
+                    <h:outputText value="#{photosController.selected.imageurl8a}" title="#{bundle.ViewPhotosTitle_imageurl8a}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl8b}"/>
+                    <h:outputText value="#{photosController.selected.imageurl8b}" title="#{bundle.ViewPhotosTitle_imageurl8b}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl9a}"/>
+                    <h:outputText value="#{photosController.selected.imageurl9a}" title="#{bundle.ViewPhotosTitle_imageurl9a}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl9b}"/>
+                    <h:outputText value="#{photosController.selected.imageurl9b}" title="#{bundle.ViewPhotosTitle_imageurl9b}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl10a}"/>
+                    <h:outputText value="#{photosController.selected.imageurl10a}" title="#{bundle.ViewPhotosTitle_imageurl10a}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl10b}"/>
+                    <h:outputText value="#{photosController.selected.imageurl10b}" title="#{bundle.ViewPhotosTitle_imageurl10b}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl11a}"/>
+                    <h:outputText value="#{photosController.selected.imageurl11a}" title="#{bundle.ViewPhotosTitle_imageurl11a}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl11b}"/>
+                    <h:outputText value="#{photosController.selected.imageurl11b}" title="#{bundle.ViewPhotosTitle_imageurl11b}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl12a}"/>
+                    <h:outputText value="#{photosController.selected.imageurl12a}" title="#{bundle.ViewPhotosTitle_imageurl12a}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl12b}"/>
+                    <h:outputText value="#{photosController.selected.imageurl12b}" title="#{bundle.ViewPhotosTitle_imageurl12b}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl13a}"/>
+                    <h:outputText value="#{photosController.selected.imageurl13a}" title="#{bundle.ViewPhotosTitle_imageurl13a}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl13b}"/>
+                    <h:outputText value="#{photosController.selected.imageurl13b}" title="#{bundle.ViewPhotosTitle_imageurl13b}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl14a}"/>
+                    <h:outputText value="#{photosController.selected.imageurl14a}" title="#{bundle.ViewPhotosTitle_imageurl14a}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl14b}"/>
+                    <h:outputText value="#{photosController.selected.imageurl14b}" title="#{bundle.ViewPhotosTitle_imageurl14b}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl15a}"/>
+                    <h:outputText value="#{photosController.selected.imageurl15a}" title="#{bundle.ViewPhotosTitle_imageurl15a}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl15b}"/>
+                    <h:outputText value="#{photosController.selected.imageurl15b}" title="#{bundle.ViewPhotosTitle_imageurl15b}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl16a}"/>
+                    <h:outputText value="#{photosController.selected.imageurl16a}" title="#{bundle.ViewPhotosTitle_imageurl16a}"/>
+                    <h:outputText value="#{bundle.ViewPhotosLabel_imageurl16b}"/>
+                    <h:outputText value="#{photosController.selected.imageurl16b}" title="#{bundle.ViewPhotosTitle_imageurl16b}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{photosController.destroyAndView}" value="#{bundle.ViewPhotosDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewPhotosEditLink}"/>
+                <br />
+                <h:commandLink action="#{photosController.prepareCreate}" value="#{bundle.ViewPhotosCreateLink}" />
+                <br />
+                <h:commandLink action="#{photosController.prepareList}" value="#{bundle.ViewPhotosShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewPhotosIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

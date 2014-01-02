@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+    <h:body>
+
+        <ui:composition template="/templates/templatered.xhtml">
+
+  <ui:define name="title">Personals matches | Cloud9Cupid </ui:define>
+
+
+
+            <ui:define   name="contentten">
+
+
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+
+
+
+
+                <h:form>
+
+                    <h:outputText escape="false" value="#{bundle.ListMembersEmpty}" rendered="#{membersControllerFive.itemsumightlikemain.rowCount == 0}"/>
+
+
+
+                    <h:panelGroup rendered="true">
+
+
+
+                        <h:outputText  style ="color:blue;" value="#{membersControllerFive.paginationFour.pageFirstItem + 1}..#{membersControllerFive.paginationFour.pageLastItem + 1}/#{membersControllerFive.paginationFour.itemsCount}"/>&nbsp;
+                        <h:commandLink action="#{membersControllerFive.previousFour}" value="#{bundle.Previous} " rendered="#{membersControllerFive.paginationFour.hasPreviousPage}"/>&nbsp;
+                        <h:commandLink action="#{membersControllerFive.nextFour}" value="#{bundle.Next} "  rendered="#{membersControllerFive.paginationFour.hasNextPage}"  />&nbsp;
+
+
+                        <p:dataTable value="#{membersControllerFive.itemsumightlikemain}" emptyMessage=" "  var="item" style="border:0px;" >
+
+
+                            <p:column>
+
+                                <h:commandLink action="#{membersControllerFive.prepareViewTwo}"  value="#{item.username}"   />
+
+                            </p:column>
+
+
+
+                            <p:column>
+
+                                <h:outputText value="#{item.now}"/>
+                            </p:column>
+
+
+
+                            <p:column>
+
+
+                                <h:commandLink action="#{membersControllerFive.prepareViewUmightListUsr}" >
+
+                                    <h:graphicImage    height="95"  width ="95"    url ="#{item.imageurl}">
+
+
+                                    </h:graphicImage>
+
+
+                                </h:commandLink>
+
+                            </p:column>
+
+
+
+                            <p:column>
+
+                                <h:outputText value="#{item.city}"/>
+                            </p:column>
+
+
+
+                            <p:column>
+
+                                <h:outputText value="#{item.headline}"/>
+                            </p:column>
+
+
+                            <p:column>
+
+                                <h:outputText value="#{item.aim}"/>
+                            </p:column>
+
+
+                            <p:column>
+
+                                <h:outputText  value="#{item.description}"/>
+                            </p:column>
+
+                            <p:column>
+
+                                <h:outputText  value="#{membersControllerThree.yearnow - item.birthYear }"/>
+                            </p:column>
+
+                        </p:dataTable>
+
+
+                    </h:panelGroup>
+
+
+
+
+                </h:form>
+
+
+
+            </ui:define>
+
+
+
+
+
+
+        </ui:composition>
+
+    </h:body>
+
+</html>

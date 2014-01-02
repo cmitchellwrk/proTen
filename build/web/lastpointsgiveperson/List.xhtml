@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListLastpointsgivepersonTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListLastpointsgivepersonEmpty}" rendered="#{lastpointsgivepersonController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{lastpointsgivepersonController.items.rowCount > 0}">
+                    <h:outputText value="#{lastpointsgivepersonController.pagination.pageFirstItem + 1}..#{lastpointsgivepersonController.pagination.pageLastItem + 1}/#{lastpointsgivepersonController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{lastpointsgivepersonController.previous}" value="#{bundle.Previous} #{lastpointsgivepersonController.pagination.pageSize}" rendered="#{lastpointsgivepersonController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{lastpointsgivepersonController.next}" value="#{bundle.Next} #{lastpointsgivepersonController.pagination.pageSize}" rendered="#{lastpointsgivepersonController.pagination.hasNextPage}"/>&nbsp;
+
+
+
+
+ <h:dataTable value="#{lastpointsgivepersonController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListLastpointsgivepersonTitle_id}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListLastpointsgivepersonTitle_idpersonpointsgive}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idpersonpointsgive}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListLastpointsgivepersonTitle_idpersonpointsreceive}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idpersonpointsreceive}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListLastpointsgivepersonTitle_pointsPhotos}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.pointsPhotos}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListLastpointsgivepersonTitle_pointsProfile}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.pointsProfile}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListLastpointsgivepersonTitle_pointsFirstmessage}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.pointsFirstmessage}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListLastpointsgivepersonTitle_pointsFunny}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.pointsFunny}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListLastpointsgivepersonTitle_pointsInteresting}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.pointsInteresting}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListLastpointsgivepersonTitle_pointsPersonality}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.pointsPersonality}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListLastpointsgivepersonTitle_pointsFirstdate}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.pointsFirstdate}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListLastpointsgivepersonTitle_pointsDateidea}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.pointsDateidea}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListLastpointsgivepersonTitle_pointsVerifyprofile}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.pointsVerifyprofile}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListLastpointsgivepersonTitle_datelastptsgiven}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.datelastptsgiven}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListLastpointsgivepersonTitle_badge}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.badge}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListLastpointsgivepersonTitle_badgeimageurl}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.badgeimageurl}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListLastpointsgivepersonTitle_totalpointsgivensofar}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.totalpointsgivensofar}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{lastpointsgivepersonController.prepareView}" value="#{bundle.ListLastpointsgivepersonViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{lastpointsgivepersonController.prepareEdit}" value="#{bundle.ListLastpointsgivepersonEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{lastpointsgivepersonController.destroy}" value="#{bundle.ListLastpointsgivepersonDestroyLink}"/>
+                    </h:column>
+
+
+
+
+
+
+                    </h:dataTable>
+
+
+
+
+
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{lastpointsgivepersonController.prepareCreate}" value="#{bundle.ListLastpointsgivepersonCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListLastpointsgivepersonIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

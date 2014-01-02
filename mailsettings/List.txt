@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMailsettingsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+        <h:form styleClass="jsfcrud_list_form">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:outputText escape="false" value="#{bundle.ListMailsettingsEmpty}" rendered="#{mailsettingsController.items.rowCount == 0}"/>
+            <h:panelGroup rendered="#{mailsettingsController.items.rowCount > 0}">
+                <h:outputText value="#{mailsettingsController.pagination.pageFirstItem + 1}..#{mailsettingsController.pagination.pageLastItem + 1}/#{mailsettingsController.pagination.itemsCount}"/>&nbsp;
+                <h:commandLink action="#{mailsettingsController.previous}" value="#{bundle.Previous} #{mailsettingsController.pagination.pageSize}" rendered="#{mailsettingsController.pagination.hasPreviousPage}"/>&nbsp;
+                <h:commandLink action="#{mailsettingsController.next}" value="#{bundle.Next} #{mailsettingsController.pagination.pageSize}" rendered="#{mailsettingsController.pagination.hasNextPage}"/>&nbsp;
+                <h:dataTable value="#{mailsettingsController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_id}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_idmember}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idmember}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_gender}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.gender}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_country}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.country}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_firstcontactmessgesize}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.firstcontactmessgesize}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_agefrom}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.agefrom}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_ageto}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.ageto}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_within}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.within}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_hangout}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.hangout}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_friendship}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.friendship}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_activitypartner}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.activitypartner}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_dating}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.dating}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_longterm}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.longterm}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_intimateencounter}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.intimateencounter}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_talkemail}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.talkemail}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_otherrelationship}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.otherrelationship}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_usedrugs}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.usedrugs}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_smoke}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.smoke}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_havemessagedintenct}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.havemessagedintenct}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_emailaddress}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.emailaddress}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_email1}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.email1}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_email2}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.email2}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_email3}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.email3}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_email4}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.email4}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMailsettingsTitle_email5}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.email5}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{mailsettingsController.prepareView}" value="#{bundle.ListMailsettingsViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{mailsettingsController.prepareEdit}" value="#{bundle.ListMailsettingsEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{mailsettingsController.destroy}" value="#{bundle.ListMailsettingsDestroyLink}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:panelGroup>
+            <br />
+            <h:commandLink action="#{mailsettingsController.prepareCreate}" value="#{bundle.ListMailsettingsCreateLink}"/>
+            <br />
+            <br />
+            <h:commandLink value="#{bundle.ListMailsettingsIndexLink}" action="/index" immediate="true" />
+        </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

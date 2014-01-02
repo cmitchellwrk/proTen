@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+       <title><ui:insert name="title">Hitmeupdate.com is 100% free online dating for singles, personals and matchmaking. No charges at all!</ui:insert></title>
+
+        <h:outputStylesheet name="css/style.css"/>
+
+
+
+    </h:head>
+
+
+    <f:event listener="#{membersController.checkLogin}" type="preRenderView" />
+
+
+
+
+    <h:body>
+
+
+        <div id="loginlink">
+        
+        <h:form>
+
+            <h:commandLink action= "#{membersController.logout}"  style=" padding: 5px 20px 5px 20px; font-weight: 600; font-size:15px;    color:#2681fc ; text-shadow: 0 1px 1px rgba(0,0,0, .3);
+                           margin:auto 0; text-decoration:none;"  value="Logout" />
+
+
+
+            <h:commandLink action= "#{membersControllerThree.prepareViewThree}" style="padding: 5px 20px 5px 20px; font-weight: 600;  font-size:15px;     color:#2681fc   ; text-shadow: 0 1px 1px rgba(0,0,0, .3);
+                           margin: auto 0; text-decoration:none;"  value="My Profile" />
+
+
+
+            <h:commandLink  action= "#{membersController.prepareEditTwo}"  style="padding: 5px 20px 5px 20px;  font-size:15px; font-weight: 600;  color:#2681fc  ; text-shadow: 0 1px 1px rgba(0,0,0, .3);
+                            margin: auto 0; text-decoration:none;"  value="Edit My Profile" />
+
+
+
+
+            <h:commandLink  action="/members/deleteaccount.xhtml" style=" padding: 5px 20px 5px 20px;  font-size:15px; font-weight: 600;   color:#2681fc; text-shadow: 0 1px 1px rgba(0,0,0, .3);
+                            margin: auto 0; text-decoration:none;"  value="Help" />
+
+        </h:form>
+
+        </div>
+
+
+
+        <!-- WRAPPER -->
+        <div id="wrapperten">
+
+
+            <!-- HEADER -->
+            <div id="headerten">
+               
+                <h1 style="margin: 0px; font-weight:bolder;" >Hitmeupdate.com</h1>
+                <h3 style="margin: 0px; font-weight: bolder; font-size: larger;"  > Hitmeupdate.com  is a 100% free online dating site. There are no subscriptions or charges of any kind.</h3>
+
+
+
+                <div id="navmenu">
+
+                    <ul>
+
+                        <li>
+                            <h:form>
+
+                                <h:commandLink style=" font-weight: 600"    action ="#{inboxControllerTwo.resetinbox}" value="Inbox"/>
+
+                            </h:form>
+
+
+                        </li>
+
+                        <li>
+                            <h:form>
+
+                                <h:commandLink  style=" font-weight: 600"    action= "#{inboxControllerTwo.resetsent}" value="Sent"/>
+
+                            </h:form>
+                        </li>
+
+                        <li>
+
+                            <h:form>
+                                <h:commandLink  style=" font-weight: 600"    action="#{photosControllerTwo.findPhotoPage}" value="Photos"/>
+                            </h:form>
+
+                        </li>
+
+
+                        <li>
+                            <h:form>
+
+                                <h:commandLink style=" font-weight: 600"    action="#{membersControllerFive.resetsearchrad}" value="Search"/>
+
+                            </h:form>
+
+                        </li>
+
+
+
+
+                        <li>
+
+                            <h:form>
+                                <h:commandLink  style=" font-weight: 600"   action="#{membersControllerFive.resetfavorites}" value="Favorites"/>
+                            </h:form>
+
+                        </li>
+
+
+
+                        <li>
+                            <h:form>
+                                <h:commandLink  style=" font-weight: 600"   action="#{membersControllerFive.resetvisitors}" value="Visitors"/>
+                            </h:form>
+
+                        </li>
+
+
+                        <li>
+                            <h:form>
+                                <h:commandLink  style=" font-weight: 600"   action="#{membersControllerFive.umightlikepage}" value="You Might Like"/>
+                            </h:form>
+
+                        </li>
+
+
+                        <li>
+                            <h:form>
+
+                                <h:commandLink action= "#{membersControllerThree.prepareViewThree}" style=" font-weight: 600"   value="My Profile" />
+
+                            </h:form>
+
+                        </li>
+
+
+                        <li>
+                            <h:form>
+
+                                <h:commandLink  action= "#{membersController.prepareEditTwo}"  style="font-weight: 600"  value="Edit My Profile" />
+
+                            </h:form>
+
+                        </li>
+
+
+                    </ul>
+ <!-- ends nav menu -->
+                </div>
+
+
+                <br />
+              
+            </div>
+            <!-- ENDS HEADERten -->
+
+
+
+
+
+            <!-- MAIN -->
+            <div id="mainten">
+
+                <!-- content -->
+                <div id="contentten">
+
+                    <ui:insert  name="contentten">Default value for Content</ui:insert>
+
+                    <!-- TABS -->
+                    <!-- the tabs -->
+
+                    <!-- tab "panes" -->
+
+                    <!-- ENDS TABS -->
+
+                </div>
+                <!-- ENDS content -->
+
+               
+
+
+                <!-- ENDS MAIN -->
+            </div>
+
+
+
+            <!-- FOOTER -->
+            <div id="footer">
+
+               
+                <!-- Bottom -->
+                <div id="bottom">
+
+                    <ul id="navlist">
+
+                        <li>
+                            <h:form>
+
+                                <h:commandLink style=" color:#2681fc; " value="about" action="/footerpages/about.xhtml" ></h:commandLink>
+
+                            </h:form>
+                        </li>
+                        <li>
+
+                            <h:form>
+
+                                <h:commandLink style=" color:#2681fc; " value="terms" action="/footerpages/terms.xhtml"></h:commandLink>
+
+                            </h:form>
+
+                        </li>
+
+                        <li>
+                            <h:form>
+
+                                <h:commandLink style=" color:#2681fc; " value="contact" action="/footerpages/contact.xhtml"></h:commandLink>
+
+                            </h:form>
+
+                        </li>
+
+                        <li>
+                            <h:form>
+
+                                <h:commandLink style=" color:#2681fc; " value="online safety" action="/footerpages/safety.xhtml"></h:commandLink>
+
+                            </h:form>
+
+                        </li>
+
+                        <li>
+                            <h:form>
+
+                                <h:commandLink style=" color:#2681fc; " value="privacy policy" action="/footerpages/privacy.xhtml"></h:commandLink>
+
+                            </h:form>
+                        </li>
+
+                    </ul>
+
+                    <br>
+                    </br>
+
+                    <h:outputText style="color:#2681fc;  " value=" Copyright 2013 Hitmeupdate.com  "/>
+
+                    <!--bottom-->
+                </div>
+
+            </div>
+            <!-- ENDS FOOTER -->
+
+
+
+        </div>
+        <!-- ENDS WRAPPER -->
+
+
+    </h:body>
+
+</html>

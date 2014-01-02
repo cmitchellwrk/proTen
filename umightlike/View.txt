@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewUmightlikeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewUmightlikeLabel_id}"/>
+                    <h:outputText value="#{umightlikeController.selected.id}" title="#{bundle.ViewUmightlikeTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewUmightlikeLabel_idcurrent}"/>
+                    <h:outputText value="#{umightlikeController.selected.idcurrent}" title="#{bundle.ViewUmightlikeTitle_idcurrent}"/>
+                    <h:outputText value="#{bundle.ViewUmightlikeLabel_idfavperson}"/>
+                    <h:outputText value="#{umightlikeController.selected.idfavperson}" title="#{bundle.ViewUmightlikeTitle_idfavperson}"/>
+                    <h:outputText value="#{bundle.ViewUmightlikeLabel_username}"/>
+                    <h:outputText value="#{umightlikeController.selected.username}" title="#{bundle.ViewUmightlikeTitle_username}"/>
+                    <h:outputText value="#{bundle.ViewUmightlikeLabel_now}"/>
+                    <h:outputText value="#{umightlikeController.selected.now}" title="#{bundle.ViewUmightlikeTitle_now}"/>
+                    <h:outputText value="#{bundle.ViewUmightlikeLabel_imageurl}"/>
+                    <h:outputText value="#{umightlikeController.selected.imageurl}" title="#{bundle.ViewUmightlikeTitle_imageurl}"/>
+                    <h:outputText value="#{bundle.ViewUmightlikeLabel_city}"/>
+                    <h:outputText value="#{umightlikeController.selected.city}" title="#{bundle.ViewUmightlikeTitle_city}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{umightlikeController.destroyAndView}" value="#{bundle.ViewUmightlikeDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewUmightlikeEditLink}"/>
+                <br />
+                <h:commandLink action="#{umightlikeController.prepareCreate}" value="#{bundle.ViewUmightlikeCreateLink}" />
+                <br />
+                <h:commandLink action="#{umightlikeController.prepareList}" value="#{bundle.ViewUmightlikeShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewUmightlikeIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

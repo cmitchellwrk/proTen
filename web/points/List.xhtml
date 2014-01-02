@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPointsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListPointsEmpty}" rendered="#{pointsController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{pointsController.items.rowCount > 0}">
+                    <h:outputText value="#{pointsController.pagination.pageFirstItem + 1}..#{pointsController.pagination.pageLastItem + 1}/#{pointsController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{pointsController.previous}" value="#{bundle.Previous} #{pointsController.pagination.pageSize}" rendered="#{pointsController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{pointsController.next}" value="#{bundle.Next} #{pointsController.pagination.pageSize}" rendered="#{pointsController.pagination.hasNextPage}"/>&nbsp;
+
+
+
+                    <h:dataTable value="#{pointsController.items}" var="item" border="0" cellpadding="2" cellspacing="0"  rowClasses="jsfcrud_odd_row,jsfcrud_even_row"  rules="all" style="border:solid 1px">
+
+
+
+                        <h:column>
+
+                            <f:facet name="header">
+                                <h:outputText value="POINTS"/>
+                            </f:facet>
+                            <h:outputLabel value="#{bundle.EditLastpointsgivepersonLabel_id}" for="id" />
+                            <h:outputText value="#{item.id}"/>
+
+                            <br>
+
+                            </br>
+                            <h:outputLabel value="#{bundle.EditLastpointsgivepersonLabel_pointsPhotos}" for="pointsPhotos" />
+
+                            <h:outputText value="#{item.pointsPhotos}"/>
+
+
+                            <br>
+
+                            </br>
+
+                            <h:outputLabel value="#{bundle.EditLastpointsgivepersonLabel_idpersonpointsreceive}" for="idpersonpointsreceive" />
+
+                            <h:outputText value="#{item.idpersonpointsreceive}"/>
+
+
+
+                            <br>
+
+                            </br>
+
+                            <h:outputLabel value="#{bundle.EditLastpointsgivepersonLabel_pointsProfile}" for="pointsProfile" />
+                            <h:outputText value="#{item.pointsProfile}"/>
+
+
+                            <br>
+
+                            </br>
+
+
+                            <h:outputLabel value="#{bundle.EditLastpointsgivepersonLabel_pointsFirstmessage}" for="pointsFirstmessage" />
+                            <h:outputText value="#{item.pointsFirstmessage}"/>
+
+
+                            <br>
+
+                            </br>
+
+
+                            <h:outputLabel value="#{bundle.EditLastpointsgivepersonLabel_pointsFunny}" for="pointsFunny" />
+                            <h:outputText value="#{item.pointsFunny}"/>
+
+
+                            <br>
+
+                            </br>
+
+
+                            <h:outputLabel value="#{bundle.EditLastpointsgivepersonLabel_pointsInteresting}" for="pointsInteresting" />
+                            <h:outputText value="#{item.pointsInteresting}"/>
+
+                            <br>
+
+                            </br>
+
+
+                            <h:outputLabel value="#{bundle.EditLastpointsgivepersonLabel_pointsPersonality}" for="pointsPersonality" />
+
+                            <h:outputText value="#{item.pointsPersonality}"/>
+
+
+                            <br>
+
+                            </br>
+
+
+                            <h:outputLabel value="#{bundle.EditLastpointsgivepersonLabel_pointsFirstdate}" for="pointsFirstdate" />
+                            <h:outputText value="#{item.pointsFirstdate}"/>
+
+                            <br>
+
+                            </br>
+
+
+                            <h:outputLabel value="#{bundle.EditLastpointsgivepersonLabel_pointsDateidea}" for="pointsDateidea" />
+
+                            <h:outputText value="#{item.pointsDateidea}"/>
+
+
+                            <br>
+
+                            </br>
+
+                            <h:outputLabel value="#{bundle.EditLastpointsgivepersonLabel_pointsVerifyprofile}" for="pointsVerifyprofile" />
+
+                            <h:outputText value="#{item.pointsVerifyprofile}"/>
+
+
+
+                            <br>
+
+                            </br>
+
+                            <h:outputLabel value="#{bundle.EditLastpointsgivepersonLabel_badge}" for="badge" />
+                            <h:outputText value="#{item.badge}"/>
+
+                            <br>
+
+                            </br>
+
+
+                            <h:outputLabel value="#{bundle.EditLastpointsgivepersonLabel_badgeimageurl}" for="badgeimageurl" />
+                            <h:outputText value="#{item.badgeimageurl}"/>
+
+
+                            <br>
+
+                            </br>
+
+                            <h:outputLabel value="#{bundle.EditLastpointsgivepersonLabel_totalpointsgivensofar}" for="totalpointsgivensofar" />
+                            <h:outputText value="#{item.totalscore}"/>
+                            <br>
+
+                            </br>
+
+                            <h:commandLink action="#{pointsController.prepareView}" value="Give Member Points"/>
+                            <h:outputText value=" "/>
+
+                        </h:column>
+
+                      
+
+                    </h:dataTable>
+
+                </h:panelGroup>
+
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListPointsIndexLink}" action="/inbox/yourmessages" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

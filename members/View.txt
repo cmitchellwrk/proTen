@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewMembersLabel_userid}"/>
+                    <h:outputText value="#{membersController.selected.userid}" title="#{bundle.ViewMembersTitle_userid}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_username}"/>
+                    <h:outputText value="#{membersController.selected.username}" title="#{bundle.ViewMembersTitle_username}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_password}"/>
+                    <h:outputText value="#{membersController.selected.password}" title="#{bundle.ViewMembersTitle_password}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_now}"/>
+                    <h:outputText value="#{membersController.selected.now}" title="#{bundle.ViewMembersTitle_now}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_email}"/>
+                    <h:outputText value="#{membersController.selected.email}" title="#{bundle.ViewMembersTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_imageurl}"/>
+                    <h:outputText value="#{membersController.selected.imageurl}" title="#{bundle.ViewMembersTitle_imageurl}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_birthMonth}"/>
+                    <h:outputText value="#{membersController.selected.birthMonth}" title="#{bundle.ViewMembersTitle_birthMonth}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_birthDay}"/>
+                    <h:outputText value="#{membersController.selected.birthDay}" title="#{bundle.ViewMembersTitle_birthDay}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_birthYear}"/>
+                    <h:outputText value="#{membersController.selected.birthYear}" title="#{bundle.ViewMembersTitle_birthYear}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_city}"/>
+                    <h:outputText value="#{membersController.selected.city}" title="#{bundle.ViewMembersTitle_city}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_states}"/>
+                    <h:outputText value="#{membersController.selected.states}" title="#{bundle.ViewMembersTitle_states}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_country}"/>
+                    <h:outputText value="#{membersController.selected.country}" title="#{bundle.ViewMembersTitle_country}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_zipcode}"/>
+                    <h:outputText value="#{membersController.selected.zipcode}" title="#{bundle.ViewMembersTitle_zipcode}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_lat}"/>
+                    <h:outputText value="#{membersController.selected.lat}" title="#{bundle.ViewMembersTitle_lat}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_lon}"/>
+                    <h:outputText value="#{membersController.selected.lon}" title="#{bundle.ViewMembersTitle_lon}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_gender}"/>
+                    <h:outputText value="#{membersController.selected.gender}" title="#{bundle.ViewMembersTitle_gender}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_seekingA}"/>
+                    <h:outputText value="#{membersController.selected.seekingA}" title="#{bundle.ViewMembersTitle_seekingA}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_lookingFor}"/>
+                    <h:outputText value="#{membersController.selected.lookingFor}" title="#{bundle.ViewMembersTitle_lookingFor}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_aim}"/>
+                    <h:outputText value="#{membersController.selected.aim}" title="#{bundle.ViewMembersTitle_aim}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_sign}"/>
+                    <h:outputText value="#{membersController.selected.sign}" title="#{bundle.ViewMembersTitle_sign}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_ethnicity}"/>
+                    <h:outputText value="#{membersController.selected.ethnicity}" title="#{bundle.ViewMembersTitle_ethnicity}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_height}"/>
+                    <h:outputText value="#{membersController.selected.height}" title="#{bundle.ViewMembersTitle_height}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_hairColor}"/>
+                    <h:outputText value="#{membersController.selected.hairColor}" title="#{bundle.ViewMembersTitle_hairColor}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_bodyType}"/>
+                    <h:outputText value="#{membersController.selected.bodyType}" title="#{bundle.ViewMembersTitle_bodyType}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_car}"/>
+                    <h:outputText value="#{membersController.selected.car}" title="#{bundle.ViewMembersTitle_car}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_education}"/>
+                    <h:outputText value="#{membersController.selected.education}" title="#{bundle.ViewMembersTitle_education}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_hasChildren}"/>
+                    <h:outputText value="#{membersController.selected.hasChildren}" title="#{bundle.ViewMembersTitle_hasChildren}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_wantsChildren}"/>
+                    <h:outputText value="#{membersController.selected.wantsChildren}" title="#{bundle.ViewMembersTitle_wantsChildren}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_married}"/>
+                    <h:outputText value="#{membersController.selected.married}" title="#{bundle.ViewMembersTitle_married}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_smoker}"/>
+                    <h:outputText value="#{membersController.selected.smoker}" title="#{bundle.ViewMembersTitle_smoker}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_drink}"/>
+                    <h:outputText value="#{membersController.selected.drink}" title="#{bundle.ViewMembersTitle_drink}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_drugs}"/>
+                    <h:outputText value="#{membersController.selected.drugs}" title="#{bundle.ViewMembersTitle_drugs}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_religion}"/>
+                    <h:outputText value="#{membersController.selected.religion}" title="#{bundle.ViewMembersTitle_religion}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_description}"/>
+                    <h:outputText value="#{membersController.selected.description}" title="#{bundle.ViewMembersTitle_description}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_income}"/>
+                    <h:outputText value="#{membersController.selected.income}" title="#{bundle.ViewMembersTitle_income}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_profession}"/>
+                    <h:outputText value="#{membersController.selected.profession}" title="#{bundle.ViewMembersTitle_profession}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_headline}"/>
+                    <h:outputText value="#{membersController.selected.headline}" title="#{bundle.ViewMembersTitle_headline}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_interests}"/>
+                    <h:outputText value="#{membersController.selected.interests}" title="#{bundle.ViewMembersTitle_interests}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_searchrankscore}"/>
+                    <h:outputText value="#{membersController.selected.searchrankscore}" title="#{bundle.ViewMembersTitle_searchrankscore}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_percent1}"/>
+                    <h:outputText value="#{membersController.selected.percent1}" title="#{bundle.ViewMembersTitle_percent1}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_percent2}"/>
+                    <h:outputText value="#{membersController.selected.percent2}" title="#{bundle.ViewMembersTitle_percent2}"/>
+                    <h:outputText value="#{bundle.ViewMembersLabel_percent3}"/>
+                    <h:outputText value="#{membersController.selected.percent3}" title="#{bundle.ViewMembersTitle_percent3}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{membersController.destroyAndView}" value="#{bundle.ViewMembersDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewMembersEditLink}"/>
+                <br />
+                <h:commandLink action="#{membersController.prepareCreate}" value="#{bundle.ViewMembersCreateLink}" />
+                <br />
+                <h:commandLink action="#{membersController.prepareList}" value="#{bundle.ViewMembersShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewMembersIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

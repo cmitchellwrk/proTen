@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+    <h:body>
+
+        <ui:composition template="/templates/templatered.xhtml">
+
+<ui:define name="title">Favorite singles | Cloud9Cupid </ui:define>
+
+
+
+            <ui:define   name="contentten">
+
+                <h:form >
+
+                    <h:panelGroup id="messagePanel" layout="block">
+                        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                    </h:panelGroup>
+
+                  
+                    <h:panelGroup rendered="true">
+
+                        <h:outputText style="color:#2681fc;"    value="#{membersControllerFive.paginationfav.pageFirstItem + 1}..#{membersControllerFive.paginationfav.pageLastItem + 1}/#{membersControllerFive.paginationfav.itemsCount}"/>&nbsp;
+                        <h:commandLink action="#{membersControllerFive.previousfav}" value="#{bundle.Previous}" rendered="#{membersControllerFive.paginationfav.hasPreviousPage}"/>&nbsp;
+                        <h:commandLink action="#{membersControllerFive.nextfav}" value="#{bundle.Next} " rendered="#{membersControllerFive.paginationfav.hasNextPage}"/>&nbsp;
+
+
+
+                        <p:dataTable value="#{membersControllerFive.itemsfav}" emptyMessage="Your list of favorites is currently empty"  var="item"   style=" color:black; border:solid 0px">
+
+                            <p:column style=" border-width:0px"    >
+                                <f:facet name="header">
+                                    <h:outputText  style="color:#2681fc;font-weight: 600;  "  value="#{bundle.ListFavoritesTitle_id}"/>
+                                </f:facet>
+                                <h:outputText  style="color:#2681fc;"  value="#{item.id}"/>
+                            </p:column>
+
+                            <p:column style=" border-width:0px"   >
+                                <f:facet name="header">
+                                    <h:outputText  style="color:#2681fc;font-weight: 600;"   value="#{bundle.ListFavoritesTitle_idcurrent}"/>
+                                </f:facet>
+                                <h:outputText  style="color:#2681fc;"   value="#{item.idcurrent}"/>
+                            </p:column>
+
+                            <p:column style=" border-width:0px"   >
+                                <f:facet name="header">
+                                    <h:outputText   style="color:#2681fc;font-weight: 600;"   value="#{bundle.ListFavoritesTitle_idfavperson}"/>
+                                </f:facet>
+                                <h:outputText  style="color:#2681fc;"   value="#{item.idfavperson}"/>
+                            </p:column>
+
+
+                            <p:column style=" border-width:0px"    >
+                                <f:facet name="header">
+                                    <h:outputText  style="color:#2681fc;font-weight: 600;"   value="#{bundle.ListFavoritesTitle_username}"/>
+                                </f:facet>
+                                <h:outputText  style="color:#2681fc;"    value="#{item.username}"/>
+                            </p:column>
+
+
+                            <p:column  style=" border-width:0px"  >
+                                <f:facet name="header">
+                                    <h:outputText  style="color:#2681fc;font-weight: 600;"    value="#{bundle.ListFavoritesTitle_now}"/>
+                                </f:facet>
+                                <h:outputText   style="color:#2681fc;"   value="#{item.now}"/>
+                            </p:column>
+
+
+
+
+                            <p:column  style=" border-width:0px"  >
+
+
+                                <f:facet name="header">
+                                    <h:outputText  style="color:#2681fc;font-weight: 600;"   value="#{bundle.ListFavoritesTitle_imageurl}"/>
+                                </f:facet>
+
+
+                                <h:commandLink action="#{membersControllerFive.prepareViewFav}" >
+
+
+                                    <h:graphicImage   height="95"  width ="95"   url ="#{item.imageurl}"/>
+
+
+                                </h:commandLink>
+
+
+                            </p:column>
+
+
+
+
+
+                            <p:column style=" border-width:0px"   >
+                                <f:facet name="header">
+                                    <h:outputText  style="color:#2681fc;font-weight: 600;"    value="#{bundle.ListFavoritesTitle_city}"/>
+                                </f:facet>
+                                <h:outputText   style="color:#2681fc;"    value="#{item.city}"/>
+                            </p:column>
+
+
+                            <p:column  style=" border-width:0px"  >
+                                <f:facet name="header">
+                                    <h:outputText  style="color:#2681fc;font-weight: 600;"    value="&nbsp;"/>
+                                </f:facet>
+                                <h:commandLink action="#{favoritesController.prepareView}" value="#{bundle.ListFavoritesViewLink}"/>
+                                <h:outputText value=" "/>
+                                <h:commandLink action="#{favoritesController.prepareEdit}" value="#{bundle.ListFavoritesEditLink}"/>
+                                <h:outputText value=" "/>
+                                <h:commandLink action="#{membersControllerFive.destroyFavorites}" value="#{bundle.ListFavoritesDestroyLink}"/>
+                          
+
+                            </p:column>
+
+
+
+                        </p:dataTable>
+                    </h:panelGroup>
+
+
+                </h:form>
+
+
+
+
+
+
+
+            </ui:define>
+
+
+
+
+
+
+
+
+
+
+
+
+        </ui:composition>
+
+    </h:body>
+
+</html>

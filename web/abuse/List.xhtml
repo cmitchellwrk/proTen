@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAbuseTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+        <h:form styleClass="jsfcrud_list_form">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:outputText escape="false" value="#{bundle.ListAbuseEmpty}" rendered="#{abuseController.items.rowCount == 0}"/>
+            <h:panelGroup rendered="#{abuseController.items.rowCount > 0}">
+                <h:outputText value="#{abuseController.pagination.pageFirstItem + 1}..#{abuseController.pagination.pageLastItem + 1}/#{abuseController.pagination.itemsCount}"/>&nbsp;
+                <h:commandLink action="#{abuseController.previous}" value="#{bundle.Previous} #{abuseController.pagination.pageSize}" rendered="#{abuseController.pagination.hasPreviousPage}"/>&nbsp;
+                <h:commandLink action="#{abuseController.next}" value="#{bundle.Next} #{abuseController.pagination.pageSize}" rendered="#{abuseController.pagination.hasNextPage}"/>&nbsp;
+                <h:dataTable value="#{abuseController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListAbuseTitle_id}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListAbuseTitle_idUsernameReportid}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idUsernameReportid}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListAbuseTitle_usernameOffender}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.usernameOffender}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListAbuseTitle_date}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.date}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListAbuseTitle_descriptionOfOffense}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.descriptionOfOffense}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{abuseController.prepareView}" value="#{bundle.ListAbuseViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{abuseController.prepareEdit}" value="#{bundle.ListAbuseEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{abuseController.destroy}" value="#{bundle.ListAbuseDestroyLink}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:panelGroup>
+            <br />
+            <h:commandLink action="#{abuseController.prepareCreate}" value="#{bundle.ListAbuseCreateLink}"/>
+            <br />
+            <br />
+            <h:commandLink value="#{bundle.ListAbuseIndexLink}" action="/index" immediate="true" />
+        </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

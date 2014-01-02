@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+    <h:body>
+
+        <ui:composition template="/templates/templatered.xhtml">
+
+<ui:define name="title">Singles message | Hitmeupdate </ui:define>
+
+
+            <ui:define   name="contentten">
+
+
+
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+
+
+
+                <h:form>
+
+
+                    <h:outputText style="color:#2681fc;font-weight: bold; text-align:center;  " value=" To send a message, fill out the Subject and the Message section and click the send button below. " />
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+
+                    <h:panelGrid columns="2">
+
+
+
+
+
+                        <h:outputLabel style=" color:blue; font-weight: 600 "   value="Subject" for="subject" />
+                        <h:inputText id="subject" style="width:200px;" maxlength="40"   value="#{membersControllerFive.selectedSndMsg.subject}" title="#{bundle.CreateInboxTitle_subject}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_subject}"/>
+
+
+
+
+
+                        <h:outputLabel style=" color:blue; font-weight: 600 "   value="Message" for="msgText" />
+                        <h:inputTextarea  rows="5" cols="70" id="msgText" value="#{membersControllerFive.selectedSndMsg.msgText}" title="#{bundle.CreateInboxTitle_msgText}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_msgText}"/>
+
+
+
+
+
+
+                    </h:panelGrid>
+                    <br />
+
+                    <h:commandButton styleClass="button"       action="#{membersControllerFive.createMsgMemSend}" value="Send" />
+
+                    <br />
+
+                    <br />
+
+                </h:form>
+
+
+
+
+
+
+
+
+            </ui:define>
+
+
+
+
+
+
+
+
+
+
+
+
+        </ui:composition>
+
+    </h:body>
+
+</html>

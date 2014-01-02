@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditBlockedtwoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditBlockedtwoLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{blockedtwoController.selected.id}" title="#{bundle.EditBlockedtwoTitle_id}" required="true" requiredMessage="#{bundle.EditBlockedtwoRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditBlockedtwoLabel_unblock}" for="unblock" />
+                    <h:inputText id="unblock" value="#{blockedtwoController.selected.unblock}" title="#{bundle.EditBlockedtwoTitle_unblock}" required="true" requiredMessage="#{bundle.EditBlockedtwoRequiredMessage_unblock}"/>
+                    <h:outputLabel value="#{bundle.EditBlockedtwoLabel_idcurrent}" for="idcurrent" />
+                    <h:inputText id="idcurrent" value="#{blockedtwoController.selected.idcurrent}" title="#{bundle.EditBlockedtwoTitle_idcurrent}" required="true" requiredMessage="#{bundle.EditBlockedtwoRequiredMessage_idcurrent}"/>
+                    <h:outputLabel value="#{bundle.EditBlockedtwoLabel_idofblocked}" for="idofblocked" />
+                    <h:inputText id="idofblocked" value="#{blockedtwoController.selected.idofblocked}" title="#{bundle.EditBlockedtwoTitle_idofblocked}" required="true" requiredMessage="#{bundle.EditBlockedtwoRequiredMessage_idofblocked}"/>
+                    <h:outputLabel value="#{bundle.EditBlockedtwoLabel_imageurl}" for="imageurl" />
+                    <h:inputText id="imageurl" value="#{blockedtwoController.selected.imageurl}" title="#{bundle.EditBlockedtwoTitle_imageurl}" required="true" requiredMessage="#{bundle.EditBlockedtwoRequiredMessage_imageurl}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{blockedtwoController.update}" value="#{bundle.EditBlockedtwoSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditBlockedtwoViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{blockedtwoController.prepareList}" value="#{bundle.EditBlockedtwoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditBlockedtwoIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

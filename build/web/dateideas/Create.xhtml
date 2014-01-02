@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateDateideasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateDateideasLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{dateideasController.selected.id}" title="#{bundle.CreateDateideasTitle_id}" required="true" requiredMessage="#{bundle.CreateDateideasRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateDateideasLabel_idmember}" for="idmember" />
+                    <h:inputText id="idmember" value="#{dateideasController.selected.idmember}" title="#{bundle.CreateDateideasTitle_idmember}" required="true" requiredMessage="#{bundle.CreateDateideasRequiredMessage_idmember}"/>
+                    <h:outputLabel value="#{bundle.CreateDateideasLabel_idea}" for="idea" />
+                    <h:inputTextarea rows="4" cols="30" id="idea" value="#{dateideasController.selected.idea}" title="#{bundle.CreateDateideasTitle_idea}" />
+                    <h:outputLabel value="#{bundle.CreateDateideasLabel_ideacatagory}" for="ideacatagory" />
+                    <h:inputText id="ideacatagory" value="#{dateideasController.selected.ideacatagory}" title="#{bundle.CreateDateideasTitle_ideacatagory}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{dateideasController.create}" value="#{bundle.CreateDateideasSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{dateideasController.prepareList}" value="#{bundle.CreateDateideasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateDateideasIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

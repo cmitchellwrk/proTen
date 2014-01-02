@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPointsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPointsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{pointsController.selected.id}" title="#{bundle.EditPointsTitle_id}" required="true" requiredMessage="#{bundle.EditPointsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditPointsLabel_idpersonpointsreceive}" for="idpersonpointsreceive" />
+                    <h:inputText id="idpersonpointsreceive" value="#{pointsController.selected.idpersonpointsreceive}" title="#{bundle.EditPointsTitle_idpersonpointsreceive}" required="true" requiredMessage="#{bundle.EditPointsRequiredMessage_idpersonpointsreceive}"/>
+                    <h:outputLabel value="#{bundle.EditPointsLabel_pointsPhotos}" for="pointsPhotos" />
+                    <h:inputText id="pointsPhotos" value="#{pointsController.selected.pointsPhotos}" title="#{bundle.EditPointsTitle_pointsPhotos}" />
+                    <h:outputLabel value="#{bundle.EditPointsLabel_pointsProfile}" for="pointsProfile" />
+                    <h:inputText id="pointsProfile" value="#{pointsController.selected.pointsProfile}" title="#{bundle.EditPointsTitle_pointsProfile}" />
+                    <h:outputLabel value="#{bundle.EditPointsLabel_pointsFirstmessage}" for="pointsFirstmessage" />
+                    <h:inputText id="pointsFirstmessage" value="#{pointsController.selected.pointsFirstmessage}" title="#{bundle.EditPointsTitle_pointsFirstmessage}" />
+                    <h:outputLabel value="#{bundle.EditPointsLabel_pointsFunny}" for="pointsFunny" />
+                    <h:inputText id="pointsFunny" value="#{pointsController.selected.pointsFunny}" title="#{bundle.EditPointsTitle_pointsFunny}" />
+                    <h:outputLabel value="#{bundle.EditPointsLabel_pointsInteresting}" for="pointsInteresting" />
+                    <h:inputText id="pointsInteresting" value="#{pointsController.selected.pointsInteresting}" title="#{bundle.EditPointsTitle_pointsInteresting}" />
+                    <h:outputLabel value="#{bundle.EditPointsLabel_pointsPersonality}" for="pointsPersonality" />
+                    <h:inputText id="pointsPersonality" value="#{pointsController.selected.pointsPersonality}" title="#{bundle.EditPointsTitle_pointsPersonality}" />
+                    <h:outputLabel value="#{bundle.EditPointsLabel_pointsFirstdate}" for="pointsFirstdate" />
+                    <h:inputText id="pointsFirstdate" value="#{pointsController.selected.pointsFirstdate}" title="#{bundle.EditPointsTitle_pointsFirstdate}" />
+                    <h:outputLabel value="#{bundle.EditPointsLabel_pointsDateidea}" for="pointsDateidea" />
+                    <h:inputText id="pointsDateidea" value="#{pointsController.selected.pointsDateidea}" title="#{bundle.EditPointsTitle_pointsDateidea}" />
+                    <h:outputLabel value="#{bundle.EditPointsLabel_pointsVerifyprofile}" for="pointsVerifyprofile" />
+                    <h:inputText id="pointsVerifyprofile" value="#{pointsController.selected.pointsVerifyprofile}" title="#{bundle.EditPointsTitle_pointsVerifyprofile}" />
+                    <h:outputLabel value="#{bundle.EditPointsLabel_badge}" for="badge" />
+                    <h:inputText id="badge" value="#{pointsController.selected.badge}" title="#{bundle.EditPointsTitle_badge}" />
+                    <h:outputLabel value="#{bundle.EditPointsLabel_badgeimageurl}" for="badgeimageurl" />
+                    <h:inputText id="badgeimageurl" value="#{pointsController.selected.badgeimageurl}" title="#{bundle.EditPointsTitle_badgeimageurl}" />
+                    <h:outputLabel value="#{bundle.EditPointsLabel_totalscore}" for="totalscore" />
+                    <h:inputText id="totalscore" value="#{pointsController.selected.totalscore}" title="#{bundle.EditPointsTitle_totalscore}" />
+                </h:panelGrid>
+                <h:commandLink action="#{pointsController.update}" value="#{bundle.EditPointsSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditPointsViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{pointsController.prepareList}" value="#{bundle.EditPointsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditPointsIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

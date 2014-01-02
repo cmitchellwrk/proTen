@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+    <h:body>
+
+
+
+        <ui:composition template="/templatecsstest.xhtml">
+
+
+
+            <ui:define   name="contentten">
+
+
+
+            </ui:define>
+
+
+
+
+        </ui:composition>
+
+
+
+              
+
+
+
+
+                    <h:form>
+                    <h:commandLink action="/dateideas/List" value="Show All Dateideas Items"/>
+                </h:form>
+                <h:form>
+                    <h:commandLink action="/lastpoints/List" value="Show All Lastpoints Items"/>
+                </h:form>
+                <h:form>
+                    <h:commandLink action="/lastpointsgiveperson/List" value="Show All Lastpointsgiveperson Items"/>
+                </h:form>
+                <h:form>
+                    <h:commandLink action="/points/List" value="Show All Points Items"/>
+                </h:form>
+                <h:form>
+                    <h:commandLink action="/priorities/List" value="Show All Priorities Items"/>
+                </h:form>
+</h:body>
+
+
+
+
+
+
+
+
+</html>

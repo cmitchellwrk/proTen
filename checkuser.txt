@@ -1,0 +1,30 @@
+
+
+
+public void checkUsrNew(AjaxBehaviorEvent event) {
+
+  //  String newnom = event.toString();
+
+String oohhahh = getUsrNamNew().getValue().toString();
+
+getFacade().setSennpassword(oohhahh);
+
+String isnewnom = getFacade().findChkUsrTwo();
+
+
+if(isnewnom.equals("available")){
+
+    setCheckusernamenew("That username is already taken, please choose a different one");
+
+    setIsnewusr(true);
+
+}else{
+
+     setCheckusernamenew("");
+
+     setIsnewusr(false);
+
+}
+
+
+       }

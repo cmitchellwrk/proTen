@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+    <h:body>
+
+    	<ui:composition template="/templatecsstest.xhtml">
+
+
+
+
+            <ui:define   name="contentten">
+
+
+  <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            
+
+              <h:form>
+
+                 
+                  <h:outputText escape="false" value="#{bundle.ListMembersEmpty}" rendered="#{membersControllerFive.items.rowCount == 0}"/>
+
+                  <h:panelGroup rendered="true">
+               
+                <h:outputText style="color:black;" value="#{membersControllerFive.pagination.pageFirstItem + 1}..#{membersControllerFive.pagination.pageLastItem + 1}/#{membersControllerFive.pagination.itemsCount}"/>&nbsp;
+               
+                <h:commandLink action="#{membersControllerFive.previous}" value="#{bundle.Previous} #{membersControllerFive.pagination.pageSize}" rendered="#{membersControllerFive.pagination.hasPreviousPage}"/>&nbsp;
+                <h:commandLink action="#{membersControllerFive.next}" value="#{bundle.Next} #{membersControllerFive.pagination.pageSize}" rendered="#{membersControllerFive.pagination.hasNextPage}"/>&nbsp;
+
+                <p:dataTable value="#{membersControllerFive.items}" var="item"  style=" color:black; border:solid 1px">
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMembersTitle_userid}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.userid}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMembersTitle_username}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.username}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMembersTitle_password}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.password}"/>
+                    </p:column>
+                  
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMembersTitle_email}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.email}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListMembersTitle_imageurl}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl}"/>
+                    </p:column>
+                   
+
+                   
+                </p:dataTable>
+
+                  
+                  </h:panelGroup>
+           
+            <br />
+          
+        </h:form>
+
+
+            </ui:define>
+
+
+    	</ui:composition>
+
+    </h:body>
+
+</html>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+    <h:body>
+
+    	<ui:composition template="/templatecsstest.xhtml">
+
+
+
+
+            <ui:define   name="contentten">
+
+
+
+
+
+
+                 <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+
+
+            <h:form>
+                <h:panelGrid columns="2">
+
+                    <h:outputText style=" color:black; font-weight: 600 "  value="#{bundle.ViewSentLabel_removesntmsg}"/>
+
+                    <h:outputText  style=" color:black; font-weight: 600 " value="#{inboxControllerTwo.selectedSentMsg.removesntmsg}" title="#{bundle.ViewSentTitle_removesntmsg}"/>
+                  
+                    <h:outputText style=" color:black; font-weight: 600 " value="#{bundle.ViewSentLabel_id}"/>
+                  
+                    <h:outputText style=" color:black; font-weight: 600 " value="#{inboxControllerTwo.selectedSentMsg.id}" title="#{bundle.ViewSentTitle_id}"/>
+                  
+                    <h:outputText style=" color:black; font-weight: 600 " value="#{bundle.ViewSentLabel_replyToId}"/>
+                    
+                    <h:outputText style=" color:black; font-weight: 600 " value="#{inboxControllerTwo.selectedSentMsg.replyToId}" title="#{bundle.ViewSentTitle_replyToId}"/>
+                    
+                    <h:outputText style=" color:black; font-weight: 600 " value="#{bundle.ViewSentLabel_imageurl}"/>
+                   
+                    <h:outputText style=" color:black; font-weight: 600 " value="#{inboxControllerTwo.selectedSentMsg.imageurl}" title="#{bundle.ViewSentTitle_imageurl}"/>
+                    
+                    <h:outputText style=" color:black; font-weight: 600 " value="#{bundle.ViewSentLabel_sendtoid}"/>
+                   
+                    <h:outputText style=" color:black; font-weight: 600 " value="#{inboxControllerTwo.selectedSentMsg.sendtoid}" title="#{bundle.ViewSentTitle_sendtoid}"/>
+                   
+                    <h:outputText style=" color:black; font-weight: 600 " value="#{bundle.ViewSentLabel_sendfromid}"/>
+                   
+                    <h:outputText style=" color:black; font-weight: 600 " value="#{inboxControllerTwo.selectedSentMsg.sendfromid}" title="#{bundle.ViewSentTitle_sendfromid}"/>
+                   
+                    <h:outputText style=" color:black; font-weight: 600 " value="#{bundle.ViewSentLabel_sentFrom}"/>
+                   
+                    <h:outputText style=" color:black; font-weight: 600 " value="#{inboxControllerTwo.selectedSentMsg.sentFrom}" title="#{bundle.ViewSentTitle_sentFrom}"/>
+                   
+                    <h:outputText style=" color:black; font-weight: 600 " value="#{bundle.ViewSentLabel_sentTo}"/>
+                    
+                    <h:outputText style=" color:black; font-weight: 600 " value="#{inboxControllerTwo.selectedSentMsg.sentTo}" title="#{bundle.ViewSentTitle_sentTo}"/>
+                   
+                    <h:outputText style=" color:black; font-weight: 600 " value="#{bundle.ViewSentLabel_subject}"/>
+                    
+                    <h:outputText style=" color:black; font-weight: 600 " value="#{inboxControllerTwo.selectedSentMsg.subject}" title="#{bundle.ViewSentTitle_subject}"/>
+                   
+                    <h:outputText style=" color:black; font-weight: 600 " value="#{bundle.ViewSentLabel_messageDate}"/>
+                   
+                    <h:outputText style=" color:black; font-weight: 600 " value="#{inboxControllerTwo.selectedSentMsg.messageDate}" title="#{bundle.ViewSentTitle_messageDate}"/>
+                    
+                    <h:outputText style=" color:black; font-weight: 600 "  value="#{bundle.ViewSentLabel_msgText}"/>
+
+                    
+
+
+               <h:inputTextarea rows="10" cols="70"   readonly="true"     style=" color:blue; font-weight: 600; border:0; "  value="#{inboxControllerTwo.selectedSentMsg.msgText}" title="#{bundle.ViewSentTitle_msgText}"/>
+
+
+
+
+                    <h:outputText style=" color:black; font-weight: 600 "  value="#{bundle.ViewSentLabel_status}"/>
+                    
+                    <h:outputText style=" color:black; font-weight: 600 "  value="#{inboxControllerTwo.selectedSentMsg.status}" title="#{bundle.ViewSentTitle_status}"/>
+                    
+                    <h:outputText style=" color:black; font-weight: 600 " value="#{bundle.ViewSentLabel_now}"/>
+                   
+                    <h:outputText style=" color:black; font-weight: 600 "  value="#{inboxControllerTwo.selectedSentMsg.now}" title="#{bundle.ViewSentTitle_now}"/>
+
+                
+                </h:panelGrid>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+              
+            </h:form>
+
+
+
+
+
+
+
+
+
+
+
+
+            </ui:define>
+
+
+
+
+
+
+
+
+
+
+
+
+    	</ui:composition>
+
+    </h:body>
+
+</html>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+
+    <h:body>
+
+    	<ui:composition template="/templatecsstest.xhtml">
+
+
+
+
+            <ui:define   name="contentten">
+
+
+                <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+
+
+                <h:panelGrid style="width: 650px;"     columns="2">
+
+
+                    <h:outputText style=" color:blue; font-weight: 600 " value="#{bundle.ViewInboxLabel_id}"/>
+                    <h:outputText style=" color:blue; font-weight: 600 "  value="#{inboxControllerTwo.selected.id}" title="#{bundle.ViewInboxTitle_id}"/>
+
+                    <h:outputText style=" color:blue; font-weight: 600 "  value="#{bundle.ViewInboxLabel_removeinmsg}"/>
+                    <h:outputText style=" color:blue; font-weight: 600 "  value="#{inboxControllerTwo.selected.removeinmsg}" title="#{bundle.ViewInboxTitle_removeinmsg}"/>
+
+                    <h:outputText style=" color:blue; font-weight: 600 "  value="#{bundle.ViewInboxLabel_replyToId}"/>
+                    <h:outputText style=" color:blue; font-weight: 600 "  value="#{inboxControllerTwo.selected.replyToId}" title="#{bundle.ViewInboxTitle_replyToId}"/>
+
+                    <h:outputText style=" color:blue; font-weight: 600 "   value="#{bundle.ViewInboxLabel_imageurl}"/>
+                    <h:outputText style=" color:blue; font-weight: 600 " value="#{inboxControllerTwo.selected.imageurl}" title="#{bundle.ViewInboxTitle_imageurl}"/>
+
+                    <h:outputText style=" color:blue; font-weight: 600 "  value="#{bundle.ViewInboxLabel_sendtoid}"/>
+                    <h:outputText style=" color:blue; font-weight: 600 "  value="#{inboxControllerTwo.selected.sendtoid}" title="#{bundle.ViewInboxTitle_sendtoid}"/>
+
+                    <h:outputText style=" color:blue; font-weight: 600 "  value="#{bundle.ViewInboxLabel_sendfromid}"/>
+                    <h:outputText style=" color:blue; font-weight: 600 "  value="#{inboxControllerTwo.selected.sendfromid}" title="#{bundle.ViewInboxTitle_sendfromid}"/>
+
+                    <h:outputText style=" color:blue; font-weight: 600 "  value="#{bundle.ViewInboxLabel_sentFrom}"/>
+                    <h:outputText style=" color:blue; font-weight: 600 " value="#{inboxControllerTwo.selected.sentFrom}" title="#{bundle.ViewInboxTitle_sentFrom}"/>
+
+                    <h:outputText style=" color:blue; font-weight: 600 "  value="#{bundle.ViewInboxLabel_sentTo}"/>
+
+                    <h:outputText style=" color:blue; font-weight: 600 " value="#{inboxControllerTwo.selected.sentTo}" title="#{bundle.ViewInboxTitle_sentTo}"/>
+
+                    <h:outputText style=" color:blue; font-weight: 600 " value="#{bundle.ViewInboxLabel_subject}"/>
+                    <h:outputText style=" color:blue; font-weight: 600 "  value="#{inboxControllerTwo.selected.subject}" title="#{bundle.ViewInboxTitle_subject}"/>
+
+                    <h:outputText style=" color:blue; font-weight: 600 " value="#{bundle.ViewInboxLabel_messageDate}"/>
+                    <h:outputText style=" color:blue; font-weight: 600 "  value="#{inboxControllerTwo.selected.messageDate}" title="#{bundle.ViewInboxTitle_messageDate}"/>
+
+
+                    <h:outputText style=" color:blue; font-weight: 600 " value="#{bundle.ViewInboxLabel_status}"/>
+                    <h:outputText style=" color:blue; font-weight: 600 " value="#{inboxControllerTwo.selected.status}" title="#{bundle.ViewInboxTitle_status}"/>
+
+                    <h:outputText style=" color:blue; font-weight: 600 " value="#{bundle.ViewInboxLabel_now}"/>
+                    <h:outputText style=" color:blue; font-weight: 600 " value="#{inboxControllerTwo.selected.now}" title="#{bundle.ViewInboxTitle_now}"/>
+
+
+                     <h:outputText style=" color:blue; font-weight: 600 " value="#{bundle.ViewInboxLabel_msgText}"/>
+
+
+                     <h:inputTextarea rows="10" cols="70"  style="color:black; border:0; " readonly="true"    value="#{inboxControllerTwo.selected.msgText}" title="#{bundle.ViewInboxTitle_msgText}"/>
+
+
+                </h:panelGrid>
+
+
+
+
+                <br />
+                <h:commandLink action="#{inboxControllerTwo.destroyAndView}" value="#{bundle.ViewInboxDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewInboxEditLink}"/>
+                <br />
+                <h:commandLink action="#{inboxControllerTwo.prepareCreate}" value="#{bundle.ViewInboxCreateLink}" />
+                <br />
+                <h:commandLink action="#{inboxControllerTwo.prepareList}" value="#{bundle.ViewInboxShowAllLink}"/>
+                <br />
+
+                <br />
+                <h:commandLink action="#{inboxControllerTwo.prepareCreatereply}" value="reply"/>
+                <br />
+                <br />
+
+                <br />
+                <h:commandLink action="#{inboxControllerTwo.createblock}" value="Block User"/>
+                <br />
+
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListInboxIndexLink}" action="#{inboxControllerTwo.prepareResetIndex}" immediate="true" />
+                <br />
+                <br />
+
+
+            </h:form>
+
+
+            </ui:define>
+
+
+    	</ui:composition>
+
+    </h:body>
+
+</html>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+    <h:body>
+
+        <ui:composition template="/templatered.xhtml">
+
+
+<ui:define name="title">Blocked singles | Chemispark </ui:define>
+
+
+
+            <ui:define   name="contentten">
+
+
+
+
+                <h:form >
+
+                    <h:panelGroup id="messagePanel" layout="block">
+                        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                    </h:panelGroup>
+                    <h:outputText escape="false" value="#{bundle.ListBlockedtwoEmpty}" rendered="#{blockedtwoController.items.rowCount == 0}"/>
+                   
+
+                    <h:panelGroup rendered="true">
+
+                        <h:selectBooleanCheckbox value="#{blockedtwoController.checkallboolblock}" >
+
+                            <f:ajax event="click" render="@form" listener= "#{blockedtwoController.selectallcheckbox}" />
+
+                        </h:selectBooleanCheckbox>
+
+
+                        <h:outputText value="#{blockedtwoController.pagination.pageFirstItem + 1}..#{blockedtwoController.pagination.pageLastItem + 1}/#{blockedtwoController.pagination.itemsCount}"/>&nbsp;
+                        <h:commandLink action="#{blockedtwoController.previous}" value="#{bundle.Previous} #{blockedtwoController.pagination.pageSize}" rendered="#{blockedtwoController.pagination.hasPreviousPage}"/>&nbsp;
+                        <h:commandLink action="#{blockedtwoController.next}" value="#{bundle.Next} #{blockedtwoController.pagination.pageSize}" rendered="#{blockedtwoController.pagination.hasNextPage}"/>&nbsp;
+
+
+
+                        <p:dataTable value="#{blockedtwoController.items}" var="item"     emptyMessage="You have not blocked any members"      style=" border-color: #37b2d1; border-collapse: collapse; border: 0px;width:1000px" >
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListBlockedtwoTitle_id}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.id}" />
+                            </p:column>
+
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListBlockedtwoTitle_unblock}"/>
+                                </f:facet>
+
+
+                                <h:selectBooleanCheckbox value="#{item.unblock}"    />
+                            </p:column>
+
+
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListBlockedtwoTitle_idcurrent}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.idcurrent}"/>
+                            </p:column>
+
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListBlockedtwoTitle_idofblocked}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.idofblocked}"/>
+                            </p:column>
+
+
+
+                            <p:column>
+                                <f:facet name="header">
+
+                                    <h:outputText value="#{bundle.ListBlockedtwoTitle_imageurl}"/>
+                                </f:facet>
+
+
+
+                                <h:graphicImage   height="95"  width ="95"   url ="#{item.imageurl}"/>
+
+                            </p:column>
+
+
+                           
+
+                        </p:dataTable>
+
+                    </h:panelGroup>
+                    
+                    <br />
+             <h:commandButton styleClass="button"      actionListener="#{blockedtwoController.prepareUnblock}"  value=" Unblock member(s)"/>
+                    <br />
+                    <br />
+
+
+                </h:form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ui:define>
+
+
+
+
+
+
+
+
+
+
+
+
+        </ui:composition>
+
+    </h:body>
+
+</html>

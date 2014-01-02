@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewDeletedfeedbackTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewDeletedfeedbackLabel_id}"/>
+                    <h:outputText value="#{deletedfeedbackController.selected.id}" title="#{bundle.ViewDeletedfeedbackTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewDeletedfeedbackLabel_usernamedelete}"/>
+                    <h:outputText value="#{deletedfeedbackController.selected.usernamedelete}" title="#{bundle.ViewDeletedfeedbackTitle_usernamedelete}"/>
+                    <h:outputText value="#{bundle.ViewDeletedfeedbackLabel_passworddelete}"/>
+                    <h:outputText value="#{deletedfeedbackController.selected.passworddelete}" title="#{bundle.ViewDeletedfeedbackTitle_passworddelete}"/>
+                    <h:outputText value="#{bundle.ViewDeletedfeedbackLabel_reasonfordelete}"/>
+                    <h:outputText value="#{deletedfeedbackController.selected.reasonfordelete}" title="#{bundle.ViewDeletedfeedbackTitle_reasonfordelete}"/>
+                    <h:outputText value="#{bundle.ViewDeletedfeedbackLabel_howmanydates}"/>
+                    <h:outputText value="#{deletedfeedbackController.selected.howmanydates}" title="#{bundle.ViewDeletedfeedbackTitle_howmanydates}"/>
+                    <h:outputText value="#{bundle.ViewDeletedfeedbackLabel_suggestions}"/>
+                    <h:outputText value="#{deletedfeedbackController.selected.suggestions}" title="#{bundle.ViewDeletedfeedbackTitle_suggestions}"/>
+                    <h:outputText value="#{bundle.ViewDeletedfeedbackLabel_recommendation}"/>
+                    <h:outputText value="#{deletedfeedbackController.selected.recommendation}" title="#{bundle.ViewDeletedfeedbackTitle_recommendation}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{deletedfeedbackController.destroyAndView}" value="#{bundle.ViewDeletedfeedbackDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewDeletedfeedbackEditLink}"/>
+                <br />
+                <h:commandLink action="#{deletedfeedbackController.prepareCreate}" value="#{bundle.ViewDeletedfeedbackCreateLink}" />
+                <br />
+                <h:commandLink action="#{deletedfeedbackController.prepareList}" value="#{bundle.ViewDeletedfeedbackShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewDeletedfeedbackIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditDateideasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditDateideasLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{dateideasController.selected.id}" title="#{bundle.EditDateideasTitle_id}" required="true" requiredMessage="#{bundle.EditDateideasRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditDateideasLabel_idmember}" for="idmember" />
+                    <h:inputText id="idmember" value="#{dateideasController.selected.idmember}" title="#{bundle.EditDateideasTitle_idmember}" required="true" requiredMessage="#{bundle.EditDateideasRequiredMessage_idmember}"/>
+                    <h:outputLabel value="#{bundle.EditDateideasLabel_idea}" for="idea" />
+                    <h:inputTextarea rows="4" cols="30" id="idea" value="#{dateideasController.selected.idea}" title="#{bundle.EditDateideasTitle_idea}" />
+                    <h:outputLabel value="#{bundle.EditDateideasLabel_ideacatagory}" for="ideacatagory" />
+                    <h:inputText id="ideacatagory" value="#{dateideasController.selected.ideacatagory}" title="#{bundle.EditDateideasTitle_ideacatagory}" />
+                </h:panelGrid>
+                <h:commandLink action="#{dateideasController.update}" value="#{bundle.EditDateideasSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditDateideasViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{dateideasController.prepareList}" value="#{bundle.EditDateideasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditDateideasIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

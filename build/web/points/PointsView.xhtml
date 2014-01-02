@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+
+    <h:body>
+
+        <ui:composition template="/templates/templatered.xhtml">
+
+
+<ui:define name="title">Search all singles | Hitmeupdate </ui:define>
+
+
+            <ui:define   name="contentten">
+
+
+
+
+
+
+
+            <h:form  style="color:#2681fc;"   >
+
+                
+                <h:panelGrid columns="3">
+
+
+                    <h:outputLabel value="#{bundle.EditPointsLabel_pointsPhotos}" for="pointsPhotos" />
+                    <h:inputText id="pointsPhotos" value="#{pointsController.selected.pointsPhotos}" readonly="true" title="#{bundle.EditPointsTitle_pointsPhotos}" />
+                    <h:commandButton  styleClass="button"   action="#{pointsController.addPoints}" type="submit"   value="add points" >
+
+
+                        <f:ajax event="click" render="pointsPhotos totalscore" listener= "#{pointsController.zipAutoFillListener}" />
+
+                    </h:commandButton>
+
+
+                    <h:outputLabel value="#{bundle.EditPointsLabel_pointsProfile}" for="pointsProfile" />
+                    <h:inputText id="pointsProfile" value="#{pointsController.selected.pointsProfile}"  readonly="true"   title="#{bundle.EditPointsTitle_pointsProfile}" />
+                    <h:commandButton  styleClass="button"    action="#{pointsController.addPoints}" type="submit"   value="add points" >
+
+                        <f:ajax event="click" render="pointsProfile totalscore" listener= "#{pointsController.zipAutoFillListenerb}" />
+
+                    </h:commandButton>
+
+
+
+
+                    <h:outputLabel value="#{bundle.EditPointsLabel_pointsFirstmessage}" for="pointsFirstmessage" />
+                    <h:inputText id="pointsFirstmessage" value="#{pointsController.selected.pointsFirstmessage}"  readonly="true"    title="#{bundle.EditPointsTitle_pointsFirstmessage}" />
+                    <h:commandButton  styleClass="button"    action="#{pointsController.addPoints}" type="submit"    value="add points" >
+
+                        <f:ajax event="click" render="pointsFirstmessage totalscore" listener= "#{pointsController.zipAutoFillListenerc}" />
+
+                    </h:commandButton>
+
+
+
+
+                    <h:outputLabel value="#{bundle.EditPointsLabel_pointsFunny}" for="pointsFunny" />
+                    <h:inputText id="pointsFunny" value="#{pointsController.selected.pointsFunny}"  readonly="true"   title="#{bundle.EditPointsTitle_pointsFunny}" />
+                    <h:commandButton   styleClass="button"  action="#{pointsController.addPoints}" type="submit"    value="add points" >
+
+                        <f:ajax event="click" render="pointsFunny totalscore " listener= "#{pointsController.zipAutoFillListenerd}" />
+
+                    </h:commandButton>
+
+
+
+
+                    <h:outputLabel value="#{bundle.EditPointsLabel_pointsInteresting}" for="pointsInteresting" />
+                    <h:inputText id="pointsInteresting" value="#{pointsController.selected.pointsInteresting}"   readonly="true"   title="#{bundle.EditPointsTitle_pointsInteresting}" />
+                    <h:commandButton   styleClass="button"   action="#{pointsController.addPoints}" type="submit"    value="add points" >
+
+                        <f:ajax event="click" render="pointsInteresting totalscore " listener= "#{pointsController.zipAutoFillListenere}" />
+
+                    </h:commandButton>
+
+
+
+
+                    <h:outputLabel value="#{bundle.EditPointsLabel_pointsPersonality}" for="pointsPersonality" />
+                    <h:inputText id="pointsPersonality" value="#{pointsController.selected.pointsPersonality}"  readonly="true"    title="#{bundle.EditPointsTitle_pointsPersonality}" />
+                    <h:commandButton   styleClass="button"   action="#{pointsController.addPoints}" type="submit"   value="add points" >
+
+
+                        <f:ajax event="click" render="pointsPersonality totalscore " listener= "#{pointsController.zipAutoFillListenerf}" />
+
+                    </h:commandButton>
+
+
+
+                    <h:outputLabel value="#{bundle.EditPointsLabel_pointsFirstdate}" for="pointsFirstdate" />
+                    <h:inputText id="pointsFirstdate" value="#{pointsController.selected.pointsFirstdate}" readonly="true"     title="#{bundle.EditPointsTitle_pointsFirstdate}" />
+                    <h:commandButton   styleClass="button"   action="#{pointsController.addPoints}" type="submit"    value="add points" >
+
+
+                        <f:ajax event="click" render="pointsFirstdate totalscore " listener= "#{pointsController.zipAutoFillListenerg}" />
+
+                    </h:commandButton>
+
+
+
+                    <h:outputLabel value="#{bundle.EditPointsLabel_pointsDateidea}" for="pointsDateidea" />
+                    <h:inputText id="pointsDateidea" value="#{pointsController.selected.pointsDateidea}"  readonly="true"    title="#{bundle.EditPointsTitle_pointsDateidea}" />
+                    <h:commandButton  styleClass="button"    action="#{pointsController.addPoints}" type="submit"    value="add points" >
+
+
+                        <f:ajax event="click" render="pointsDateidea totalscore " listener= "#{pointsController.zipAutoFillListenerh}" />
+
+                    </h:commandButton>
+
+
+
+                    <h:outputLabel value="#{bundle.EditPointsLabel_pointsVerifyprofile}" for="pointsVerifyprofile" />
+                    <h:inputText id="pointsVerifyprofile" value="#{pointsController.selected.pointsVerifyprofile}" readonly="true"    title="#{bundle.EditPointsTitle_pointsVerifyprofile}" />
+                    <h:commandButton  styleClass="button"   action="#{pointsController.addPoints}" type="submit"    value="add points" >
+
+                        <f:ajax event="click" render="pointsVerifyprofile totalscore" listener= "#{pointsController.zipAutoFillListeneri}" />
+
+                    </h:commandButton>
+
+
+
+
+
+                    <h:outputLabel value="#{bundle.EditPointsLabel_totalscore}" for="totalscore" />
+                    <h:inputText id="totalscore" value="#{pointsController.selected.totalscore}"   readonly="true"   title="#{bundle.EditPointsTitle_totalscore}" />
+
+
+
+
+                </h:panelGrid>
+
+                <h:panelGrid   columns="2" >
+
+                 
+
+
+                </h:panelGrid>
+                <h:commandButton   styleClass="button"   action="#{pointsController.updatePoints}" value="Update points"/>
+                
+                <h:outputText value="Once you click Update points, the points will be permanently added.">
+                
+                </h:outputText>
+
+                <br />
+              
+                <br />
+                <h:commandButton   styleClass="button"  value="Cancel and return to Inbox"      action ="#{inboxControllerTwo.resetinbox}"       immediate="true" />
+
+
+
+
+
+            </h:form>
+
+
+
+
+
+
+
+
+
+
+            </ui:define>
+
+
+
+        </ui:composition>
+
+    </h:body>
+
+</html>

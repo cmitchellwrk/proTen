@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:p="http://primefaces.prime.com.tr/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+
+
+                <h:outputText escape="false" value="#{bundle.ListMailsettingsEmpty}" rendered="#{mailsettingsController.items.rowCount == 0}"/>
+
+
+                    <h:outputText  style=" font-size: larger; font-weight: bold;"   value="You can limit the people who contact you by selecting the options below.
+                                   For example, if you select 'women' under gender, only women will be allowed to contact you. " >
+
+
+                    </h:outputText>
+
+  <h:panelGroup   rendered="#{mailsettingsController.items.rowCount > 0}">
+
+                    <table>
+
+
+                        <ui:repeat var="item" value="#{mailsettingsController.items}" varStatus="status">
+
+
+                            <tr>
+
+                                <th>
+
+
+
+
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_id}:"/>
+
+                                    <h:outputText value="#{item.id}"/>
+
+                                </th>
+
+
+                            </tr>
+
+
+
+                            <tr>
+
+                                <th>
+
+
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_idmember}:"/>
+
+                                    <h:outputText value="#{item.idmember}"/>
+
+                                </th>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <th>
+
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_gender}:"/>
+
+
+                                    <p:selectOneMenu style=" width:50%; font-size: larger; font-weight: bold;"   id = "gender"   value="#{item.gender}"  required="true" >
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{MemberSettingsBean.gend}"/>
+                                    </p:selectOneMenu>
+
+                                </th>
+
+                            </tr>
+
+
+
+
+                            <tr>
+
+                                <th>
+
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_firstcontactmessgesize}:"/>
+
+
+
+                                    <p:selectOneMenu style=" width:65%; font-size: larger; font-weight: bold;"  id = "firstcontactmessagesize" value="#{item.firstcontactmessgesize}"  required="true" >
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{MemberSettingsBean.firstcontactmsgsze}"/>
+                                    </p:selectOneMenu>
+
+                                </th>
+
+
+                            </tr>
+
+
+
+
+                            <tr>
+
+                                <th>
+
+
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_agefrom}:"/>
+
+
+
+
+                                    <p:selectOneMenu style=" width:40%; font-size: larger; font-weight: bold;"  id = "agefrom" value="#{item.agefrom}"  required="true" >
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{MemberSettingsBean.age_from}"/>
+                                    </p:selectOneMenu>
+
+
+
+
+                                </th>
+
+                            </tr>
+
+
+
+                            <tr>
+
+                                <th>
+
+
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_ageto}:"/>
+
+
+
+                                    <p:selectOneMenu style=" width:40%; font-size: larger; font-weight: bold;"  id = "ageto" value="#{item.ageto}"  required="true" >
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{MemberSettingsBean.age_to}"/>
+                                    </p:selectOneMenu>
+
+
+
+
+
+                                </th>
+
+                            </tr>
+
+
+
+
+                            <tr>
+
+                                <th>
+
+
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_within}:"/>
+
+
+                                    <h:outputText value="#{item.within}"/>
+
+                                    <p:selectOneMenu style=" width:40%; font-size: larger; font-weight: bold;"  id = "within" value="#{item.within}"  required="true" >
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{MemberSettingsBean.withinn}"/>
+                                    </p:selectOneMenu>
+
+                                </th>
+
+                            </tr>
+
+
+                        </ui:repeat>
+                    </table>
+
+                    <br>
+
+                    </br>
+
+                    <br>
+
+                    </br>
+
+
+                    <h:outputText  style=" font-size: larger; font-weight: bold;"   value="Select the boxes below if you don't want people
+                                   to contact you looking for any of the following:">
+
+
+                    </h:outputText>
+
+
+
+                    <table>
+
+
+                        <ui:repeat var="item" value="#{mailsettingsController.items}" varStatus="status">
+
+
+
+
+
+
+
+
+                            <tr>
+
+                                <th>
+
+
+
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_hangout}:"/>
+
+
+
+                                    <h:selectBooleanCheckbox  id = "hangout" value="#{item.hangout}"  required="true" >
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{MemberSettingsBean.hangout}"/>
+
+                                    </h:selectBooleanCheckbox>
+
+                                </th>
+
+
+                            </tr>
+
+
+
+
+                            <tr>
+
+                                <th>
+
+
+
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_friendship}:"/>
+
+
+
+
+                                    <h:selectBooleanCheckbox  id = "friendship" value="#{item.friendship}"  required="true" >
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{MemberSettingsBean.friendship}"/>
+
+                                    </h:selectBooleanCheckbox>
+
+                                </th>
+
+
+
+                            </tr>
+
+
+
+                            <tr>
+
+                                <th>
+
+
+
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_activitypartner}:"/>
+
+
+                                    <h:selectBooleanCheckbox  id = "activitypartner" value="#{item.activitypartner}"  required="true" >
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{MemberSettingsBean.activitypartner}"/>
+
+                                    </h:selectBooleanCheckbox>
+
+                                </th>
+
+
+                            </tr>
+
+
+
+
+
+                            <tr>
+
+                                <th>
+
+
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_dating}:"/>
+
+
+
+                                    <h:selectBooleanCheckbox  id = "dating" value="#{item.dating}"  required="true" >
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{MemberSettingsBean.dating}"/>
+
+                                    </h:selectBooleanCheckbox>
+                                </th>
+
+
+                            </tr>
+
+
+
+
+
+
+
+                            <tr>
+
+
+                                <th>
+
+
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_longterm}:"/>
+
+
+                                    <h:selectBooleanCheckbox  id = "longterm" value="#{item.longterm}"  required="true" >
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{MemberSettingsBean.longterm}"/>
+
+                                    </h:selectBooleanCheckbox>
+
+                                </th>
+
+
+                            </tr>
+
+
+
+
+                            <tr>
+
+                                <th>
+
+
+
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_intimateencounter}:"/>
+
+
+                                    <h:selectBooleanCheckbox  id = "intimateencounter" value="#{item.intimateencounter}"  required="true" >
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{MemberSettingsBean.intimateencounter}"/>
+
+                                    </h:selectBooleanCheckbox>
+
+
+                                </th>
+
+                            </tr>
+
+
+
+                            <tr>
+
+
+                                <th>
+
+
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_talkemail}:"/>
+
+
+
+                                    <h:selectBooleanCheckbox  id = "talkemail" value="#{item.talkemail}"  required="true" >
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{MemberSettingsBean.talkemail}"/>
+
+                                    </h:selectBooleanCheckbox>
+
+
+                                </th>
+
+                            </tr>
+
+
+
+
+
+                            <tr>
+
+                                <th>
+
+
+
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_otherrelationship}:"/>
+
+
+
+                                    <h:selectBooleanCheckbox  id = "otherrelashionship" value="#{item.otherrelationship}"  required="true" >
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{MemberSettingsBean.otherrelationship}"/>
+
+                                    </h:selectBooleanCheckbox>
+
+                                </th>
+
+
+                            </tr>
+
+
+                            <tr>
+
+                                <th>
+
+
+
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_usedrugs}:"/>
+
+
+
+                                    <h:selectBooleanCheckbox  id = "usedrugs" value="#{item.usedrugs}"  required="true" >
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{MemberSettingsBean.usedrugs}"/>
+
+                                    </h:selectBooleanCheckbox>
+
+                                </th>
+
+
+                            </tr>
+
+
+
+
+
+                            <tr>
+
+
+                                <th>
+
+
+
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_smoke}:"/>
+
+
+
+
+                                    <h:selectBooleanCheckbox  id = "smoke" value="#{item.smoke}"  required="true" >
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{MemberSettingsBean.smoke}"/>
+
+                                    </h:selectBooleanCheckbox>
+
+                                </th>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>
+
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_havemessagedintenct}:"/>
+
+
+                                    <h:selectBooleanCheckbox  id = "havemessagedintenct" value="#{item.havemessagedintenct}"  required="true" >
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{MemberSettingsBean.havmessageintenct}"/>
+
+                                    </h:selectBooleanCheckbox>
+
+                                </th>
+
+                            </tr>
+
+
+                            <tr>
+
+
+                                <th>
+
+                                    <h:outputText value="Married:"/>
+
+
+                                     <h:selectBooleanCheckbox  id = "email1" value="#{item.email1}"  required="true" >
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{MemberSettingsBean.email1}"/>
+
+                                    </h:selectBooleanCheckbox>
+
+                                </th>
+
+                            </tr>
+
+                            <tr>
+                                <th>
+
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_email2}:"/>
+
+                                    <h:outputText value="#{item.email2}"/>
+
+                                </th>
+
+
+                            </tr>
+
+                            <tr>
+
+                                <th>
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_email3}:"/>
+
+                                    <h:outputText value="#{item.email3}"/>
+
+                                </th>
+                            </tr>
+
+                            <tr>
+
+                                <th>
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_email4}:"/>
+
+                                    <h:outputText value="#{item.email4}"/>
+
+                                </th>
+
+                            </tr>
+
+
+                            <tr>
+                                <th>
+                                    <h:outputText value="#{bundle.ListMailsettingsTitle_email5}:"/>
+
+                                    <h:outputText value="#{item.email5}"/>
+
+                                </th>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <th>
+
+                                    <h:outputText value=" "/>
+                                    <h:commandButton styleClass="button" action="#{mailsettingsController.prepareUpdateMailSettings}"    type="submit" value="Update Mail Setings"   />
+
+                                </th>
+
+                            </tr>
+                            <tr>
+
+                                <th>
+
+
+                                    <h:outputText value=" "/>
+                                    <h:commandLink action="#{mailsettingsController.prepareUpdateMailSettings}" value="#{bundle.ListMailsettingsEditLink}"/>
+
+                                </th>
+
+                            </tr>
+
+
+                        </ui:repeat>
+
+
+
+                    </table>
+
+
+  </h:panelGroup>
+
+
+                <br />
+
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListMailsettingsIndexLink}" action="/index" immediate="true" />
+
+
+            </h:form>
+
+            <br />
+            <br />
+            <br />
+            <br />
+
+
+        </ui:define>
+    </ui:composition>
+
+</html>

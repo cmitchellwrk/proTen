@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+    <h:body>
+
+        <ui:composition template="/templatecsstest.xhtml">
+
+            <ui:define   name="contentten">
+                <br>
+                </br>
+                <form style="margin-left:350px;" action="UploadThree.html" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="file" id="file"/>
+                    <input class="buttontwo" type="submit" value="Upload" />
+
+                </form>
+
+                <br>
+
+                </br>
+
+                <h:form styleClass="jsfcrud_list_form">
+                    <h:panelGroup id="messagePanel" layout="block">
+                        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                    </h:panelGroup>
+
+                    <h:outputText escape="false" value="#{bundle.ListPhotosEmpty}" rendered="#{photosControllerTwo.items.rowCount == 0}"/>
+
+
+                    <h:panelGroup rendered="#{photosControllerTwo.items.rowCount > 0}">
+
+
+
+                        <h:dataTable value="#{photosControllerTwo.itemseight}" var="item" border="0" cellpadding="5" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                           
+
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText   value="#{bundle.ListPhotosTitle_imageurl1a}"/>
+                                </f:facet>
+
+
+                                <h:outputLink  value="#thumb">
+
+
+                                    <h:graphicImage   height="95"  width ="95" url ="#{item.imageurl1a}"/>
+
+                                </h:outputLink>
+
+                                <br>
+                                </br>
+                                <h:commandLink action="#{photosControllerTwo.deletePhoto1on1}" value="delete this photo"/>
+                                <br>
+                                </br>
+                                <h:selectBooleanCheckbox value="#{photosControllerTwo.p4mL1}">
+
+                                </h:selectBooleanCheckbox>
+
+                            </h:column>
+
+
+
+                        </h:dataTable>
+                    </h:panelGroup>
+
+
+
+
+                </h:form>
+
+
+
+
+
+
+
+
+            </ui:define>
+
+
+
+
+
+
+
+
+
+
+
+
+        </ui:composition>
+
+    </h:body>
+
+</html>

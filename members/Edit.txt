@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditMembersTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditMembersLabel_userid}" for="userid" />
+                    <h:inputText id="userid" value="#{membersController.selected.userid}" title="#{bundle.EditMembersTitle_userid}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_userid}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_username}" for="username" />
+                    <h:inputText id="username" value="#{membersController.selected.username}" title="#{bundle.EditMembersTitle_username}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_username}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_password}" for="password" />
+                    <h:inputText id="password" value="#{membersController.selected.password}" title="#{bundle.EditMembersTitle_password}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_password}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_now}" for="now" />
+                    <h:inputText id="now" value="#{membersController.selected.now}" title="#{bundle.EditMembersTitle_now}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_now}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{membersController.selected.email}" title="#{bundle.EditMembersTitle_email}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_email}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_imageurl}" for="imageurl" />
+                    <h:inputText id="imageurl" value="#{membersController.selected.imageurl}" title="#{bundle.EditMembersTitle_imageurl}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_imageurl}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_birthMonth}" for="birthMonth" />
+                    <h:inputText id="birthMonth" value="#{membersController.selected.birthMonth}" title="#{bundle.EditMembersTitle_birthMonth}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_birthMonth}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_birthDay}" for="birthDay" />
+                    <h:inputText id="birthDay" value="#{membersController.selected.birthDay}" title="#{bundle.EditMembersTitle_birthDay}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_birthDay}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_birthYear}" for="birthYear" />
+                    <h:inputText id="birthYear" value="#{membersController.selected.birthYear}" title="#{bundle.EditMembersTitle_birthYear}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_birthYear}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_city}" for="city" />
+                    <h:inputText id="city" value="#{membersController.selected.city}" title="#{bundle.EditMembersTitle_city}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_city}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_states}" for="states" />
+                    <h:inputText id="states" value="#{membersController.selected.states}" title="#{bundle.EditMembersTitle_states}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_states}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_country}" for="country" />
+                    <h:inputText id="country" value="#{membersController.selected.country}" title="#{bundle.EditMembersTitle_country}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_country}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_zipcode}" for="zipcode" />
+                    <h:inputText id="zipcode" value="#{membersController.selected.zipcode}" title="#{bundle.EditMembersTitle_zipcode}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_zipcode}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_lat}" for="lat" />
+                    <h:inputText id="lat" value="#{membersController.selected.lat}" title="#{bundle.EditMembersTitle_lat}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_lat}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_lon}" for="lon" />
+                    <h:inputText id="lon" value="#{membersController.selected.lon}" title="#{bundle.EditMembersTitle_lon}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_lon}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_gender}" for="gender" />
+                    <h:inputText id="gender" value="#{membersController.selected.gender}" title="#{bundle.EditMembersTitle_gender}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_gender}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_seekingA}" for="seekingA" />
+                    <h:inputText id="seekingA" value="#{membersController.selected.seekingA}" title="#{bundle.EditMembersTitle_seekingA}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_seekingA}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_lookingFor}" for="lookingFor" />
+                    <h:inputText id="lookingFor" value="#{membersController.selected.lookingFor}" title="#{bundle.EditMembersTitle_lookingFor}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_lookingFor}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_aim}" for="aim" />
+                    <h:inputText id="aim" value="#{membersController.selected.aim}" title="#{bundle.EditMembersTitle_aim}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_aim}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_sign}" for="sign" />
+                    <h:inputText id="sign" value="#{membersController.selected.sign}" title="#{bundle.EditMembersTitle_sign}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_sign}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_ethnicity}" for="ethnicity" />
+                    <h:inputText id="ethnicity" value="#{membersController.selected.ethnicity}" title="#{bundle.EditMembersTitle_ethnicity}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_ethnicity}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_height}" for="height" />
+                    <h:inputText id="height" value="#{membersController.selected.height}" title="#{bundle.EditMembersTitle_height}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_height}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_hairColor}" for="hairColor" />
+                    <h:inputText id="hairColor" value="#{membersController.selected.hairColor}" title="#{bundle.EditMembersTitle_hairColor}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_hairColor}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_bodyType}" for="bodyType" />
+                    <h:inputText id="bodyType" value="#{membersController.selected.bodyType}" title="#{bundle.EditMembersTitle_bodyType}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_bodyType}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_car}" for="car" />
+                    <h:inputText id="car" value="#{membersController.selected.car}" title="#{bundle.EditMembersTitle_car}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_car}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_education}" for="education" />
+                    <h:inputText id="education" value="#{membersController.selected.education}" title="#{bundle.EditMembersTitle_education}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_education}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_hasChildren}" for="hasChildren" />
+                    <h:inputText id="hasChildren" value="#{membersController.selected.hasChildren}" title="#{bundle.EditMembersTitle_hasChildren}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_hasChildren}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_wantsChildren}" for="wantsChildren" />
+                    <h:inputText id="wantsChildren" value="#{membersController.selected.wantsChildren}" title="#{bundle.EditMembersTitle_wantsChildren}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_wantsChildren}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_married}" for="married" />
+                    <h:inputText id="married" value="#{membersController.selected.married}" title="#{bundle.EditMembersTitle_married}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_married}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_smoker}" for="smoker" />
+                    <h:inputText id="smoker" value="#{membersController.selected.smoker}" title="#{bundle.EditMembersTitle_smoker}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_smoker}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_drink}" for="drink" />
+                    <h:inputText id="drink" value="#{membersController.selected.drink}" title="#{bundle.EditMembersTitle_drink}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_drink}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_drugs}" for="drugs" />
+                    <h:inputText id="drugs" value="#{membersController.selected.drugs}" title="#{bundle.EditMembersTitle_drugs}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_drugs}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_religion}" for="religion" />
+                    <h:inputText id="religion" value="#{membersController.selected.religion}" title="#{bundle.EditMembersTitle_religion}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_religion}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_description}" for="description" />
+                    <h:inputTextarea rows="4" cols="30" id="description" value="#{membersController.selected.description}" title="#{bundle.EditMembersTitle_description}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_description}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_income}" for="income" />
+                    <h:inputText id="income" value="#{membersController.selected.income}" title="#{bundle.EditMembersTitle_income}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_income}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_profession}" for="profession" />
+                    <h:inputText id="profession" value="#{membersController.selected.profession}" title="#{bundle.EditMembersTitle_profession}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_profession}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_headline}" for="headline" />
+                    <h:inputText id="headline" value="#{membersController.selected.headline}" title="#{bundle.EditMembersTitle_headline}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_headline}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_interests}" for="interests" />
+                    <h:inputTextarea rows="4" cols="30" id="interests" value="#{membersController.selected.interests}" title="#{bundle.EditMembersTitle_interests}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_interests}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_searchrankscore}" for="searchrankscore" />
+                    <h:inputText id="searchrankscore" value="#{membersController.selected.searchrankscore}" title="#{bundle.EditMembersTitle_searchrankscore}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_searchrankscore}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_percent1}" for="percent1" />
+                    <h:inputText id="percent1" value="#{membersController.selected.percent1}" title="#{bundle.EditMembersTitle_percent1}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_percent1}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_percent2}" for="percent2" />
+                    <h:inputText id="percent2" value="#{membersController.selected.percent2}" title="#{bundle.EditMembersTitle_percent2}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_percent2}"/>
+                    <h:outputLabel value="#{bundle.EditMembersLabel_percent3}" for="percent3" />
+                    <h:inputText id="percent3" value="#{membersController.selected.percent3}" title="#{bundle.EditMembersTitle_percent3}" required="true" requiredMessage="#{bundle.EditMembersRequiredMessage_percent3}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{membersController.update}" value="#{bundle.EditMembersSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditMembersViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{membersController.prepareList}" value="#{bundle.EditMembersShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditMembersIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

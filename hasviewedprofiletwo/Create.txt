@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateHasviewedprofiletwoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateHasviewedprofiletwoLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{hasviewedprofiletwoController.selected.id}" title="#{bundle.CreateHasviewedprofiletwoTitle_id}" required="true" requiredMessage="#{bundle.CreateHasviewedprofiletwoRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateHasviewedprofiletwoLabel_idcurrent}" for="idcurrent" />
+                    <h:inputText id="idcurrent" value="#{hasviewedprofiletwoController.selected.idcurrent}" title="#{bundle.CreateHasviewedprofiletwoTitle_idcurrent}" required="true" requiredMessage="#{bundle.CreateHasviewedprofiletwoRequiredMessage_idcurrent}"/>
+                    <h:outputLabel value="#{bundle.CreateHasviewedprofiletwoLabel_idhvperson}" for="idhvperson" />
+                    <h:inputText id="idhvperson" value="#{hasviewedprofiletwoController.selected.idhvperson}" title="#{bundle.CreateHasviewedprofiletwoTitle_idhvperson}" required="true" requiredMessage="#{bundle.CreateHasviewedprofiletwoRequiredMessage_idhvperson}"/>
+                    <h:outputLabel value="#{bundle.CreateHasviewedprofiletwoLabel_username}" for="username" />
+                    <h:inputText id="username" value="#{hasviewedprofiletwoController.selected.username}" title="#{bundle.CreateHasviewedprofiletwoTitle_username}" required="true" requiredMessage="#{bundle.CreateHasviewedprofiletwoRequiredMessage_username}"/>
+                    <h:outputLabel value="#{bundle.CreateHasviewedprofiletwoLabel_now}" for="now" />
+                    <h:inputText id="now" value="#{hasviewedprofiletwoController.selected.now}" title="#{bundle.CreateHasviewedprofiletwoTitle_now}" required="true" requiredMessage="#{bundle.CreateHasviewedprofiletwoRequiredMessage_now}"/>
+                    <h:outputLabel value="#{bundle.CreateHasviewedprofiletwoLabel_imageurl}" for="imageurl" />
+                    <h:inputText id="imageurl" value="#{hasviewedprofiletwoController.selected.imageurl}" title="#{bundle.CreateHasviewedprofiletwoTitle_imageurl}" required="true" requiredMessage="#{bundle.CreateHasviewedprofiletwoRequiredMessage_imageurl}"/>
+                    <h:outputLabel value="#{bundle.CreateHasviewedprofiletwoLabel_city}" for="city" />
+                    <h:inputText id="city" value="#{hasviewedprofiletwoController.selected.city}" title="#{bundle.CreateHasviewedprofiletwoTitle_city}" required="true" requiredMessage="#{bundle.CreateHasviewedprofiletwoRequiredMessage_city}"/>
+                    <h:outputLabel value="#{bundle.CreateHasviewedprofiletwoLabel_dateandtime}" for="dateandtime" />
+                    <h:inputText id="dateandtime" value="#{hasviewedprofiletwoController.selected.dateandtime}" title="#{bundle.CreateHasviewedprofiletwoTitle_dateandtime}" required="true" requiredMessage="#{bundle.CreateHasviewedprofiletwoRequiredMessage_dateandtime}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{hasviewedprofiletwoController.create}" value="#{bundle.CreateHasviewedprofiletwoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{hasviewedprofiletwoController.prepareList}" value="#{bundle.CreateHasviewedprofiletwoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateHasviewedprofiletwoIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

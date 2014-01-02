@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewLastpointsgivepersonTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewLastpointsgivepersonLabel_id}"/>
+                    <h:outputText value="#{lastpointsgivepersonController.selected.id}" title="#{bundle.ViewLastpointsgivepersonTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewLastpointsgivepersonLabel_idpersonpointsgive}"/>
+                    <h:outputText value="#{lastpointsgivepersonController.selected.idpersonpointsgive}" title="#{bundle.ViewLastpointsgivepersonTitle_idpersonpointsgive}"/>
+                    <h:outputText value="#{bundle.ViewLastpointsgivepersonLabel_idpersonpointsreceive}"/>
+                    <h:outputText value="#{lastpointsgivepersonController.selected.idpersonpointsreceive}" title="#{bundle.ViewLastpointsgivepersonTitle_idpersonpointsreceive}"/>
+                    <h:outputText value="#{bundle.ViewLastpointsgivepersonLabel_pointsPhotos}"/>
+                    <h:outputText value="#{lastpointsgivepersonController.selected.pointsPhotos}" title="#{bundle.ViewLastpointsgivepersonTitle_pointsPhotos}"/>
+                    <h:outputText value="#{bundle.ViewLastpointsgivepersonLabel_pointsProfile}"/>
+                    <h:outputText value="#{lastpointsgivepersonController.selected.pointsProfile}" title="#{bundle.ViewLastpointsgivepersonTitle_pointsProfile}"/>
+                    <h:outputText value="#{bundle.ViewLastpointsgivepersonLabel_pointsFirstmessage}"/>
+                    <h:outputText value="#{lastpointsgivepersonController.selected.pointsFirstmessage}" title="#{bundle.ViewLastpointsgivepersonTitle_pointsFirstmessage}"/>
+                    <h:outputText value="#{bundle.ViewLastpointsgivepersonLabel_pointsFunny}"/>
+                    <h:outputText value="#{lastpointsgivepersonController.selected.pointsFunny}" title="#{bundle.ViewLastpointsgivepersonTitle_pointsFunny}"/>
+                    <h:outputText value="#{bundle.ViewLastpointsgivepersonLabel_pointsInteresting}"/>
+                    <h:outputText value="#{lastpointsgivepersonController.selected.pointsInteresting}" title="#{bundle.ViewLastpointsgivepersonTitle_pointsInteresting}"/>
+                    <h:outputText value="#{bundle.ViewLastpointsgivepersonLabel_pointsPersonality}"/>
+                    <h:outputText value="#{lastpointsgivepersonController.selected.pointsPersonality}" title="#{bundle.ViewLastpointsgivepersonTitle_pointsPersonality}"/>
+                    <h:outputText value="#{bundle.ViewLastpointsgivepersonLabel_pointsFirstdate}"/>
+                    <h:outputText value="#{lastpointsgivepersonController.selected.pointsFirstdate}" title="#{bundle.ViewLastpointsgivepersonTitle_pointsFirstdate}"/>
+                    <h:outputText value="#{bundle.ViewLastpointsgivepersonLabel_pointsDateidea}"/>
+                    <h:outputText value="#{lastpointsgivepersonController.selected.pointsDateidea}" title="#{bundle.ViewLastpointsgivepersonTitle_pointsDateidea}"/>
+                    <h:outputText value="#{bundle.ViewLastpointsgivepersonLabel_pointsVerifyprofile}"/>
+                    <h:outputText value="#{lastpointsgivepersonController.selected.pointsVerifyprofile}" title="#{bundle.ViewLastpointsgivepersonTitle_pointsVerifyprofile}"/>
+                    <h:outputText value="#{bundle.ViewLastpointsgivepersonLabel_datelastptsgiven}"/>
+                    <h:outputText value="#{lastpointsgivepersonController.selected.datelastptsgiven}" title="#{bundle.ViewLastpointsgivepersonTitle_datelastptsgiven}"/>
+                    <h:outputText value="#{bundle.ViewLastpointsgivepersonLabel_badge}"/>
+                    <h:outputText value="#{lastpointsgivepersonController.selected.badge}" title="#{bundle.ViewLastpointsgivepersonTitle_badge}"/>
+                    <h:outputText value="#{bundle.ViewLastpointsgivepersonLabel_badgeimageurl}"/>
+                    <h:outputText value="#{lastpointsgivepersonController.selected.badgeimageurl}" title="#{bundle.ViewLastpointsgivepersonTitle_badgeimageurl}"/>
+                    <h:outputText value="#{bundle.ViewLastpointsgivepersonLabel_totalpointsgivensofar}"/>
+                    <h:outputText value="#{lastpointsgivepersonController.selected.totalpointsgivensofar}" title="#{bundle.ViewLastpointsgivepersonTitle_totalpointsgivensofar}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{lastpointsgivepersonController.destroyAndView}" value="#{bundle.ViewLastpointsgivepersonDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewLastpointsgivepersonEditLink}"/>
+                <br />
+                <h:commandLink action="#{lastpointsgivepersonController.prepareCreate}" value="#{bundle.ViewLastpointsgivepersonCreateLink}" />
+                <br />
+                <h:commandLink action="#{lastpointsgivepersonController.prepareList}" value="#{bundle.ViewLastpointsgivepersonShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewLastpointsgivepersonIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

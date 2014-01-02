@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+    <h:body>
+
+        <ui:composition template="/templates/templatered.xhtml">
+
+<ui:define name="title">Sent messages | Hitmeupdate </ui:define>
+
+
+
+            <ui:define   name="contentten">
+
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+
+
+                <h:form>
+
+                    <h:panelGroup rendered="true">
+
+                        <h:selectBooleanCheckbox value="#{inboxControllerTwo.checkallboolsentbox}" >
+                            <f:ajax event="click" render="@form" listener= "#{inboxControllerTwo.selectallcheckboxSent}" />
+                        </h:selectBooleanCheckbox>
+
+                        <h:outputText style="color:blue;"  value="#{inboxControllerTwo.paginationSent.pageFirstItem + 1}..#{inboxControllerTwo.paginationSent.pageLastItem + 1}/#{inboxControllerTwo.paginationSent.itemsCount}"/>&nbsp;
+                        <h:commandLink action="#{inboxControllerTwo.previousSent}" value="#{bundle.Previous}" rendered="#{inboxControllerTwo.paginationSent.hasPreviousPage}"/>&nbsp;
+                        <h:commandLink action="#{inboxControllerTwo.nextSent}" value="#{bundle.Next} " rendered="#{inboxControllerTwo.paginationSent.hasNextPage}"/>&nbsp;
+
+
+                        <p:dataTable value="#{inboxControllerTwo.itemsSent}" var="item"    emptyMessage="Your Sent box is currently empty"    style=" border-collapse:collapse;border:0px;width:1000px"      >
+
+
+                            <p:column  style=" width:70px; border-width:0px;"     >
+                                <f:facet name="header">
+                                    <h:outputText style=" color:#2681fc;font-weight: 600; " value="#{bundle.ListSentTitle_removesntmsg}"/>
+                                </f:facet>
+
+                                <h:selectBooleanCheckbox value="#{item.removesntmsg}" />
+
+
+                            </p:column>
+
+
+                            <p:column  style=" border-width:0px; width:100px;"   >
+                                <f:facet name="header">
+                                    <h:outputText style=" color:#2681fc;font-weight: 600; "  value="#{bundle.ListSentTitle_imageurl}"/>
+                                </f:facet>
+
+                                <h:commandLink action="#{inboxControllerTwo.prepareViewTwoSent}" >
+
+                                    <h:graphicImage   height="95"  width ="95"   url ="#{item.imageurl}"/>
+
+                                </h:commandLink>
+
+                            </p:column>
+
+
+
+                            <p:column  style=" border-width:0px; width:60px"   >
+                                <f:facet name="header">
+                                    <h:outputText style=" color:#2681fc;font-weight: 600; "  value="#{bundle.ListSentTitle_sentTo}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.sentTo}"/>
+                                 <br/>
+                                <h:outputText value="#{item.status}"/>
+                                <br/>
+                                <h:outputText value="#{item.now}"/>
+
+
+                            </p:column>
+
+
+
+                            <p:column style=" border-width:0px"   >
+                                <f:facet name="header">
+                                    <h:outputText style=" color:#2681fc;font-weight: 600; "  value="#{bundle.ListSentTitle_subject}"/>
+                                </f:facet>
+
+
+                          <h:commandLink action="#{inboxControllerTwo.prepareViewSent}"    value="#{item.subject}"/>
+                               
+                            </p:column>
+
+
+
+                            <p:column     style=" border-width:0px"   >
+                                <f:facet name="header">
+                                    <h:outputText style=" color:#2681fc;font-weight: 600; "   value="#{bundle.ListSentTitle_messageDate}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.messageDate}"/>
+                            </p:column>
+
+
+
+
+                        </p:dataTable>
+                    </h:panelGroup>
+
+            
+                    <br />
+                    <br />
+                    <h:commandButton styleClass="button"  action="#{inboxControllerTwo.preparUnblockSent}"  value=" Delete"/>
+                    <br />
+                    <br />
+
+                </h:form>
+
+            </ui:define>
+
+
+        </ui:composition>
+
+    </h:body>
+
+</html>

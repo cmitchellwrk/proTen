@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+    <h:body>
+
+    	<ui:composition template="/templates/templatered.xhtml">
+
+       <ui:define name="title">Personals message | Hitmeupdate </ui:define>
+
+
+
+            <ui:define   name="contentten">
+
+                
+
+                 <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+
+
+
+            <h:form>
+                
+                <h:panelGrid columns="2">
+                    <h:outputLabel style=" color:blue; font-weight: 600 "    value="#{bundle.CreateInboxLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{membersControllerSix.selectedSndMsg.id}" title="#{bundle.CreateInboxTitle_id}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_id}"/>
+
+
+                    <h:outputLabel  style=" color:blue; font-weight: 600 "  value="#{bundle.CreateInboxLabel_removeinmsg}" for="removeinmsg" />
+                    <h:inputText id="removeinmsg" value="#{membersControllerSix.selectedSndMsg.removeinmsg}" title="#{bundle.CreateInboxTitle_removeinmsg}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_removeinmsg}"/>
+
+
+                    <h:outputLabel style=" color:blue; font-weight: 600 "   value="#{bundle.CreateInboxLabel_replyToId}" for="replyToId" />
+                    <h:inputText id="replyToId" value="#{membersControllerSix.selectedSndMsg.replyToId}" title="#{bundle.CreateInboxTitle_replyToId}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_replyToId}"/>
+
+
+                    <h:outputLabel style=" color:blue; font-weight: 600 "   value="#{bundle.CreateInboxLabel_imageurl}" for="imageurl" />
+                    <h:inputText id="imageurl" value="#{membersControllerSix.selectedSndMsg.imageurl}" title="#{bundle.CreateInboxTitle_imageurl}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_imageurl}"/>
+
+
+                    <h:outputLabel  style=" color:blue; font-weight: 600 " value="#{bundle.CreateInboxLabel_sendtoid}" for="sendtoid" />
+                    <h:inputText id="sendtoid" value="#{membersControllerSix.selectedSndMsg.sendtoid}" title="#{bundle.CreateInboxTitle_sendtoid}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_sendtoid}"/>
+
+
+                    <h:outputLabel style=" color:blue; font-weight: 600 "   value="#{bundle.CreateInboxLabel_sendfromid}" for="sendfromid" />
+                    <h:inputText id="sendfromid" value="#{membersControllerSix.selectedSndMsg.sendfromid}" title="#{bundle.CreateInboxTitle_sendfromid}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_sendfromid}"/>
+
+
+                    <h:outputLabel  style=" color:blue; font-weight: 600 "  value="#{bundle.CreateInboxLabel_sentFrom}" for="sentFrom" />
+                    <h:inputText id="sentFrom" value="#{membersControllerSix.selectedSndMsg.sentFrom}" title="#{bundle.CreateInboxTitle_sentFrom}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_sentFrom}"/>
+
+
+                    <h:outputLabel style=" color:blue; font-weight: 600 "   value="#{bundle.CreateInboxLabel_sentTo}" for="sentTo" />
+                    <h:inputText id="sentTo" value="#{membersControllerSix.selectedSndMsg.sentTo}" title="#{bundle.CreateInboxTitle_sentTo}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_sentTo}"/>
+
+
+                    <h:outputLabel style=" color:blue; font-weight: 600 "     value="#{bundle.CreateInboxLabel_subject}" for="subject" />
+                    <h:inputText id="subject" value="#{membersControllerSix.selectedSndMsg.subject}"  title="#{bundle.CreateInboxTitle_subject}" maxlength="40" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_subject}"/>
+
+
+
+
+                    <h:outputLabel style=" color:blue; font-weight: 600 "   value="#{bundle.CreateInboxLabel_messageDate}" for="messageDate" />
+                    <h:inputText id="messageDate" value="#{membersControllerSix.selectedSndMsg.messageDate}" title="#{bundle.CreateInboxTitle_messageDate}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_messageDate}"/>
+
+
+                    <h:outputLabel style=" color:blue; font-weight: 600 "   value="#{bundle.CreateInboxLabel_msgText}" for="msgText" />
+                    <h:inputTextarea  rows="5" cols="70" id="msgText" value="#{membersControllerSix.selectedSndMsg.msgText}" title="#{bundle.CreateInboxTitle_msgText}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_msgText}"/>
+
+
+                    <h:outputLabel style=" color:blue; font-weight: 600 "   value="#{bundle.CreateInboxLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{membersControllerSix.selectedSndMsg.status}" title="#{bundle.CreateInboxTitle_status}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_status}"/>
+
+                    <h:outputLabel  style=" color:blue; font-weight: 600 "  value="#{bundle.CreateInboxLabel_now}" for="now" />
+                    <h:inputText id="now" value="#{membersControllerSix.selectedSndMsg.now}" title="#{bundle.CreateInboxTitle_now}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_now}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{membersControllerSix.createMsgMemSearch}" value="#{bundle.CreateInboxSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{inboxController.prepareList}" value="#{bundle.CreateInboxShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateInboxIndexLink}" action="/index" immediate="true" />
+            </h:form>
+
+
+
+
+
+
+
+
+            </ui:define>
+
+
+
+
+
+
+
+
+
+
+
+
+    	</ui:composition>
+
+    </h:body>
+
+</html>

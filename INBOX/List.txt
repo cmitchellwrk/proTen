@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListInboxTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+        <h:form styleClass="jsfcrud_list_form">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:outputText escape="false" value="#{bundle.ListInboxEmpty}" rendered="#{inboxController.items.rowCount == 0}"/>
+            <h:panelGroup rendered="#{inboxController.items.rowCount > 0}">
+                <h:outputText value="#{inboxController.pagination.pageFirstItem + 1}..#{inboxController.pagination.pageLastItem + 1}/#{inboxController.pagination.itemsCount}"/>&nbsp;
+                <h:commandLink action="#{inboxController.previous}" value="#{bundle.Previous} #{inboxController.pagination.pageSize}" rendered="#{inboxController.pagination.hasPreviousPage}"/>&nbsp;
+                <h:commandLink action="#{inboxController.next}" value="#{bundle.Next} #{inboxController.pagination.pageSize}" rendered="#{inboxController.pagination.hasNextPage}"/>&nbsp;
+                <h:dataTable value="#{inboxController.items}" var="item" border="0" cellpadding="2" cellspacing="0"  rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListInboxTitle_id}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListInboxTitle_removeinmsg}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.removeinmsg}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListInboxTitle_replyToId}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.replyToId}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListInboxTitle_imageurl}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListInboxTitle_sendtoid}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.sendtoid}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListInboxTitle_sendfromid}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.sendfromid}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListInboxTitle_sentFrom}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.sentFrom}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListInboxTitle_sentTo}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.sentTo}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListInboxTitle_subject}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.subject}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListInboxTitle_messageDate}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.messageDate}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListInboxTitle_msgText}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.msgText}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListInboxTitle_status}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.status}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListInboxTitle_now}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.now}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{inboxController.prepareView}" value="#{bundle.ListInboxViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{inboxController.prepareEdit}" value="#{bundle.ListInboxEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{inboxController.destroy}" value="#{bundle.ListInboxDestroyLink}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:panelGroup>
+            <br />
+            <h:commandLink action="#{inboxController.prepareCreate}" value="#{bundle.ListInboxCreateLink}"/>
+            <br />
+            <br />
+            <h:commandLink value="#{bundle.ListInboxIndexLink}" action="/index" immediate="true" />
+        </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

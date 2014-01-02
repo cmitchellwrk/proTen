@@ -1,0 +1,1 @@
+This is the beta version of a netbeans project for an online dating site. The last version of netbeans used for thei project was netbeans 6.9. This also uses a mysql database. Last used version 5.5. The dunp folder contains the mysql SQL file with commands to recreate all the tables and date  for about 20 "practice" members to test out the site. 

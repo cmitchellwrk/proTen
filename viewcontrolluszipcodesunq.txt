@@ -1,0 +1,35 @@
+
+    //  int bb =  (int)getItems().getRowIndex();
+
+      //  int bb = 15;
+
+       if(bb % 5 == 0){
+
+
+        //   setPagezip(bb/5);
+
+
+
+         if(bb/5==1){
+             
+           //  setFirstzip(1);
+
+               return "View";
+
+
+         }else{
+               
+          //    setFirstzip ((bb/5)-4);
+
+              return "View";
+
+         }
+
+
+       }else {
+
+         
+// setPagezip((bb/5) + 1);
+
+
+//   setFirstzip((bb/5) + 1);

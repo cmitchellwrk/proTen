@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.prime.com.tr/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListSentEmpty}" rendered="#{sentController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="true">
+
+
+                    <h:selectBooleanCheckbox value="#{membersControllerThree.checkallboolsentbox}" >
+
+
+                        <f:ajax event="click" render="@form" listener= "#{membersControllerThree.selectallcheckbox}" />
+
+
+                    </h:selectBooleanCheckbox>
+
+
+
+
+
+                    <h:outputText value="#{membersControllerThree.paginationSent.pageFirstItem + 1}..#{membersControllerThree.paginationSent.pageLastItem + 1}/#{membersControllerThree.paginationSent.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{membersControllerThree.previousSent}" value="#{bundle.Previous} #{membersControllerThree.paginationSent.pageSize}" rendered="#{membersControllerThree.paginationSent.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{membersControllerThree.nextSent}" value="#{bundle.Next} #{membersControllerThree.paginationSent.pageSize}" rendered="#{membersControllerThree.paginationSent.hasNextPage}"/>&nbsp;
+
+
+                    <p:dataTable value="#{membersControllerThree.itemsSent}" var="item"        style=" border-collapse:collapse;border:0px;width:1500px"      >
+
+                        <p:column   style=" border-width:0px"    >
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSentTitle_removesntmsg}"/>
+                            </f:facet>
+
+                            <h:selectBooleanCheckbox value="#{item.removesntmsg}" >
+
+
+                            </h:selectBooleanCheckbox>
+
+
+                        </p:column>
+
+                        <p:column  style=" border-width:0px"   >
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSentTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </p:column>
+
+                        <p:column  style=" border-width:0px"    >
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSentTitle_replyToId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.replyToId}"/>
+                        </p:column>
+
+
+
+                        <p:column  style=" border-width:0px"  >
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSentTitle_imageurl}"/>
+                            </f:facet>
+
+                            <h:commandLink action="#{membersControllerThree.prepareViewTwoSent}" >
+
+
+                                <h:graphicImage   height="95"  width ="95"   url ="#{item.imageurl}"/>
+
+
+                            </h:commandLink>
+
+                        </p:column>
+
+
+
+                        <p:column  style=" border-width:0px"   >
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSentTitle_sendtoid}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sendtoid}"/>
+                        </p:column>
+
+
+                        <p:column   style=" border-width:0px"   >
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSentTitle_sendfromid}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sendfromid}"/>
+                        </p:column>
+
+
+
+                        <p:column style=" border-width:0px"   >
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSentTitle_sentFrom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sentFrom}"/>
+                        </p:column>
+
+
+
+                        <p:column  style=" border-width:0px"  >
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSentTitle_sentTo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sentTo}"/>
+                        </p:column>
+
+
+
+                        <p:column style=" border-width:0px" >
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSentTitle_subject}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.subject}"/>
+                        </p:column>
+
+
+                        <p:column  style=" border-width:0px"  >
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSentTitle_messageDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.messageDate}"/>
+                        </p:column>
+
+
+
+                        <p:column style=" border-width:0px"  >
+                            <f:facet name="header">
+                                <h:outputText value="Replied"/>
+                            </f:facet>
+                            <h:outputText value="#{item.status}"/>
+                        </p:column>
+
+
+                        <p:column style=" border-width:0px"  >
+                            <f:facet name="header">
+                                <h:outputText value="Read"/>
+                            </f:facet>
+                            <h:outputText value="#{item.now}"/>
+                        </p:column>
+
+
+                        <p:column style=" border-width:0px"   >
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{membersControllerThree.prepareViewSent}" value="#{bundle.ListSentViewLink}"/>
+                            <h:outputText value=" "/>
+
+
+
+                        </p:column>
+                    </p:dataTable>
+                </h:panelGroup>
+
+
+                <br />
+                <br />
+                <br />
+                <h:commandButton styleClass="button"  action="#{membersControllerThree.preparUnblockTwo}"  value=" delete"/>
+                <br />
+
+
+
+
+                <br />
+
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListSentIndexLink}" action="#{membersControllerThree.prepareResetSent}" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

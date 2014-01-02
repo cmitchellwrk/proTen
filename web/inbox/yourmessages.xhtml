@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+    
+    <h:body>
+
+        <ui:composition template="/templates/templatered.xhtml">
+
+        <ui:define name="title">Singles messages | Hitmeupdate </ui:define>
+
+
+
+            <ui:define   name="contentten">
+
+
+
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+
+
+                <h:form>
+
+
+                    <h:panelGroup rendered="true">
+
+                        <h:selectBooleanCheckbox value="#{inboxControllerTwo.checkallboolinbox}" >
+                            <f:ajax event="click" render="@form" listener= "#{inboxControllerTwo.selectallcheckbox}" />
+                        </h:selectBooleanCheckbox>
+
+                        <h:outputText style="color: #e33b06" value="#{inboxControllerTwo.newmsg} new messages" rendered="#{inboxControllerTwo.newmsg > 0}" />
+                        <br/>
+                        <h:outputText  style="color:blue;" value="#{inboxControllerTwo.pagination.pageFirstItem + 1}..#{inboxControllerTwo.pagination.pageLastItem + 1}/#{inboxControllerTwo.pagination.itemsCount}"/>&nbsp;
+                        <h:commandLink action="#{inboxControllerTwo.previous}" value="#{bundle.Previous}" rendered="#{inboxControllerTwo.pagination.hasPreviousPage}"/>&nbsp;
+                        <h:commandLink action="#{inboxControllerTwo.next}" value="#{bundle.Next}" rendered="#{inboxControllerTwo.pagination.hasNextPage}"/>&nbsp;
+
+                        <p:dataTable    value="#{inboxControllerTwo.items}" var="item" emptyMessage="Your inbox is currently empty"  rowStyleClass="#{item.status eq 'unread' ? 'old' : null}"          style=" border-color: #37b2d1; border-collapse: collapse; border: 0px;width:1000px" >
+
+
+                            <p:column  style=" border-width:0px; width:70px;"     >
+
+                                <f:facet  name="header">
+                                    <h:outputText style=" font-weight: 600; color:#2681fc; "   value="Delete"/>
+
+
+                                </f:facet>
+
+                                <h:selectBooleanCheckbox value="#{item.removeinmsg}"    />
+
+                            </p:column>
+
+
+                            <p:column style=" border-width:0px; width:100px;"  >
+
+
+
+                                <h:commandLink action="#{inboxControllerTwo.prepareViewTwo}" >
+
+
+                                    <h:graphicImage   height="95"  width ="95"   url ="#{item.imageurl}"/>
+
+
+                                </h:commandLink>
+
+                            </p:column>
+
+
+
+                            <p:column style=" border-width:0px; width:60px;"  >
+
+                                <f:facet name="header">
+                                    <h:outputText    style=" font-weight: 600; color:#2681fc;   "  value="#{bundle.ListInboxTitle_sentFrom}"/>
+                                </f:facet>
+
+                                <h:outputText value="#{item.sentFrom}"/>
+                                <br/>
+                                <h:outputText value="#{item.status}"/>
+                                <br/>
+                                <h:outputText value="#{item.now}"/>
+
+                            </p:column>
+
+
+                            <p:column style=" border-width:0px"  >
+
+
+                                <f:facet name="header">
+                                    <h:outputText  style=" font-weight: 600; color:#2681fc;   "  value="#{bundle.ListInboxTitle_subject}"/>
+                                </f:facet>
+
+
+                                <h:commandLink action="#{inboxControllerTwo.prepareView}" value="#{item.subject}"  />
+
+                            </p:column>
+
+
+                            <p:column  style=" border-width:0px"  >
+
+
+                                <f:facet name="header">
+                                    <h:outputText style=" font-weight: 600; color:#2681fc;   "  value="#{bundle.ListInboxTitle_messageDate}"/>
+                                </f:facet>
+
+
+                                <h:outputText value="#{item.messageDate}"/>
+
+
+                            </p:column>
+
+
+
+
+                        </p:dataTable>
+                    </h:panelGroup>
+                  
+              
+                    <br />
+                    <br />
+                    <h:commandButton styleClass="button"   action="#{inboxControllerTwo.preparUnblockTwo}"  value=" Delete"/>
+                    <br />
+                    <br />
+                    <h:commandButton styleClass="button"       value="Blocked Members" action="/blocked/blockedsingles.xhtml" immediate="true" />
+                    <br />
+
+                </h:form>
+                <br />
+                <h:form>
+
+                    <h:commandButton styleClass="button"      action="#{inboxControllerTwo.prepareMailSettings}" value="Mail settings"/>
+
+                </h:form>
+                <br />
+
+
+            </ui:define>
+
+
+
+
+
+
+
+
+
+
+
+
+        </ui:composition>
+
+    </h:body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

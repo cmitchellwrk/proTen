@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePrioritiesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePrioritiesLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{prioritiesController.selected.id}" title="#{bundle.CreatePrioritiesTitle_id}" required="true" requiredMessage="#{bundle.CreatePrioritiesRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreatePrioritiesLabel_idcurrent}" for="idcurrent" />
+                    <h:inputText id="idcurrent" value="#{prioritiesController.selected.idcurrent}" title="#{bundle.CreatePrioritiesTitle_idcurrent}" required="true" requiredMessage="#{bundle.CreatePrioritiesRequiredMessage_idcurrent}"/>
+                    <h:outputLabel value="#{bundle.CreatePrioritiesLabel_pri1}" for="pri1" />
+                    <h:inputText id="pri1" value="#{prioritiesController.selected.pri1}" title="#{bundle.CreatePrioritiesTitle_pri1}" required="true" requiredMessage="#{bundle.CreatePrioritiesRequiredMessage_pri1}"/>
+                    <h:outputLabel value="#{bundle.CreatePrioritiesLabel_pri2}" for="pri2" />
+                    <h:inputText id="pri2" value="#{prioritiesController.selected.pri2}" title="#{bundle.CreatePrioritiesTitle_pri2}" required="true" requiredMessage="#{bundle.CreatePrioritiesRequiredMessage_pri2}"/>
+                    <h:outputLabel value="#{bundle.CreatePrioritiesLabel_pri3}" for="pri3" />
+                    <h:inputText id="pri3" value="#{prioritiesController.selected.pri3}" title="#{bundle.CreatePrioritiesTitle_pri3}" required="true" requiredMessage="#{bundle.CreatePrioritiesRequiredMessage_pri3}"/>
+                    <h:outputLabel value="#{bundle.CreatePrioritiesLabel_pri4}" for="pri4" />
+                    <h:inputText id="pri4" value="#{prioritiesController.selected.pri4}" title="#{bundle.CreatePrioritiesTitle_pri4}" required="true" requiredMessage="#{bundle.CreatePrioritiesRequiredMessage_pri4}"/>
+                    <h:outputLabel value="#{bundle.CreatePrioritiesLabel_pri5}" for="pri5" />
+                    <h:inputText id="pri5" value="#{prioritiesController.selected.pri5}" title="#{bundle.CreatePrioritiesTitle_pri5}" required="true" requiredMessage="#{bundle.CreatePrioritiesRequiredMessage_pri5}"/>
+                    <h:outputLabel value="#{bundle.CreatePrioritiesLabel_pri6}" for="pri6" />
+                    <h:inputText id="pri6" value="#{prioritiesController.selected.pri6}" title="#{bundle.CreatePrioritiesTitle_pri6}" required="true" requiredMessage="#{bundle.CreatePrioritiesRequiredMessage_pri6}"/>
+                    <h:outputLabel value="#{bundle.CreatePrioritiesLabel_pri7}" for="pri7" />
+                    <h:inputText id="pri7" value="#{prioritiesController.selected.pri7}" title="#{bundle.CreatePrioritiesTitle_pri7}" required="true" requiredMessage="#{bundle.CreatePrioritiesRequiredMessage_pri7}"/>
+                    <h:outputLabel value="#{bundle.CreatePrioritiesLabel_pri8}" for="pri8" />
+                    <h:inputText id="pri8" value="#{prioritiesController.selected.pri8}" title="#{bundle.CreatePrioritiesTitle_pri8}" required="true" requiredMessage="#{bundle.CreatePrioritiesRequiredMessage_pri8}"/>
+                    <h:outputLabel value="#{bundle.CreatePrioritiesLabel_pri9}" for="pri9" />
+                    <h:inputText id="pri9" value="#{prioritiesController.selected.pri9}" title="#{bundle.CreatePrioritiesTitle_pri9}" required="true" requiredMessage="#{bundle.CreatePrioritiesRequiredMessage_pri9}"/>
+                    <h:outputLabel value="#{bundle.CreatePrioritiesLabel_pri10}" for="pri10" />
+                    <h:inputText id="pri10" value="#{prioritiesController.selected.pri10}" title="#{bundle.CreatePrioritiesTitle_pri10}" required="true" requiredMessage="#{bundle.CreatePrioritiesRequiredMessage_pri10}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{prioritiesController.create}" value="#{bundle.CreatePrioritiesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{prioritiesController.prepareList}" value="#{bundle.CreatePrioritiesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreatePrioritiesIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

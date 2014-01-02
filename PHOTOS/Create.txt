@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+           
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_photouserid}" for="photouserid" />
+                    <h:inputText id="photouserid" value="#{photosController.selected.photouserid}" title="#{bundle.CreatePhotosTitle_photouserid}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_photouserid}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl1a}" for="imageurl1a" />
+                    <h:inputText id="imageurl1a" value="#{photosController.selected.imageurl1a}" title="#{bundle.CreatePhotosTitle_imageurl1a}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl1a}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl1b}" for="imageurl1b" />
+                    <h:inputText id="imageurl1b" value="#{photosController.selected.imageurl1b}" title="#{bundle.CreatePhotosTitle_imageurl1b}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl1b}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl2a}" for="imageurl2a" />
+                    <h:inputText id="imageurl2a" value="#{photosController.selected.imageurl2a}" title="#{bundle.CreatePhotosTitle_imageurl2a}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl2a}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl2b}" for="imageurl2b" />
+                    <h:inputText id="imageurl2b" value="#{photosController.selected.imageurl2b}" title="#{bundle.CreatePhotosTitle_imageurl2b}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl2b}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl3a}" for="imageurl3a" />
+                    <h:inputText id="imageurl3a" value="#{photosController.selected.imageurl3a}" title="#{bundle.CreatePhotosTitle_imageurl3a}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl3a}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl3b}" for="imageurl3b" />
+                    <h:inputText id="imageurl3b" value="#{photosController.selected.imageurl3b}" title="#{bundle.CreatePhotosTitle_imageurl3b}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl3b}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl4a}" for="imageurl4a" />
+                    <h:inputText id="imageurl4a" value="#{photosController.selected.imageurl4a}" title="#{bundle.CreatePhotosTitle_imageurl4a}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl4a}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl4b}" for="imageurl4b" />
+                    <h:inputText id="imageurl4b" value="#{photosController.selected.imageurl4b}" title="#{bundle.CreatePhotosTitle_imageurl4b}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl4b}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl5a}" for="imageurl5a" />
+                    <h:inputText id="imageurl5a" value="#{photosController.selected.imageurl5a}" title="#{bundle.CreatePhotosTitle_imageurl5a}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl5a}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl5b}" for="imageurl5b" />
+                    <h:inputText id="imageurl5b" value="#{photosController.selected.imageurl5b}" title="#{bundle.CreatePhotosTitle_imageurl5b}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl5b}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl6a}" for="imageurl6a" />
+                    <h:inputText id="imageurl6a" value="#{photosController.selected.imageurl6a}" title="#{bundle.CreatePhotosTitle_imageurl6a}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl6a}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl6b}" for="imageurl6b" />
+                    <h:inputText id="imageurl6b" value="#{photosController.selected.imageurl6b}" title="#{bundle.CreatePhotosTitle_imageurl6b}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl6b}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl7a}" for="imageurl7a" />
+                    <h:inputText id="imageurl7a" value="#{photosController.selected.imageurl7a}" title="#{bundle.CreatePhotosTitle_imageurl7a}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl7a}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl7b}" for="imageurl7b" />
+                    <h:inputText id="imageurl7b" value="#{photosController.selected.imageurl7b}" title="#{bundle.CreatePhotosTitle_imageurl7b}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl7b}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl8a}" for="imageurl8a" />
+                    <h:inputText id="imageurl8a" value="#{photosController.selected.imageurl8a}" title="#{bundle.CreatePhotosTitle_imageurl8a}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl8a}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl8b}" for="imageurl8b" />
+                    <h:inputText id="imageurl8b" value="#{photosController.selected.imageurl8b}" title="#{bundle.CreatePhotosTitle_imageurl8b}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl8b}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl9a}" for="imageurl9a" />
+                    <h:inputText id="imageurl9a" value="#{photosController.selected.imageurl9a}" title="#{bundle.CreatePhotosTitle_imageurl9a}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl9a}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl9b}" for="imageurl9b" />
+                    <h:inputText id="imageurl9b" value="#{photosController.selected.imageurl9b}" title="#{bundle.CreatePhotosTitle_imageurl9b}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl9b}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl10a}" for="imageurl10a" />
+                    <h:inputText id="imageurl10a" value="#{photosController.selected.imageurl10a}" title="#{bundle.CreatePhotosTitle_imageurl10a}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl10a}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl10b}" for="imageurl10b" />
+                    <h:inputText id="imageurl10b" value="#{photosController.selected.imageurl10b}" title="#{bundle.CreatePhotosTitle_imageurl10b}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl10b}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl11a}" for="imageurl11a" />
+                    <h:inputText id="imageurl11a" value="#{photosController.selected.imageurl11a}" title="#{bundle.CreatePhotosTitle_imageurl11a}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl11a}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl11b}" for="imageurl11b" />
+                    <h:inputText id="imageurl11b" value="#{photosController.selected.imageurl11b}" title="#{bundle.CreatePhotosTitle_imageurl11b}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl11b}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl12a}" for="imageurl12a" />
+                    <h:inputText id="imageurl12a" value="#{photosController.selected.imageurl12a}" title="#{bundle.CreatePhotosTitle_imageurl12a}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl12a}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl12b}" for="imageurl12b" />
+                    <h:inputText id="imageurl12b" value="#{photosController.selected.imageurl12b}" title="#{bundle.CreatePhotosTitle_imageurl12b}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl12b}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl13a}" for="imageurl13a" />
+                    <h:inputText id="imageurl13a" value="#{photosController.selected.imageurl13a}" title="#{bundle.CreatePhotosTitle_imageurl13a}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl13a}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl13b}" for="imageurl13b" />
+                    <h:inputText id="imageurl13b" value="#{photosController.selected.imageurl13b}" title="#{bundle.CreatePhotosTitle_imageurl13b}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl13b}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl14a}" for="imageurl14a" />
+                    <h:inputText id="imageurl14a" value="#{photosController.selected.imageurl14a}" title="#{bundle.CreatePhotosTitle_imageurl14a}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl14a}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl14b}" for="imageurl14b" />
+                    <h:inputText id="imageurl14b" value="#{photosController.selected.imageurl14b}" title="#{bundle.CreatePhotosTitle_imageurl14b}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl14b}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl15a}" for="imageurl15a" />
+                    <h:inputText id="imageurl15a" value="#{photosController.selected.imageurl15a}" title="#{bundle.CreatePhotosTitle_imageurl15a}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl15a}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl15b}" for="imageurl15b" />
+                    <h:inputText id="imageurl15b" value="#{photosController.selected.imageurl15b}" title="#{bundle.CreatePhotosTitle_imageurl15b}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl15b}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl16a}" for="imageurl16a" />
+                    <h:inputText id="imageurl16a" value="#{photosController.selected.imageurl16a}" title="#{bundle.CreatePhotosTitle_imageurl16a}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl16a}"/>
+                    <h:outputLabel value="#{bundle.CreatePhotosLabel_imageurl16b}" for="imageurl16b" />
+                    <h:inputText id="imageurl16b" value="#{photosController.selected.imageurl16b}" title="#{bundle.CreatePhotosTitle_imageurl16b}" required="true" requiredMessage="#{bundle.CreatePhotosRequiredMessage_imageurl16b}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{photosController.create}" value="#{bundle.CreatePhotosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{photosController.prepareList}" value="#{bundle.CreatePhotosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreatePhotosIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

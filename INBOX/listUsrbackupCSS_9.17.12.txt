@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+    <body>
+
+        <head>
+
+        </head>
+
+        <ui:composition template="/template.xhtml">
+
+
+            <ui:define name="title">
+            </ui:define>
+
+            <ui:define name="boxtwo">
+
+
+
+                <div id="navtwomenu">
+
+                    <ul>
+
+                        <li>
+                            <h:form>
+                                <h:link outcome="/inbox/ListUsr" value="Inbox items"/>
+                            </h:form>
+
+
+                        </li>
+
+                        <li>
+                            <h:form>
+                                <h:commandLink action="/sent/List" value="Sent items"/>
+                            </h:form>
+                        </li>
+
+                        <li>
+
+                            <h:form>
+                                <h:commandLink action="#{photosControllerTwo.findPhotoPage}" value="Manage my photos"/>
+                            </h:form>
+
+                        </li>
+
+                        <li>
+
+                            <h:form>
+                                <h:commandLink action= "#{membersController.prepareEditTwo}" value="Edit  my profile"/>
+                            </h:form>
+
+                        </li>
+
+                        <li>
+                            <h:form>
+
+                                <h:commandLink action="/SearchRad" value="Search for other  members"/>
+
+                            </h:form>
+
+                        </li>
+
+                        <li>
+
+                            <h:form>
+                                <h:commandLink action="/favorites/List" value="Favorite members"/>
+                            </h:form>
+
+                        </li>
+
+                        <br></br>
+                        <br></br>
+
+
+                        <li>
+                            <h:form>
+                                <h:commandLink action="/index" value="Rate pictures"/>
+                            </h:form>
+                        </li>
+
+
+                        <li>
+                            <h:form>
+                                <h:commandLink action="/hasviewedprofiletwo/List" value="Members that viewed my profile"/>
+                            </h:form>
+
+                        </li>
+
+
+                        <li>
+                            <h:form>
+                                <h:commandLink action="/umightlike/List" value="Members you might like"/>
+                            </h:form>
+
+                        </li>
+
+                        <li>
+
+                            <h:form>
+                                <h:commandLink action="/index" value="Members Online Now"/>
+                            </h:form>
+
+                        </li>
+
+                        <li>
+
+                            <h:form>
+                                <h:commandLink action="/index" value="Personality profile"/>
+                            </h:form>
+
+                        </li>
+
+
+                    </ul>
+
+                </div>
+
+
+
+
+
+
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+
+
+
+
+
+
+
+                <h:form>
+
+
+
+
+
+                    <h:outputText escape="false" value="#{bundle.ListInboxEmpty}" rendered="#{inboxControllerTwo.items.rowCount == 0}"/>
+
+                    <h:panelGroup rendered="true">
+
+                        <h:selectBooleanCheckbox value="#{inboxControllerTwo.checkallboolinbox}" >
+                            <f:ajax event="click" render="@form" listener= "#{inboxControllerTwo.selectallcheckbox}" />
+                        </h:selectBooleanCheckbox>
+
+
+                        <h:outputText value="#{inboxControllerTwo.pagination.pageFirstItem + 1}..#{inboxControllerTwo.pagination.pageLastItem + 1}/#{inboxControllerTwo.pagination.itemsCount}"/>&nbsp;
+                        <h:commandLink action="#{inboxControllerTwo.previous}" value="#{bundle.Previous} #{inboxControllerTwo.pagination.pageSize}" rendered="#{inboxControllerTwo.pagination.hasPreviousPage}"/>&nbsp;
+                        <h:commandLink action="#{inboxControllerTwo.next}" value="#{bundle.Next} #{inboxControllerTwo.pagination.pageSize}" rendered="#{inboxControllerTwo.pagination.hasNextPage}"/>&nbsp;
+
+                        <p:dataTable value="#{inboxControllerTwo.items}" var="item"    rowStyleClass="#{item.status eq 'unread' ? 'old' : null}"    style=" border-collapse:collapse;border:0px;width:1000px" >
+
+
+
+                            <p:column  style=" border-width:0px"     >
+
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListInboxTitle_removeinmsg}"/>
+
+
+
+                                </f:facet>
+
+                                <h:selectBooleanCheckbox value="#{item.removeinmsg}"    />
+
+
+                            </p:column>
+
+
+
+
+                            <p:column  style=" border-width:0px"   >
+
+
+
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListInboxTitle_imageurl}"/>
+                                </f:facet>
+
+
+
+                                <h:commandLink action="#{inboxControllerTwo.prepareViewTwo}" >
+
+
+                                    <h:graphicImage   height="95"  width ="95"   url ="#{item.imageurl}"/>
+
+
+                                </h:commandLink>
+
+                            </p:column>
+
+
+
+                            <p:column  style=" border-width:0px"   >
+
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListInboxTitle_sentFrom}"/>
+                                </f:facet>
+
+
+                                <h:outputText value="#{item.sentFrom}"/>
+
+
+                            </p:column>
+
+
+
+
+
+
+                            <p:column  style=" border-width:0px"   >
+
+
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListInboxTitle_subject}"/>
+                                </f:facet>
+
+
+                                <h:outputText value="#{item.subject}"/>
+
+
+                            </p:column>
+
+
+
+
+
+
+                            <p:column   style=" border-width:0px"   >
+
+
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListInboxTitle_messageDate}"/>
+                                </f:facet>
+
+
+
+                                <h:outputText value="#{item.messageDate}"/>
+
+                            </p:column>
+
+
+
+
+
+                            <p:column   style=" border-width:0px"   >
+
+
+
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListInboxTitle_status}"/>
+                                </f:facet>
+
+
+                                <h:outputText value="#{item.status}"/>
+
+
+                            </p:column>
+
+
+
+
+
+                            <p:column   style=" border-width:0px"  >
+
+
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListInboxTitle_now}"/>
+                                </f:facet>
+
+
+                                <h:outputText value="#{item.now}"/>
+
+                            </p:column>
+
+
+
+
+                            <p:column  style=" border-width:0px"  >
+
+
+                                <f:facet name="header">
+                                    <h:outputText value="&nbsp;"/>
+                                </f:facet>
+
+
+                                <h:commandLink action="#{inboxControllerTwo.prepareView}" value="#{bundle.ListInboxViewLink}"/>
+                                <h:outputText value=" "/>
+
+                            </p:column>
+
+
+
+                        </p:dataTable>
+                    </h:panelGroup>
+
+
+
+                    <br />
+                    <br />
+                    <br />
+                    <h:commandButton styleClass="button"  action="#{inboxControllerTwo.preparUnblockTwo}"  value=" delete"/>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <h:commandLink value="#{bundle.ListInboxIndexLink}" action="#{inboxControllerTwo.prepareResetIndex}"  />
+                    <br />
+                    <br />
+                    <br />
+                    <h:commandLink value="Show all Blocked Members" action="/blockedtwo/List" immediate="true" />
+                    <br />
+                    <br />
+
+                </h:form>
+
+
+
+
+                <br>
+                </br>
+                <h:form>
+                    <h:commandLink action="/mailsettings/List2_1" value="Mail settings"/>
+
+
+
+                </h:form>
+
+
+
+
+
+
+
+
+
+
+            </ui:define>
+        </ui:composition>
+
+
+
+    </body>
+
+</html>

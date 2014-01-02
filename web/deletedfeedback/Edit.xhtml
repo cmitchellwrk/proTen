@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditDeletedfeedbackTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditDeletedfeedbackLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{deletedfeedbackController.selected.id}" title="#{bundle.EditDeletedfeedbackTitle_id}" required="true" requiredMessage="#{bundle.EditDeletedfeedbackRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditDeletedfeedbackLabel_usernamedelete}" for="usernamedelete" />
+                    <h:inputText id="usernamedelete" value="#{deletedfeedbackController.selected.usernamedelete}" title="#{bundle.EditDeletedfeedbackTitle_usernamedelete}" required="true" requiredMessage="#{bundle.EditDeletedfeedbackRequiredMessage_usernamedelete}"/>
+                    <h:outputLabel value="#{bundle.EditDeletedfeedbackLabel_passworddelete}" for="passworddelete" />
+                    <h:inputText id="passworddelete" value="#{deletedfeedbackController.selected.passworddelete}" title="#{bundle.EditDeletedfeedbackTitle_passworddelete}" required="true" requiredMessage="#{bundle.EditDeletedfeedbackRequiredMessage_passworddelete}"/>
+                    <h:outputLabel value="#{bundle.EditDeletedfeedbackLabel_reasonfordelete}" for="reasonfordelete" />
+                    <h:inputText id="reasonfordelete" value="#{deletedfeedbackController.selected.reasonfordelete}" title="#{bundle.EditDeletedfeedbackTitle_reasonfordelete}" required="true" requiredMessage="#{bundle.EditDeletedfeedbackRequiredMessage_reasonfordelete}"/>
+                    <h:outputLabel value="#{bundle.EditDeletedfeedbackLabel_howmanydates}" for="howmanydates" />
+                    <h:inputText id="howmanydates" value="#{deletedfeedbackController.selected.howmanydates}" title="#{bundle.EditDeletedfeedbackTitle_howmanydates}" required="true" requiredMessage="#{bundle.EditDeletedfeedbackRequiredMessage_howmanydates}"/>
+                    <h:outputLabel value="#{bundle.EditDeletedfeedbackLabel_suggestions}" for="suggestions" />
+                    <h:inputTextarea rows="4" cols="30" id="suggestions" value="#{deletedfeedbackController.selected.suggestions}" title="#{bundle.EditDeletedfeedbackTitle_suggestions}" required="true" requiredMessage="#{bundle.EditDeletedfeedbackRequiredMessage_suggestions}"/>
+                    <h:outputLabel value="#{bundle.EditDeletedfeedbackLabel_recommendation}" for="recommendation" />
+                    <h:inputText id="recommendation" value="#{deletedfeedbackController.selected.recommendation}" title="#{bundle.EditDeletedfeedbackTitle_recommendation}" required="true" requiredMessage="#{bundle.EditDeletedfeedbackRequiredMessage_recommendation}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{deletedfeedbackController.update}" value="#{bundle.EditDeletedfeedbackSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditDeletedfeedbackViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{deletedfeedbackController.prepareList}" value="#{bundle.EditDeletedfeedbackShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditDeletedfeedbackIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

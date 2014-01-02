@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAbuseTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAbuseLabel_id}"/>
+                    <h:outputText value="#{abuseController.selected.id}" title="#{bundle.ViewAbuseTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewAbuseLabel_idUsernameReportid}"/>
+                    <h:outputText value="#{abuseController.selected.idUsernameReportid}" title="#{bundle.ViewAbuseTitle_idUsernameReportid}"/>
+                    <h:outputText value="#{bundle.ViewAbuseLabel_usernameOffender}"/>
+                    <h:outputText value="#{abuseController.selected.usernameOffender}" title="#{bundle.ViewAbuseTitle_usernameOffender}"/>
+                    <h:outputText value="#{bundle.ViewAbuseLabel_date}"/>
+                    <h:outputText value="#{abuseController.selected.date}" title="#{bundle.ViewAbuseTitle_date}"/>
+                    <h:outputText value="#{bundle.ViewAbuseLabel_descriptionOfOffense}"/>
+                    <h:outputText value="#{abuseController.selected.descriptionOfOffense}" title="#{bundle.ViewAbuseTitle_descriptionOfOffense}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{abuseController.destroyAndView}" value="#{bundle.ViewAbuseDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewAbuseEditLink}"/>
+                <br />
+                <h:commandLink action="#{abuseController.prepareCreate}" value="#{bundle.ViewAbuseCreateLink}" />
+                <br />
+                <h:commandLink action="#{abuseController.prepareList}" value="#{bundle.ViewAbuseShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewAbuseIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,315 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title><ui:insert name="title">Chemispark.com is 100% free online dating. No charges at all!</ui:insert></title>
+
+
+        <h:outputStylesheet name="css/style.css"/>
+
+
+
+    </h:head>
+
+    <h:body>
+
+
+
+        <h:form>
+
+
+
+            <h:commandLink action= "#{membersController.logout}"  style=" padding: 5px 20px 5px 20px; font-weight: 600; font-size:15px;    color:#2681fc ; text-shadow: 0 1px 1px rgba(0,0,0, .3);
+                           margin-left:10px; text-decoration:none;"  value="Logout" />
+
+
+
+            <h:commandLink action= "#{membersControllerThree.prepareViewThree}" style="padding: 5px 20px 5px 20px; font-weight: 600;  font-size:15px;     color:#2681fc   ; text-shadow: 0 1px 1px rgba(0,0,0, .3);
+                           margin-left:10px; text-decoration:none;"  value="My Profile" />
+
+
+
+            <h:commandLink  action= "#{membersController.prepareEditTwo}"  style="padding: 5px 20px 5px 20px;  font-size:15px; font-weight: 600;  color:#2681fc  ; text-shadow: 0 1px 1px rgba(0,0,0, .3);
+                            margin-left:10px; text-decoration:none;"  value="Edit My Profile" />
+
+
+
+
+            <h:commandLink  action="/indexthree" style=" padding: 5px 20px 5px 20px;  font-size:15px; font-weight: 600;   color:#2681fc; text-shadow: 0 1px 1px rgba(0,0,0, .3);
+                            margin-left:10px; text-decoration:none;"  value="Help" />
+
+
+
+        </h:form>
+
+
+
+        <!-- WRAPPER -->
+        <div id="wrapperten">
+
+
+            <!-- HEADER -->
+            <div id="headerten">
+                <!-- ENDS Social -->
+                <!-- Navigation -->
+
+                <h1 style="margin: 0px; font-weight:bolder;" >Welcome to Minglecatch</h1>
+                <p style="margin: 0px; font-weight: bolder; font-size: larger;"  > Minglecatch is a 100% free dating site. There are no subscriptions or charges for anything at all.</p>
+
+                <div id="navmenu">
+
+
+
+                    <ul>
+
+                        <li>
+                            <h:form>
+
+                                <h:commandLink style=" font-weight: 600"    action ="#{inboxControllerTwo.resetinbox}" value="Inbox"/>
+
+                            </h:form>
+
+
+                        </li>
+
+                        <li>
+                            <h:form>
+
+                                <h:commandLink  style=" font-weight: 600"    action= "#{inboxControllerTwo.resetsent}" value="Sent"/>
+
+                            </h:form>
+                        </li>
+
+                        <li>
+
+                            <h:form>
+                                <h:commandLink  style=" font-weight: 600"    action="#{photosControllerTwo.findPhotoPage}" value="Photos"/>
+                            </h:form>
+
+                        </li>
+
+
+                        <li>
+                            <h:form>
+
+                                <h:commandLink style=" font-weight: 600"    action="#{membersControllerFive.resetsearchrad}" value="Search"/>
+
+                            </h:form>
+
+                        </li>
+
+
+
+
+                        <li>
+
+                            <h:form>
+                                <h:commandLink  style=" font-weight: 600"   action="/favorites/List" value="Favorites"/>
+                            </h:form>
+
+                        </li>
+
+
+
+                        <li>
+                            <h:form>
+                                <h:commandLink  style=" font-weight: 600"   action="/hasviewedprofiletwo/List" value="Visitors"/>
+                            </h:form>
+
+                        </li>
+
+
+                        <li>
+                            <h:form>
+                                <h:commandLink  style=" font-weight: 600"   action="#{membersControllerFive.umightlikepage}" value="You Might Like"/>
+                            </h:form>
+
+                        </li>
+
+
+
+
+
+                    </ul>
+
+
+
+
+                </div>
+
+                <br />
+
+
+
+
+
+                <!-- Navigation -->
+
+                <!-- search -->
+
+                <!-- ENDS search -->
+
+                <!-- headline -->
+
+                <!-- ENDS headline -->
+
+                <!-- Slider -->
+                <div id="slider-block">
+                    <div id="slider-holder">
+                        <div id="slider">
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- ENDS Slider -->
+
+            </div>
+            <!-- ENDS HEADER -->
+
+
+
+
+            <br />
+
+            <br />
+
+
+
+            <br />
+
+            <br />
+
+
+
+
+
+            <!-- MAIN -->
+            <div id="mainten">
+
+                <!-- content -->
+                <div id="contentten">
+
+
+
+                    <ui:insert  name="contentten">Default value for Content</ui:insert>
+
+                    <!-- TABS -->
+                    <!-- the tabs -->
+
+
+
+                    <!-- tab "panes" -->
+
+
+
+
+                    <!-- ENDS TABS -->
+
+
+
+
+
+                </div>
+                <!-- ENDS content -->
+
+                <!-- Twitter -->
+
+                <!-- ENDS Twitter -->
+
+
+            </div>
+            <!-- ENDS MAIN -->
+
+            <!-- FOOTER -->
+            <div id="footer">
+
+                <!-- footer-cols -->
+                <ul id="footer-cols">
+                    <li class="col">
+
+                        <h:graphicImage library="css/images" name="istock6767.jpg"/>
+
+
+                        <h6>About the theme</h6>
+						Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.
+                    </li>
+                    <li class="col">
+                        <h6>Categories</h6>
+                        <ul>
+                            <li><a href="#">Webdesign</a></li>
+                            <li><a href="#/">Wordpress</a></li>
+                            <li><a href="#">Photo</a></li>
+                            <li><a href="#">Code</a></li>
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#/">Marketplace</a></li>
+                            <li><a href="#">Writting</a></li>
+                            <li><a href="#">Drawings</a></li>
+                        </ul>
+                    </li>
+                    <li class="col">
+                        <h6>Categories</h6>
+                        <ul>
+                            <li><a href="#">Webdesign</a></li>
+                            <li><a href="#/">Wordpress</a></li>
+                            <li><a href="#">Photo</a></li>
+                            <li><a href="#">Code</a></li>
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#/">Marketplace</a></li>
+                            <li><a href="#">Writting</a></li>
+                            <li><a href="#">Drawings</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- ENDS footer-cols -->
+
+                <!-- Bottom -->
+                <div id="bottom">
+
+                    2012 <a href="http://www.minglecatch.com"> minglecatch</a> all rights reserved
+
+                    <div id="to-top" class="poshytip" title="To top"></div>
+
+                </div>
+                <!-- ENDS Bottom -->
+
+
+
+            </div>
+            <!-- ENDS FOOTER -->
+
+        </div>
+        <!-- ENDS WRAPPER -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </h:body>
+
+
+
+
+
+
+</html>

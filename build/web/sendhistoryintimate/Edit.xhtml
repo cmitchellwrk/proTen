@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditSendhistoryintimateTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditSendhistoryintimateLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{sendhistoryintimateController.selected.id}" title="#{bundle.EditSendhistoryintimateTitle_id}" required="true" requiredMessage="#{bundle.EditSendhistoryintimateRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditSendhistoryintimateLabel_shiid}" for="shiid" />
+                    <h:inputText id="shiid" value="#{sendhistoryintimateController.selected.shiid}" title="#{bundle.EditSendhistoryintimateTitle_shiid}" required="true" requiredMessage="#{bundle.EditSendhistoryintimateRequiredMessage_shiid}"/>
+                    <h:outputLabel value="#{bundle.EditSendhistoryintimateLabel_sentuser}" for="sentuser" />
+                    <h:inputText id="sentuser" value="#{sendhistoryintimateController.selected.sentuser}" title="#{bundle.EditSendhistoryintimateTitle_sentuser}" required="true" requiredMessage="#{bundle.EditSendhistoryintimateRequiredMessage_sentuser}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{sendhistoryintimateController.update}" value="#{bundle.EditSendhistoryintimateSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditSendhistoryintimateViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{sendhistoryintimateController.prepareList}" value="#{bundle.EditSendhistoryintimateShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditSendhistoryintimateIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

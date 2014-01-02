@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewFavoritesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewFavoritesLabel_id}"/>
+                    <h:outputText value="#{favoritesController.selected.id}" title="#{bundle.ViewFavoritesTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewFavoritesLabel_idcurrent}"/>
+                    <h:outputText value="#{favoritesController.selected.idcurrent}" title="#{bundle.ViewFavoritesTitle_idcurrent}"/>
+                    <h:outputText value="#{bundle.ViewFavoritesLabel_idfavperson}"/>
+                    <h:outputText value="#{favoritesController.selected.idfavperson}" title="#{bundle.ViewFavoritesTitle_idfavperson}"/>
+                    <h:outputText value="#{bundle.ViewFavoritesLabel_username}"/>
+                    <h:outputText value="#{favoritesController.selected.username}" title="#{bundle.ViewFavoritesTitle_username}"/>
+                    <h:outputText value="#{bundle.ViewFavoritesLabel_now}"/>
+                    <h:outputText value="#{favoritesController.selected.now}" title="#{bundle.ViewFavoritesTitle_now}"/>
+                    <h:outputText value="#{bundle.ViewFavoritesLabel_imageurl}"/>
+                    <h:outputText value="#{favoritesController.selected.imageurl}" title="#{bundle.ViewFavoritesTitle_imageurl}"/>
+                    <h:outputText value="#{bundle.ViewFavoritesLabel_city}"/>
+                    <h:outputText value="#{favoritesController.selected.city}" title="#{bundle.ViewFavoritesTitle_city}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{favoritesController.destroyAndView}" value="#{bundle.ViewFavoritesDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewFavoritesEditLink}"/>
+                <br />
+                <h:commandLink action="#{favoritesController.prepareCreate}" value="#{bundle.ViewFavoritesCreateLink}" />
+                <br />
+                <h:commandLink action="#{favoritesController.prepareList}" value="#{bundle.ViewFavoritesShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewFavoritesIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

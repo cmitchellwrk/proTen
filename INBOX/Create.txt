@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateInboxTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateInboxLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{inboxController.selected.id}" title="#{bundle.CreateInboxTitle_id}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateInboxLabel_removeinmsg}" for="removeinmsg" />
+                    <h:inputText id="removeinmsg" value="#{inboxController.selected.removeinmsg}" title="#{bundle.CreateInboxTitle_removeinmsg}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_removeinmsg}"/>
+                    <h:outputLabel value="#{bundle.CreateInboxLabel_replyToId}" for="replyToId" />
+                    <h:inputText id="replyToId" value="#{inboxController.selected.replyToId}" title="#{bundle.CreateInboxTitle_replyToId}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_replyToId}"/>
+                    <h:outputLabel value="#{bundle.CreateInboxLabel_imageurl}" for="imageurl" />
+                    <h:inputText id="imageurl" value="#{inboxController.selected.imageurl}" title="#{bundle.CreateInboxTitle_imageurl}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_imageurl}"/>
+                    <h:outputLabel value="#{bundle.CreateInboxLabel_sendtoid}" for="sendtoid" />
+                    <h:inputText id="sendtoid" value="#{inboxController.selected.sendtoid}" title="#{bundle.CreateInboxTitle_sendtoid}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_sendtoid}"/>
+                    <h:outputLabel value="#{bundle.CreateInboxLabel_sendfromid}" for="sendfromid" />
+                    <h:inputText id="sendfromid" value="#{inboxController.selected.sendfromid}" title="#{bundle.CreateInboxTitle_sendfromid}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_sendfromid}"/>
+                    <h:outputLabel value="#{bundle.CreateInboxLabel_sentFrom}" for="sentFrom" />
+                    <h:inputText id="sentFrom" value="#{inboxController.selected.sentFrom}" title="#{bundle.CreateInboxTitle_sentFrom}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_sentFrom}"/>
+                    <h:outputLabel value="#{bundle.CreateInboxLabel_sentTo}" for="sentTo" />
+                    <h:inputText id="sentTo" value="#{inboxController.selected.sentTo}" title="#{bundle.CreateInboxTitle_sentTo}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_sentTo}"/>
+                    <h:outputLabel value="#{bundle.CreateInboxLabel_subject}" for="subject" />
+                    <h:inputText id="subject" value="#{inboxController.selected.subject}" title="#{bundle.CreateInboxTitle_subject}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_subject}"/>
+                    <h:outputLabel value="#{bundle.CreateInboxLabel_messageDate}" for="messageDate" />
+                    <h:inputText id="messageDate" value="#{inboxController.selected.messageDate}" title="#{bundle.CreateInboxTitle_messageDate}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_messageDate}"/>
+                    <h:outputLabel value="#{bundle.CreateInboxLabel_msgText}" for="msgText" />
+                    <h:inputTextarea rows="4" cols="30" id="msgText" value="#{inboxController.selected.msgText}" title="#{bundle.CreateInboxTitle_msgText}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_msgText}"/>
+                    <h:outputLabel value="#{bundle.CreateInboxLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{inboxController.selected.status}" title="#{bundle.CreateInboxTitle_status}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_status}"/>
+                    <h:outputLabel value="#{bundle.CreateInboxLabel_now}" for="now" />
+                    <h:inputText id="now" value="#{inboxController.selected.now}" title="#{bundle.CreateInboxTitle_now}" required="true" requiredMessage="#{bundle.CreateInboxRequiredMessage_now}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{inboxController.create}" value="#{bundle.CreateInboxSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{inboxController.prepareList}" value="#{bundle.CreateInboxShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateInboxIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

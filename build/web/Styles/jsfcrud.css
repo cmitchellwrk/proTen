@@ -1,0 +1,298 @@
+root { 
+    display: block;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #3a4f54;
+    background-color: #dfecf1;
+    font-size: small;
+}
+
+a {
+    color: #e33b06;
+}
+
+table {
+    empty-cells: show;
+}
+
+form.jsfcrud_list_form th, td th {
+    font-size: x-small;
+    color: #4e6a71;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-color: #b2d5d6;
+    border-bottom-color: #b2d5d6;
+    border-left-color: #90b4bd;
+    border-right-color: #90b4bd;
+    letter-spacing: 3px;
+    text-align: left;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+    background-color: #b2d5d6;
+}
+
+td {
+    vertical-align: top;
+    padding-bottom: 8px;
+    font-size: small;
+}
+
+form.jsfcrud_list_form td, td td {
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-color: #b2d5d6;
+    border-bottom-color: #b2d5d6;
+    border-left-color: #b2d5d6;
+    border-right-color: #b2d5d6;
+    vertical-align: baseline;
+    padding-bottom: 0px;
+}
+
+tr.jsfcrud_odd_row {
+    background-color: #fefeff;
+    color: #4e6a71;
+}
+
+
+tr.jsfcrud_even_row {
+    background-color: #eff5fa;
+    color: #4e6a71;
+}
+
+#busyImage {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.subContainer {
+    margin: 30px;
+    padding: 10px;
+    width: 850px;
+    min-height: 800px;
+    margin-bottom: 120px;
+    position: relative;
+}
+
+.greyBox {
+    background-color: #FFFAFA;
+    border: 1px solid #ccc;
+
+    -webkit-border-radius: 10px;
+
+    -moz-border-radius: 10px;
+
+}
+
+
+
+.subContainerTwo {
+    margin: 30px;
+    padding: 10px;
+    width: 250px;
+    min-height: 250px;
+
+    position: relative;
+
+
+}
+
+.greyBoxTwo {
+    background-color: #FFFAFA;
+    border: 1px solid #ccc;
+
+
+    -webkit-border-radius: 10px;
+
+    -moz-border-radius: 10px;
+
+}
+
+
+
+
+
+.button {
+
+
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 12px/100% Arial, Helvetica, sans-serif;
+	padding: .5em 2em .35em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em;
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.button:hover {
+
+	text-decoration: none;
+}
+.button:active {
+
+	position: relative;
+	top: 1px;
+}
+
+
+
+.buttontwo {
+
+
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 13px/100% Arial, Helvetica, sans-serif;
+	padding: .15em 1.2em .10em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em;
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.buttontwo:hover {
+
+	text-decoration: none;
+}
+.buttontwo:active {
+
+	position: relative;
+	top: 1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tablist {
+    list-style:none;
+    height:4em;
+    padding:0;
+    margin:0;
+    border: none;
+}
+
+
+
+
+.tablist li {
+    float:left;
+    margin-right:0.13em;
+}
+
+.tablist li a {
+    display:block;
+    padding:0 1em;
+    text-decoration:none;
+    border:0.06em solid #000;
+    border-bottom:0;
+    font:bold 0.88em/2em arial,geneva,helvetica,sans-serif;
+    color:#000;
+    background-color: #FFFAFA;
+
+    /* CSS 3 elements */
+
+    -webkit-border-top-left-radius:0.50em;
+    -moz-border-radius-topright:0.50em;
+    -moz-border-radius-topleft:0.50em;
+}
+
+.tablist li a:hover {
+    background:#3cf;
+    color:#fff;
+    text-decoration:none;
+}
+
+
+.tablist li#current a {
+    background-color: #777;
+    color: #fff;
+}
+.tablist li#current a:hover {
+    background: #39C;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

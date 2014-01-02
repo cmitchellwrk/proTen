@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+    <h:body>
+
+        <ui:composition template="/templates/templatered.xhtml">
+
+            <ui:define name="title">Edit singles account | Hitmeupdate </ui:define>
+
+            <ui:define   name="contentten">
+
+
+                <h:form>
+
+                    <h:panelGrid cellpadding="0"  cellspacing="20px"    columns="3">
+
+                        <h:outputText style=" font-weight: 500; color: red"  id="checkpasswordnew" value="#{membersController.checkpasswordnew}">
+
+
+                        </h:outputText>
+
+                        <h:outputText style=" font-weight: 500; color: red"  id="checkusernamenew" value="#{membersController.checkusernamenew}">
+
+                        </h:outputText>
+
+
+                        <h:outputText style=" font-weight: 500; color: red"  id="zipcodevalid" value="#{membersController.zipcodevalid}">
+
+                        </h:outputText>
+
+
+                    </h:panelGrid>
+
+
+
+
+
+
+                    <h:panelGrid  cellpadding="0"  cellspacing="20px"    columns="4">
+
+
+                        <h:outputLabel style=" color:black;font-weight: bold " value="#{bundle.CreateMembersLabel_username}" for="username" />
+                        <p:inputText   style="font-size: larger;" id="username" value="#{membersController.selectedTwo.username}"  binding="#{membersController.usrNamNew}"    title="#{bundle.CreateMembersTitle_username}"  requiredMessage="#{bundle.CreateMembersRequiredMessage_username}">
+
+
+                            <f:ajax event="blur"  render="checkusernamenew" listener="#{membersController.checkUsrNew}"   />
+
+
+
+                        </p:inputText>
+
+
+                        <h:outputLabel style="color:black; font-weight: bold"  value="#{bundle.CreateMembersLabel_password}" for="password" />
+                        <p:inputText style="font-size: larger; "  id="password" value="#{membersController.selectedTwo.password}"   binding="#{membersController.usrPasswordNew}"   title="#{bundle.CreateMembersTitle_password}" requiredMessage="#{bundle.CreateMembersRequiredMessage_password}">
+
+
+
+                            <f:ajax event="blur"  render="checkpasswordnew" listener="#{membersController.checkUsrNewTwo}"   />
+
+
+
+                        </p:inputText>
+
+
+
+                        <h:outputLabel style="color:black; font-weight: bold"  value="#{bundle.CreateMembersLabel_email}" for="email" />
+                        <p:inputText  style=" font-size: larger;  " id="email" value="#{membersController.selectedTwo.email}" title="#{bundle.CreateMembersTitle_email}"  requiredMessage="#{bundle.CreateMembersRequiredMessage_email}"/>
+
+
+
+
+
+                        <h:outputLabel  style="color:black; font-weight: bold" value="#{bundle.CreateMembersLabel_birthMonth}" for="birthMonth" />
+
+
+                        <p:selectOneMenu  style=" font-size: larger; font-weight: bold;" id = "birth_month" value="#{membersController.selectedTwo.birthMonth}"  >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.b_month}"/>
+                        </p:selectOneMenu>
+
+
+
+                        <h:outputLabel style="color:black; font-weight: bold"  value="#{bundle.CreateMembersLabel_birthDay}" for="birthDay" />
+
+
+                        <p:selectOneMenu  style=" font-size: larger; font-weight: bold;" id = "birth_day" value="#{membersController.selectedTwo.birthDay}"   >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.b_day}"/>
+                        </p:selectOneMenu>
+
+
+
+
+
+
+                        <h:outputLabel  style="color:black; font-weight: bold" value="#{bundle.CreateMembersLabel_birthYear}" for="birthYear" />
+
+
+                        <p:selectOneMenu style="  font-size: larger; font-weight: bold;"  id = "birth_year" value="#{membersController.selectedTwo.birthYear}" >
+                            <f:selectItem  itemLabel="Select One" itemValue="" />
+                            <f:selectItems   value="#{MemberLoginBean.b_year}"/>
+                        </p:selectOneMenu>
+
+
+
+
+                        <h:outputLabel  style="color:black; font-weight: bold" value="I would like to meet a:" for="seekingA" />
+
+                        <p:selectOneMenu style=" font-size: larger; font-weight: bold;"  id = "seekingA" value="#{membersController.selectedTwo.seekingA}"  >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.gend}"/>
+                        </p:selectOneMenu>
+
+
+
+                        <h:outputLabel style="color:black; font-weight: bold"  value="#{bundle.CreateMembersLabel_zipcode}" for="zipcode" />
+
+                        <p:inputText  style="font-size: larger; "  id="inputzip"     value="#{membersController.selectedTwo.zipcode}"     binding="#{membersController.inputZip}">
+
+                            <f:ajax event="blur" render="inputcity inputstate zipcodevalid" listener= "#{membersController.zipAutoFillListener}" />
+
+
+
+                        </p:inputText>
+
+
+
+                        <h:outputLabel style="color:black; font-weight: bold"  value="#{bundle.CreateMembersLabel_country}" for="country" />
+                        <p:inputText style="font-size: larger; "  id="country" value="#{membersController.selectedTwo.country}" title="#{bundle.CreateMembersTitle_country}" requiredMessage="#{bundle.CreateMembersRequiredMessage_country}"/>
+
+
+
+
+                        <h:outputLabel  style="color:black;  font-weight: bold;"  value="#{bundle.CreateMembersLabel_city}" for="city:" />
+
+                        <p:inputText style="font-size: larger; "  id="inputcity"      value="#{membersController.selectedTwo.city}"  binding="#{membersController.inputCity}"
+                                     immediate="true" />
+
+
+
+
+
+                        <h:outputLabel style="color:black; font-weight: bold"   value="#{bundle.CreateMembersLabel_gender}" for="gender" />
+
+
+                        <p:selectOneMenu style=" font-size: larger; font-weight: bold;"  id = "gender" value="#{membersController.selectedTwo.gender}"   >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.gend}"/>
+                        </p:selectOneMenu>
+
+
+
+
+
+                        <h:outputLabel style="color:black; font-weight: bold"  value="#{bundle.CreateMembersLabel_states}" for="states" />
+
+                        <p:inputText style="font-size: larger; "  id="inputstate"     value="#{membersController.selectedTwo.states}"   binding="#{membersController.inputState}"
+                                     immediate="true" />
+
+
+
+
+                        <h:outputLabel style="color:black;  font-weight: bold;"  value="I am looking for:" for="lookingFor" />
+
+                        <p:selectOneMenu style=" font-size: larger; font-weight: bold;"  id = "lookingFor" value="#{membersController.selectedTwo.lookingFor}"  >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.wants}"/>
+                        </p:selectOneMenu>
+
+
+
+
+
+
+
+                        <h:outputLabel style="color:black;  font-weight: bold;"  value="#{bundle.CreateMembersLabel_sign}" for="sign" />
+
+
+                        <p:selectOneMenu style=" font-size: larger; font-weight: bold;" id = "sign" value="#{membersController.selectedTwo.sign}"  >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.signs}"/>
+                        </p:selectOneMenu>
+
+
+
+
+
+                        <h:outputLabel style="color:black;  font-weight: bold;"  value="#{bundle.CreateMembersLabel_ethnicity}" for="ethnicity" />
+
+                        <p:selectOneMenu style=" font-size: larger; font-weight: bold;" id = "ethnicity" value="#{membersController.selectedTwo.ethnicity}"  >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.ethnic}"/>
+                        </p:selectOneMenu>
+
+
+
+                        <h:outputLabel style="color:black;  font-weight: bold;"  value="#{bundle.CreateMembersLabel_height}" for="height" />
+
+
+                        <p:selectOneMenu style=" font-size: larger; font-weight: bold;"  id = "height" value="#{membersController.selectedTwo.height}"   >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.heights}"/>
+                        </p:selectOneMenu>
+
+
+
+
+                        <h:outputLabel style="color:black;  font-weight: bold;"  value="hair color" for="hairColor" />
+
+                        <p:selectOneMenu style=" font-size: larger; font-weight: bold;"  id = "hairColor" value="#{membersController.selectedTwo.hairColor}"  >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.hair}"/>
+                        </p:selectOneMenu>
+
+
+
+                        <h:outputLabel style="color:black;  font-weight: bold;" value="body type" for="bodyType" />
+
+                        <p:selectOneMenu style=" font-size: larger; font-weight: bold;"  id = "bodyType" value="#{membersController.selectedTwo.bodyType}"  >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.body_types}"/>
+                        </p:selectOneMenu>
+
+
+
+
+                        <h:outputLabel style="color:black;  font-weight: bold;" value="#{bundle.CreateMembersLabel_car}" for="car" />
+
+                        <p:selectOneMenu style=" font-size: larger; font-weight: bold;"  id = "car" value="#{membersController.selectedTwo.car}"    >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.ynp}"/>
+                        </p:selectOneMenu>
+
+
+
+
+
+
+                        <h:outputLabel  style="color:black;  font-weight: bold;" value="#{bundle.CreateMembersLabel_education}" for="education" />
+
+                        <p:selectOneMenu style=" font-size: larger; font-weight: bold;" id = "education" value="#{membersController.selectedTwo.education}"   >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.education_levels}"/>
+                        </p:selectOneMenu>
+
+
+
+
+
+                        <h:outputLabel  style="color:black;  font-weight: bold;" value="#{bundle.CreateMembersLabel_hasChildren}" for="hasChildren" />
+
+                        <p:selectOneMenu  style=" font-size: larger; font-weight: bold;" id = "kids" value="#{membersController.selectedTwo.hasChildren}"  >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.kids}"/>
+                        </p:selectOneMenu>
+
+
+
+
+                        <h:outputLabel  style="color:black;  font-weight: bold;" value="#{bundle.CreateMembersLabel_wantsChildren}" for="wantsChildren" />
+
+                        <p:selectOneMenu  style=" font-size: larger; font-weight: bold;" id = "wantsChildren" value="#{membersController.selectedTwo.wantsChildren}"  >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.wants_kids}"/>
+                        </p:selectOneMenu>
+
+
+
+
+                        <h:outputLabel  style="color:black;  font-weight: bold;" value="#{bundle.CreateMembersLabel_married}" for="married" />
+
+                        <p:selectOneMenu  style=" font-size: larger; font-weight: bold;" id = "married" value="#{membersController.selectedTwo.married}" >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.marital_status}"/>
+                        </p:selectOneMenu>
+
+
+
+                        <h:outputLabel  style="color:black; font-weight: bold;"   value="#{bundle.CreateMembersLabel_smoker}" for="smoker" />
+
+                        <p:selectOneMenu style=" font-size: larger; font-weight: bold;"  id = "smoker" value="#{membersController.selectedTwo.smoker}"   >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.smoking}"/>
+                        </p:selectOneMenu>
+
+
+
+                        <h:outputLabel  style="color:black;  font-weight: bold;" value="#{bundle.CreateMembersLabel_drink}" for="drink" />
+
+                        <p:selectOneMenu  style=" font-size: larger; font-weight: bold;" id = "drink" value="#{membersController.selectedTwo.drink}"   >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.drink_habit}"/>
+                        </p:selectOneMenu>
+
+
+                        <h:outputLabel  style="color:black;  font-weight: bold;" value="#{bundle.CreateMembersLabel_drugs}" for="drugs" />
+
+                        <p:selectOneMenu  style=" font-size: larger; font-weight: bold;" id = "drugs" value="#{membersController.selectedTwo.drugs}"  >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.drug_use}"/>
+                        </p:selectOneMenu>
+
+
+
+                        <h:outputLabel   style="color:black;  font-weight: bold;"  value="#{bundle.CreateMembersLabel_religion}" for="religion" />
+
+                        <p:selectOneMenu style=" font-size: larger; font-weight: bold;" id = "religion" value="#{membersController.selectedTwo.religion}"  >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.religions}"/>
+                        </p:selectOneMenu>
+
+
+
+                        <h:outputLabel  style="color:black;  font-weight: bold;"  value="#{bundle.CreateMembersLabel_profession}" for="profession" />
+                        <p:inputText style="font-size: larger; " id="profession" value="#{membersController.selectedTwo.profession}" title="#{bundle.CreateMembersTitle_profession}" requiredMessage="#{bundle.CreateMembersRequiredMessage_profession}"/>
+
+
+
+
+                        <h:outputLabel   style="color:black;  font-weight: bold;" value="#{bundle.CreateMembersLabel_income}" for="income" />
+
+                        <p:selectOneMenu  style=" font-size: larger; font-weight: bold;" id = "income" value="#{membersController.selectedTwo.income}"   >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.income_level}"/>
+                        </p:selectOneMenu>
+
+
+
+
+
+                    </h:panelGrid>
+
+
+
+                    <h:panelGrid cellpadding="0"  cellspacing="40px"    columns="2">
+
+
+
+                        <h:outputLabel  style="color:black;  font-weight: bold;"   value="Date idea catagory" for="percent2" />
+
+
+                        <p:selectOneMenu  style=" font-size: larger; font-weight: bold; width:200px;  " id = "percent2" value="#{membersController.selectedTwo.percent2}"   >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.datecatagory}"/>
+                        </p:selectOneMenu>
+
+
+
+
+                        <h:outputLabel   style="color:black;  font-weight: bold;"     value="Date Idea" for="percent3" />
+
+
+                        <p:inputTextarea  style="font-size: larger; "  rows="14" cols="70" id="percent3" value="#{membersController.selectedTwo.percent3}" title="#{bundle.CreateMembersTitle_percent3}" requiredMessage="#{bundle.CreateMembersRequiredMessage_percent3}"/>
+
+
+
+                        <h:outputLabel  style="color:black;  font-weight: bold;" value="#{bundle.CreateMembersLabel_aim}" for="aim" />
+
+                        <p:selectOneMenu  style=" font-size: larger; font-weight: bold; width:450px;" id = "aim" value="#{membersController.selectedTwo.aim}"  >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.aim}"/>
+                        </p:selectOneMenu>
+
+
+
+                        <h:outputLabel style="color:black;  font-weight: bold;"   value="Hit me up if" for="headline" />
+                        <p:inputText style=" width: 580px; font-size: larger; "  id="headline" value="#{membersController.selectedTwo.headline}" title="#{bundle.CreateMembersTitle_headline}" requiredMessage="#{bundle.CreateMembersRequiredMessage_headline}"/>
+
+
+
+
+                        <h:outputLabel style="color:black;  font-weight: bold;" value="Don't hit me up if" for="percent1" />
+                        <h:inputText   style=" width: 580px; font-size: larger; "     id="percent1" value="#{membersController.selected.percent1}" title="#{bundle.CreateMembersTitle_percent1}" requiredMessage="#{bundle.CreateMembersRequiredMessage_percent1}"/>
+
+
+
+
+
+                        <h:outputLabel   style="color:black;  font-weight: bold;" value="About Me" for="description" />
+                        <p:inputTextarea  style="font-size: larger; "  rows="14" cols="70" id="description" value="#{membersController.selectedTwo.description}" title="#{bundle.CreateMembersTitle_description}" requiredMessage="#{bundle.CreateMembersRequiredMessage_description}"/>
+
+
+
+                        <h:outputLabel style="color:black;  font-weight: bold;"   value="#{bundle.CreateMembersLabel_interests}" for="interests" />
+                        <p:inputText style=" width: 580px; font-size: larger; "   id="interests" value="#{membersController.selectedTwo.interests}" title="#{bundle.CreateMembersTitle_interests}"  requiredMessage="#{bundle.CreateMembersRequiredMessage_interests}"/>
+
+
+
+
+
+
+
+
+                    </h:panelGrid>
+
+
+                    <h:commandButton styleClass="button" action="#{membersController.update}" value="Change Profile"/>
+                    <br />
+                    <br />  
+
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+
+</html>

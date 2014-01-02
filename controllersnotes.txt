@@ -1,0 +1,64 @@
+1)member controller three
+- used for all the p1-8 pages under members
+
+
+
+
+
+
+
+2)member controllersix
+
+
+view1 - view8 on members 
+
+members/viewone-view8 - preparecreattwo 
+
+
+
+
+
+
+
+3)memberscontroller
+
+
+
+
+
+
+
+4)inboxcontrolertwo
+
+vs1-vs8  on sent 
+
+vin1-vin8 - on inbox.
+
+
+
+
+
+5)memberscontrollerfive
+
+
+
+
+-used for hasviewedprofiletwo- 
+all the viewone-8 pages
+
+
+
+inbox VIn1- VIn8-  preparecreateInbox, createFavorites
+
+
+hasviewedprofiletwo/viewone-view8- preparecreatTwo, createFavorites
+
+
+
+
+
+
+
+6)photoscontrollertwo
+all list1, list1b - list 8 pages
+

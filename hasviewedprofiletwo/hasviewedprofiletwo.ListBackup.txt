@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+    <h:body>
+
+    	<ui:composition template="/templatecsstest.xhtml">
+
+
+
+
+            <ui:define   name="contentten">
+
+<h:form>
+
+
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+
+            <h:outputText escape="false" value="#{bundle.ListHasviewedprofiletwoEmpty}" rendered="#{hasviewedprofiletwoController.items.rowCount == 0}"/>
+            <h:panelGroup rendered="#{hasviewedprofiletwoController.items.rowCount > 0}">
+                <h:outputText style="color:#2681fc;"   value="#{hasviewedprofiletwoController.pagination.pageFirstItem + 1}..#{hasviewedprofiletwoController.pagination.pageLastItem + 1}/#{hasviewedprofiletwoController.pagination.itemsCount}"/>&nbsp;
+                <h:commandLink action="#{hasviewedprofiletwoController.previous}" value="#{bundle.Previous} #{hasviewedprofiletwoController.pagination.pageSize}" rendered="#{hasviewedprofiletwoController.pagination.hasPreviousPage}"/>&nbsp;
+                <h:commandLink action="#{hasviewedprofiletwoController.next}" value="#{bundle.Next} #{hasviewedprofiletwoController.pagination.pageSize}" rendered="#{hasviewedprofiletwoController.pagination.hasNextPage}"/>&nbsp;
+
+
+
+
+                <p:dataTable value="#{hasviewedprofiletwoController.items}" var="item"  style=" color:black; border:1px; ">
+
+
+                    <p:column  style=" border-width:0px"    >
+                        <f:facet name="header">
+                            <h:outputText style="color:#2681fc;" value="#{bundle.ListHasviewedprofiletwoTitle_id}"/>
+                        </f:facet>
+                        <h:outputText  style="color:#2681fc;"    value="#{item.id}"/>
+                    </p:column>
+
+
+                    <p:column   style=" border-width:0px"   >
+                        <f:facet name="header">
+                            <h:outputText style="color:#2681fc;"   value="#{bundle.ListHasviewedprofiletwoTitle_idcurrent}"/>
+                        </f:facet>
+                        <h:outputText  style="color:#2681fc;"    value="#{item.idcurrent}"/>
+                    </p:column>
+
+
+                    <p:column style=" border-width:0px"   >
+                        <f:facet name="header">
+                            <h:outputText style="color:#2681fc;"   value="#{bundle.ListHasviewedprofiletwoTitle_idhvperson}"/>
+                        </f:facet>
+                        <h:outputText  style="color:#2681fc;"    value="#{item.idhvperson}"/>
+                    </p:column>
+
+
+                    <p:column  style=" border-width:0px"   >
+                        <f:facet name="header">
+                            <h:outputText style="color:#2681fc;"   value="#{bundle.ListHasviewedprofiletwoTitle_username}"/>
+                        </f:facet>
+                        <h:outputText  style="color:#2681fc;"   value="#{item.username}"/>
+                    </p:column>
+
+
+                    <p:column style=" border-width:0px"    >
+                        <f:facet name="header">
+                            <h:outputText  style="color:#2681fc;"  value="#{bundle.ListHasviewedprofiletwoTitle_now}"/>
+                        </f:facet>
+                        <h:outputText  style="color:#2681fc;"   value="#{item.now}"/>
+                    </p:column>
+
+
+                    <p:column style=" border-width:0px"    >
+                        <f:facet name="header">
+                            <h:outputText style="color:#2681fc;"   value="#{bundle.ListHasviewedprofiletwoTitle_imageurl}"/>
+                        </f:facet>
+
+                   <h:graphicImage height="95"  width ="95"  style=" border-color: #333"     value="#{item.imageurl}"/>
+
+
+                    </p:column>
+
+
+
+                    <p:column style=" border-width:0px"     >
+                        <f:facet name="header">
+                            <h:outputText  style="color:#2681fc;"  value="#{bundle.ListHasviewedprofiletwoTitle_city}"/>
+                        </f:facet>
+                        <h:outputText  style="color:#2681fc;"   value="#{item.city}"/>
+                    </p:column>
+
+
+                    <p:column  style=" border-width:0px"   >
+                        <f:facet name="header">
+                            <h:outputText style="color:#2681fc;"   value="#{bundle.ListHasviewedprofiletwoTitle_dateandtime}"/>
+                        </f:facet>
+                        <h:outputText  style="color:#2681fc;"   value="#{item.dateandtime}"/>
+                    </p:column>
+
+
+                    <p:column style=" border-width:0px"   >
+                        <f:facet name="header">
+                            <h:outputText style="color:#2681fc;"    value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{hasviewedprofiletwoController.prepareView}" value="#{bundle.ListHasviewedprofiletwoViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{hasviewedprofiletwoController.prepareEdit}" value="#{bundle.ListHasviewedprofiletwoEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{hasviewedprofiletwoController.destroy}" value="#{bundle.ListHasviewedprofiletwoDestroyLink}"/>
+                    </p:column>
+
+
+                </p:dataTable>
+
+
+
+            </h:panelGroup>
+            <br />
+            <h:commandLink action="#{hasviewedprofiletwoController.prepareCreate}" value="#{bundle.ListHasviewedprofiletwoCreateLink}"/>
+            <br />
+            <br />
+            <h:commandLink value="#{bundle.ListHasviewedprofiletwoIndexLink}" action="/index" immediate="true" />
+        </h:form>
+
+
+
+
+
+
+
+            </ui:define>
+
+
+
+
+
+
+
+
+
+
+
+
+    	</ui:composition>
+
+    </h:body>
+
+</html>

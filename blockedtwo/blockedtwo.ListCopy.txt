@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListBlockedtwoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+        <h:form styleClass="jsfcrud_list_form">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:outputText escape="false" value="#{bundle.ListBlockedtwoEmpty}" rendered="#{blockedtwoController.items.rowCount == 0}"/>
+            <h:panelGroup rendered="#{blockedtwoController.items.rowCount > 0}">
+                <h:outputText value="#{blockedtwoController.pagination.pageFirstItem + 1}..#{blockedtwoController.pagination.pageLastItem + 1}/#{blockedtwoController.pagination.itemsCount}"/>&nbsp;
+                <h:commandLink action="#{blockedtwoController.previous}" value="#{bundle.Previous} #{blockedtwoController.pagination.pageSize}" rendered="#{blockedtwoController.pagination.hasPreviousPage}"/>&nbsp;
+                <h:commandLink action="#{blockedtwoController.next}" value="#{bundle.Next} #{blockedtwoController.pagination.pageSize}" rendered="#{blockedtwoController.pagination.hasNextPage}"/>&nbsp;
+                <h:dataTable value="#{blockedtwoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListBlockedtwoTitle_id}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListBlockedtwoTitle_unblock}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.unblock}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListBlockedtwoTitle_idcurrent}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idcurrent}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListBlockedtwoTitle_idofblocked}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idofblocked}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListBlockedtwoTitle_imageurl}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{blockedtwoController.prepareView}" value="#{bundle.ListBlockedtwoViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{blockedtwoController.prepareEdit}" value="#{bundle.ListBlockedtwoEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{blockedtwoController.destroy}" value="#{bundle.ListBlockedtwoDestroyLink}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:panelGroup>
+            <br />
+            <h:commandLink action="#{blockedtwoController.prepareCreate}" value="#{bundle.ListBlockedtwoCreateLink}"/>
+            <br />
+            <br />
+            <h:commandLink value="#{bundle.ListBlockedtwoIndexLink}" action="/index" immediate="true" />
+        </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

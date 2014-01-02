@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/templatefive.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMembersTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListMembersEmpty}" rendered="#{membersController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{membersController.items.rowCount > 0}">
+                    <h:outputText value="#{membersController.pagination.pageFirstItem + 1}..#{membersController.pagination.pageLastItem + 1}/#{membersController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{membersController.previous}" value="#{bundle.Previous} #{membersController.pagination.pageSize}" rendered="#{membersController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{membersController.next}" value="#{bundle.Next} #{membersController.pagination.pageSize}" rendered="#{membersController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{membersControllerThree.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style=" width:1000px; border:solid 1px">
+                       
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_username}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.username}"/>
+                        </h:column>
+                        
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_now}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.now}"/>
+                        </h:column>
+                       
+
+
+                        <h:column>
+
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_imageurl}"/>
+                            </f:facet>
+
+                            <h:commandLink action="#{membersControllerThree.prepareViewTwo}" >
+
+                            <h:graphicImage    height="95"  width ="95"    url ="#{item.imageurl}">
+
+                            
+                            </h:graphicImage>
+
+
+                            </h:commandLink>
+                            
+                        </h:column>
+
+
+
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_birthMonth}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.birthMonth}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_birthDay}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.birthDay}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_birthYear}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.birthYear}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_city}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.city}"/>
+                        </h:column>
+                        
+                       
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_zipcode}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.zipcode}"/>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_lat}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lat}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_lon}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lon}"/>
+                        </h:column>
+
+
+
+                        
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_lookingFor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lookingFor}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_aim}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.aim}"/>
+                        </h:column>
+                       
+                       
+                       
+                      
+                       
+                       
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_education}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.education}"/>
+                        </h:column>
+                       
+                       
+                       
+                       
+                        
+                       
+                       
+                      
+                       
+                       
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_headline}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.headline}"/>
+                        </h:column>
+                        
+                        
+                       
+                        
+                        
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{membersControllerThree.prepareViewTwo}" value="#{bundle.ListMembersViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{membersController.prepareEdit}" value="#{bundle.ListMembersEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{membersController.destroy}" value="#{bundle.ListMembersDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{membersController.prepareCreate}" value="#{bundle.ListMembersCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListMembersIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

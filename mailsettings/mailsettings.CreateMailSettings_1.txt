@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMailsettingsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{mailsettingsController.selected.id}" title="#{bundle.CreateMailsettingsTitle_id}" required="true" requiredMessage="#{bundle.CreateMailsettingsRequiredMessage_id}"/>
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_idmember}" for="idmember" />
+                    <h:inputText id="idmember" value="#{mailsettingsController.selected.idmember}" title="#{bundle.CreateMailsettingsTitle_idmember}" required="true" requiredMessage="#{bundle.CreateMailsettingsRequiredMessage_idmember}"/>
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_gender}" for="gender" />
+
+
+                    <h:selectOneMenu style=" font-size: larger; font-weight: bold;"  id = "gender" value="#{mailsettingsController.selected.gender}"  required="true" >
+                        <f:selectItem itemLabel="Select One" itemValue="" />
+                        <f:selectItems value="#{MemberSettingsBean.gend}"/>
+                    </h:selectOneMenu>
+
+
+
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_country}" for="country" />
+                    <h:inputText id="country" value="#{mailsettingsController.selected.country}" title="#{bundle.CreateMailsettingsTitle_country}" required="true" requiredMessage="#{bundle.CreateMailsettingsRequiredMessage_country}"/>
+
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_firstcontactmessgesize}" for="firstcontactmessgesize" />
+
+
+
+                    <h:selectOneMenu style=" font-size: larger; font-weight: bold;"  id = "firstcontactmessagesize" value="#{mailsettingsController.selected.firstcontactmessgesize}"  required="true" >
+                        <f:selectItem itemLabel="Select One" itemValue="" />
+                        <f:selectItems value="#{MemberSettingsBean.firstcontactmsgsze}"/>
+                    </h:selectOneMenu>
+
+
+
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_agefrom}" for="agefrom" />
+                    <h:inputText id="agefrom" value="#{mailsettingsController.selected.agefrom}" title="#{bundle.CreateMailsettingsTitle_agefrom}" required="true" requiredMessage="#{bundle.CreateMailsettingsRequiredMessage_agefrom}"/>
+
+
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_ageto}" for="ageto" />
+                    <h:inputText id="ageto" value="#{mailsettingsController.selected.ageto}" title="#{bundle.CreateMailsettingsTitle_ageto}" required="true" requiredMessage="#{bundle.CreateMailsettingsRequiredMessage_ageto}"/>
+
+
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_within}" for="within" />
+
+
+                    <h:selectOneMenu style=" font-size: larger; font-weight: bold;"  id = "within" value="#{mailsettingsController.selected.within}"  required="true" >
+                        <f:selectItem itemLabel="Select One" itemValue="" />
+                        <f:selectItems value="#{MemberSettingsBean.withinn}"/>
+                    </h:selectOneMenu>
+
+
+
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_hangout}" for="hangout" />
+
+
+                    <h:selectBooleanCheckbox  id = "hangout" value="#{mailsettingsController.selected.hangout}"  required="true" >
+                        <f:selectItem itemLabel="Select One" itemValue="" />
+                        <f:selectItems value="#{MemberSettingsBean.hangout}"/>
+
+                    </h:selectBooleanCheckbox>
+
+
+
+
+
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_friendship}" for="friendship" />
+
+
+
+                    <h:selectBooleanCheckbox  id = "friendship" value="#{mailsettingsController.selected.friendship}"  required="true" >
+                        <f:selectItem itemLabel="Select One" itemValue="" />
+                        <f:selectItems value="#{MemberSettingsBean.friendship}"/>
+
+                    </h:selectBooleanCheckbox>
+
+
+
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_activitypartner}" for="activitypartner" />
+
+                   
+
+                    <h:selectBooleanCheckbox  id = "activitypartner" value="#{mailsettingsController.selected.activitypartner}"  required="true" >
+                        <f:selectItem itemLabel="Select One" itemValue="" />
+                        <f:selectItems value="#{MemberSettingsBean.activitypartner}"/>
+
+                    </h:selectBooleanCheckbox>
+
+
+
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_dating}" for="dating" />
+
+
+                    <h:selectBooleanCheckbox  id = "dating" value="#{mailsettingsController.selected.dating}"  required="true" >
+                        <f:selectItem itemLabel="Select One" itemValue="" />
+                        <f:selectItems value="#{MemberSettingsBean.dating}"/>
+
+                    </h:selectBooleanCheckbox>
+
+
+
+
+                    
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_longterm}" for="longterm" />
+
+
+                    <h:selectBooleanCheckbox  id = "longterm" value="#{mailsettingsController.selected.longterm}"  required="true" >
+                        <f:selectItem itemLabel="Select One" itemValue="" />
+                        <f:selectItems value="#{MemberSettingsBean.longterm}"/>
+
+                    </h:selectBooleanCheckbox>
+
+
+
+                   
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_intimateencounter}" for="intimateencounter" />
+                  
+
+                    <h:selectBooleanCheckbox  id = "intimateencounter" value="#{mailsettingsController.selected.intimateencounter}"  required="true" >
+                        <f:selectItem itemLabel="Select One" itemValue="" />
+                        <f:selectItems value="#{MemberSettingsBean.intimateencounter}"/>
+
+                    </h:selectBooleanCheckbox>
+
+
+
+
+
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_talkemail}" for="talkemail" />
+ 
+
+                    <h:selectBooleanCheckbox  id = "talkemail" value="#{mailsettingsController.selected.talkemail}"  required="true" >
+                        <f:selectItem itemLabel="Select One" itemValue="" />
+                        <f:selectItems value="#{MemberSettingsBean.talkemail}"/>
+
+                    </h:selectBooleanCheckbox>
+
+
+
+
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_otherrelationship}" for="otherrelationship" />
+
+                 
+
+                    <h:selectBooleanCheckbox  id = "otherrelashionship" value="#{mailsettingsController.selected.otherrelationship}"  required="true" >
+                        <f:selectItem itemLabel="Select One" itemValue="" />
+                        <f:selectItems value="#{MemberSettingsBean.otherrelationship}"/>
+
+                    </h:selectBooleanCheckbox>
+
+
+
+                    
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_usedrugs}" for="usedrugs" />
+
+
+                    <h:selectBooleanCheckbox  id = "usedrugs" value="#{mailsettingsController.selected.usedrugs}"  required="true" >
+                        <f:selectItem itemLabel="Select One" itemValue="" />
+                        <f:selectItems value="#{MemberSettingsBean.usedrugs}"/>
+
+                    </h:selectBooleanCheckbox>
+
+
+
+
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_smoke}" for="smoke" />
+
+
+                    <h:selectBooleanCheckbox  id = "smoke" value="#{mailsettingsController.selected.smoke}"  required="true" >
+                        <f:selectItem itemLabel="Select One" itemValue="" />
+                        <f:selectItems value="#{MemberSettingsBean.smoke}"/>
+
+                    </h:selectBooleanCheckbox>
+
+
+
+
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_havemessagedintenct}" for="havemessagedintenct" />
+
+
+
+                    <h:selectBooleanCheckbox  id = "havemessagedintenct" value="#{mailsettingsController.selected.havemessagedintenct}"  required="true" >
+                        <f:selectItem itemLabel="Select One" itemValue="" />
+                        <f:selectItems value="#{MemberSettingsBean.havmessageintenct}"/>
+
+                    </h:selectBooleanCheckbox>
+
+
+
+                    
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_emailaddress}" for="emailaddress" />
+
+                    <h:inputText id="emailaddress" value="#{mailsettingsController.selected.emailaddress}" title="#{bundle.CreateMailsettingsTitle_emailaddress}" required="true" requiredMessage="#{bundle.CreateMailsettingsRequiredMessage_emailaddress}"/>
+
+
+
+
+
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_email1}" for="email1" />
+                    <h:inputText id="email1" value="#{mailsettingsController.selected.email1}" title="#{bundle.CreateMailsettingsTitle_email1}" required="true" requiredMessage="#{bundle.CreateMailsettingsRequiredMessage_email1}"/>
+
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_email2}" for="email2" />
+                    <h:inputText id="email2" value="#{mailsettingsController.selected.email2}" title="#{bundle.CreateMailsettingsTitle_email2}" required="true" requiredMessage="#{bundle.CreateMailsettingsRequiredMessage_email2}"/>
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_email3}" for="email3" />
+                    <h:inputText id="email3" value="#{mailsettingsController.selected.email3}" title="#{bundle.CreateMailsettingsTitle_email3}" required="true" requiredMessage="#{bundle.CreateMailsettingsRequiredMessage_email3}"/>
+
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_email4}" for="email4" />
+                    <h:inputText id="email4" value="#{mailsettingsController.selected.email4}" title="#{bundle.CreateMailsettingsTitle_email4}" required="true" requiredMessage="#{bundle.CreateMailsettingsRequiredMessage_email4}"/>
+
+
+
+                    <h:outputLabel value="#{bundle.CreateMailsettingsLabel_email5}" for="email5" />
+                    <h:inputText id="email5" value="#{mailsettingsController.selected.email5}" title="#{bundle.CreateMailsettingsTitle_email5}" required="true" requiredMessage="#{bundle.CreateMailsettingsRequiredMessage_email5}"/>
+
+
+
+
+
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{mailsettingsController.create}" value="#{bundle.CreateMailsettingsSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{mailsettingsController.prepareList}" value="#{bundle.CreateMailsettingsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateMailsettingsIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

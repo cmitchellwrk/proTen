@@ -1,0 +1,2616 @@
+package model;
+
+import controller.BlockedtwoFacade;
+import controller.HasviewedprofiletwoFacade;
+import controller.InboxFacade;
+import controller.MailsettingsFacade;
+import model.util.JsfUtil;
+import model.util.PaginationHelper;
+import controller.MembersFacade;
+import controller.PhotosFacade;
+import controller.SendhistoryintimateFacade;
+import controller.SentFacade;
+import controller.UmightlikeFacade;
+import controller.UszipcodesdbFacade;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.List;
+
+import java.util.ResourceBundle;
+import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.component.UIComponent;
+import javax.faces.component.html.HtmlInputText;
+import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
+import javax.faces.convert.FacesConverter;
+import javax.faces.event.AjaxBehaviorEvent;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
+import javax.faces.model.SelectItem;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
+import javax.servlet.http.HttpSession;
+
+
+@ManagedBean (name="membersControllerFive")
+@SessionScoped
+public class MembersControllerFive {
+
+
+private String username;
+
+private String password;
+
+
+ private DataModel itemszip = null;
+
+
+ 
+//main date model for send/List.xhtml page
+    private DataModel itemssent = null;
+
+
+ //all the FL strings below are used for the radius search page to get
+    //fields to limit  radius search query.
+
+    private String yearnow;
+
+
+
+    private String zipcodeSearchTwo;
+
+    private int radius;
+
+    private String genderFl;
+    private String seekingFl;
+    private String lookingFl;
+
+    private String agefromFl;
+
+    private String agetoFl;
+
+    private String state;
+//end of all FL Strings for search radius.
+
+
+    private String cityFl;
+
+
+
+
+
+private HtmlInputText usrNamNew;
+
+
+private String checkusernamenew;
+
+
+ 
+ public Uszipcodesdb zipcode3 = null;
+
+
+
+
+
+
+
+
+ @EJB
+    private controller.UszipcodesdbFacade ejbFacade3;
+
+
+
+ @EJB
+    private controller.PhotosFacade ejbFacade4;
+
+
+    public Photos currentPhotoSetUp;
+
+
+
+     @EJB
+     private controller.InboxFacade ejbFacadeIn;
+
+
+    private Mailsettings currentmail;
+
+
+
+
+    private Members current;
+
+    private Members currenttwo;
+
+
+    private DataModel items = null;
+
+  private DataModel itemsumightlikemain = null;
+
+
+    private DataModel itemslistfl = null;
+
+
+
+
+    @EJB private controller.MembersFacade ejbFacade;
+
+    private PaginationHelper pagination;
+
+  private PaginationHelper paginationlistfl;
+
+
+
+    private int selectedItemIndex;
+
+
+
+      private DataModel itemstwo = null;
+
+      
+
+       private DataModel itemsumightlike = null;
+
+
+
+
+     private PaginationHelper paginationTwo;
+
+
+  private PaginationHelper paginationzip;
+
+
+     private PaginationHelper paginationThree;
+
+
+      private PaginationHelper paginationFour;
+
+     
+
+ private Inbox currentin;
+
+
+
+
+ private Sent senttwo;
+
+
+
+ @EJB private controller.SentFacade ejbFacadeSent;
+
+
+
+        private String retph2;
+
+
+     @EJB private controller.MailsettingsFacade ejbFacademail;
+
+
+
+ @EJB private controller.BlockedtwoFacade ejbFacadeBlockedtwo;
+
+
+  private Blockedtwo currentblockedtwo;
+
+
+
+
+
+
+
+
+
+        @EJB private controller.HasviewedprofileFacade ejbFacadeHasviewedprofile;
+
+
+
+       private Hasviewedprofile currentHasviewedprofile;
+
+
+
+ @EJB private controller.HasviewedprofiletwoFacade ejbFacadeHasviewedprofiletwo;
+
+ //used in prepareViewTwo of umightlike/List page.
+   private Hasviewedprofiletwo currentHasviewedprofiletwo;
+
+
+
+  //used in prepareViewTwo of umightlike/List.
+      private Umightlike currentumightlike;
+
+
+      @EJB private controller.UmightlikeFacade ejbFacadeumightlike;
+
+
+
+    @EJB private controller.SendhistoryintimateFacade ejbFacadeSendhistoryintimate;
+
+
+      private Sendhistoryintimate currentSendhistoryintimate;
+
+
+
+  //used to show display in the VSt pages also.
+    private Members currentmem;
+
+
+
+
+
+
+
+    public MembersControllerFive() {
+    }
+
+    public Members getSelected() {
+        if (current == null) {
+            current = new Members();
+            selectedItemIndex = -1;
+        }
+        return current;
+    }
+
+
+
+ public Members getSelectedTwo() {
+        if (currenttwo == null) {
+            currenttwo = new Members();
+            selectedItemIndex = -1;
+        }
+        return currenttwo;
+    }
+
+
+
+
+
+ public Inbox getSelectedSndMsg() {
+        if (currentin == null) {
+
+            currentin = new Inbox();
+            
+            selectedItemIndex = -1;
+        }
+        return currentin;
+    }
+
+
+
+
+
+ public String umightlikepage(){
+
+     
+
+          if (itemsumightlike == null) {
+            itemsumightlike = getPaginationThree().createPageDataModel();
+        }
+
+          List<Members> lisstt = new ArrayList<Members>();
+
+ List<Umightlike> blitems = (List<Umightlike>)itemsumightlike.getWrappedData();
+
+
+ Members currentmemb = getFacade().findMember();
+
+getFacade().setGenderumight(currentmemb.getSeekingA());
+
+
+  if( blitems.isEmpty()){
+
+
+      return"/umightlike/List";
+
+
+
+  }else{
+
+
+
+
+    //  if (itemsumightlike == null) {
+    //        itemsumightlike = getPaginationThree().createPageDataModel();
+    //    }
+
+
+
+ //  List<Members> lisstt = new ArrayList<Members>();
+
+//   List<Umightlike> blitems = (List<Umightlike>)itemsumightlike.getWrappedData();
+
+
+int rwct = blitems.size();
+
+// if(rwct==0){
+  //  rwct=1;
+  // }
+
+
+String memzip = currentmemb.getZipcode();
+
+
+
+
+ float fftt = calculateLatitudeRadius(75);
+ float ffnn = calculateLongitudeRadius(75);
+
+
+  getFacade().setZipdatathree(memzip);
+
+            Uszipcodesdb ii = getFacade().findRangeZip();
+
+            float fflat = (ii.getLatitude()) + fftt;
+
+            getFacade().setFlatone(fflat);
+
+            float iitt = (ii.getLatitude()) - fftt;
+
+            getFacade().setFlattwo(iitt);
+
+            float fflon = (ii.getLongitude()) + ffnn;
+
+            getFacade().setFlonone(fflon);
+
+            float iinn = (ii.getLongitude()) - ffnn;
+
+            getFacade().setFlontwo(iinn);
+
+
+
+
+  for( Umightlike curblock : blitems ){
+
+    long lglg =   curblock.getIdfavperson();
+
+    getFacade().setIdmemhold(lglg);
+
+   Members mem1 =  getFacade().findMemberTwo();
+
+            boolean add = lisstt.add(mem1);
+
+     }
+
+
+ int mmm = 0;
+
+// int fff = 0;
+
+
+ for( Members lissttmemhold : lisstt){
+
+    String mmmhold = lissttmemhold.getBirthYear();
+
+
+    int mmmholdint = Integer.parseInt(mmmhold);
+
+mmm = mmm + mmmholdint;
+
+
+ }
+
+
+int mmmdivup = (mmm /rwct) + 3;
+int mmmdivlow = (mmm /rwct) - 3;
+
+
+String mmmdivstringup = Integer.toString(mmmdivup);
+String mmmdivstringlow = Integer.toString(mmmdivlow);
+
+
+
+getFacade().setYearboundup(mmmdivstringup);
+getFacade().setYearboundlow(mmmdivstringlow);
+
+
+getFacade().setGendmemhold(currentmemb.getSeekingA());
+
+ //if (itemsdisplay == null) {
+    //        itemsdisplay = getPaginationdisplay().createPageDataModel();
+     //      return itemsdisplay;
+//
+      //  }else {
+
+
+     return"/umightlike/ListUsrtwo";
+
+
+  }
+
+
+     }
+
+
+
+   public DataModel getItemszip() {
+        if (itemszip == null) {
+           itemszip = getPaginationZip().createPageDataModel();
+       }
+        return itemszip;
+   }
+
+
+
+
+public String resetsearchrad(){
+
+    itemslistfl=null;
+    return"/SearchRad";
+
+    
+}
+
+
+
+
+  public String createsearch() {
+
+      itemslistfl=null;
+
+      
+
+        try {
+
+
+            if(getZipcodeSearchTwo().equals("")){
+                //do city, state search
+
+
+      Members proxymem = getFacade().findMember();
+
+              //  String proxyzip = proxymem.getZipcode();
+
+
+            float fftt = calculateLatitudeRadius(getRadius()+2);
+
+            float ffnn = calculateLongitudeRadius(getRadius()+2);
+
+
+            getFacade().setCityFlmem(getCityFl());
+            getFacade().setStateFlmem(getState());
+
+
+
+ itemszip = getItemszip();
+   List<Uszipcodesdb> blitems = (List<Uszipcodesdb>)itemszip.getWrappedData();
+
+
+         Uszipcodesdb ii =  blitems.get(0);
+
+        //  Uszipcodesdb ii = getFacade().findRangeCity();
+
+
+
+            float fflat = (ii.getLatitude()) + fftt;
+
+            getFacade().setFlatone(fflat);
+
+            float iitt = (ii.getLatitude()) - fftt;
+
+            getFacade().setFlattwo(iitt);
+
+            float fflon = (ii.getLongitude()) + ffnn;
+
+            getFacade().setFlonone(fflon);
+
+            float iinn = (ii.getLongitude()) - ffnn;
+
+            getFacade().setFlontwo(iinn);
+
+            //end of zipcode radius data processing
+            String gen = getGenderFl();
+
+            getFacade().setGenderFlmem(gen);
+
+            getFacade().setSeekingFlmem(getSeekingFl());
+
+            getFacade().setLookingFlmem(getLookingFl());
+
+        //    getFacade().setEthnicityFlmem(getEthnicityFl());
+
+      //      getFacade().setSignFlmem(getSignFl());
+
+         //   getFacade().setStateFlmem(getState());
+
+
+        //   getFacade().setCityFlmem(getCityFl());
+
+
+            Calendar cal=Calendar.getInstance();
+            int currentyear=cal.get(Calendar.YEAR);
+
+            String afro = getAgefromFl();
+
+            int afroint = Integer.parseInt(afro);
+
+
+            String ato = getAgetoFl();
+
+            int atoint = Integer.parseInt(ato);
+
+
+
+           int afroyear =   currentyear-afroint;
+
+           int atoyear = currentyear-atoint;
+
+
+getFacade().setAgefromFlem(Integer.toString(atoyear));
+
+getFacade().setAgetoFlem(Integer.toString(afroyear));
+
+
+
+
+            }else if (getCityFl().equals("")){
+                //do zipcode search
+
+
+
+
+      Members proxymem = getFacade().findMember();
+
+              //  String proxyzip = proxymem.getZipcode();
+
+
+            float fftt = calculateLatitudeRadius(getRadius());
+
+            float ffnn = calculateLongitudeRadius(getRadius());
+
+
+            getFacade().setZipdatathree(getZipcodeSearchTwo());
+
+
+ // itemszip = getItemszip();
+ //  List<Uszipcodesdb> blitems = (List<Uszipcodesdb>)itemszip.getWrappedData();
+
+
+      //    Uszipcodesdb ii =  blitems.get(0);
+
+          Uszipcodesdb ii = getFacade().findRangeZip();
+
+
+
+            float fflat = (ii.getLatitude()) + fftt;
+
+            getFacade().setFlatone(fflat);
+
+            float iitt = (ii.getLatitude()) - fftt;
+
+            getFacade().setFlattwo(iitt);
+
+            float fflon = (ii.getLongitude()) + ffnn;
+
+            getFacade().setFlonone(fflon);
+
+            float iinn = (ii.getLongitude()) - ffnn;
+
+            getFacade().setFlontwo(iinn);
+
+            //end of zipcode radius data processing
+            String gen = getGenderFl();
+
+            getFacade().setGenderFlmem(gen);
+
+            getFacade().setSeekingFlmem(getSeekingFl());
+
+            getFacade().setLookingFlmem(getLookingFl());
+
+        //    getFacade().setEthnicityFlmem(getEthnicityFl());
+
+      //      getFacade().setSignFlmem(getSignFl());
+
+         //   getFacade().setStateFlmem(getState());
+
+
+        //   getFacade().setCityFlmem(getCityFl());
+
+
+            Calendar cal=Calendar.getInstance();
+            int currentyear=cal.get(Calendar.YEAR);
+
+            String afro = getAgefromFl();
+
+            int afroint = Integer.parseInt(afro);
+
+
+            String ato = getAgetoFl();
+
+            int atoint = Integer.parseInt(ato);
+
+
+
+           int afroyear =   currentyear-afroint;
+
+           int atoyear = currentyear-atoint;
+
+
+getFacade().setAgefromFlem(Integer.toString(atoyear));
+
+getFacade().setAgetoFlem(Integer.toString(afroyear));
+
+
+
+
+
+
+
+
+
+
+
+            }else if(getCityFl().equals("") &&(getZipcodeSearchTwo().equals("")) ){
+
+
+
+
+
+      Members proxymem = getFacade().findMember();
+
+                String proxyzip = proxymem.getZipcode();
+
+
+            float fftt = calculateLatitudeRadius(getRadius());
+
+            float ffnn = calculateLongitudeRadius(getRadius());
+
+
+            getFacade().setZipdatathree(proxyzip);
+
+
+ // itemszip = getItemszip();
+ //  List<Uszipcodesdb> blitems = (List<Uszipcodesdb>)itemszip.getWrappedData();
+
+
+      //    Uszipcodesdb ii =  blitems.get(0);
+
+          Uszipcodesdb ii = getFacade().findRangeZip();
+
+
+
+            float fflat = (ii.getLatitude()) + fftt;
+
+            getFacade().setFlatone(fflat);
+
+            float iitt = (ii.getLatitude()) - fftt;
+
+            getFacade().setFlattwo(iitt);
+
+            float fflon = (ii.getLongitude()) + ffnn;
+
+            getFacade().setFlonone(fflon);
+
+            float iinn = (ii.getLongitude()) - ffnn;
+
+            getFacade().setFlontwo(iinn);
+
+            //end of zipcode radius data processing
+            String gen = getGenderFl();
+
+            getFacade().setGenderFlmem(gen);
+
+            getFacade().setSeekingFlmem(getSeekingFl());
+
+            getFacade().setLookingFlmem(getLookingFl());
+
+        //    getFacade().setEthnicityFlmem(getEthnicityFl());
+
+      //      getFacade().setSignFlmem(getSignFl());
+
+         //   getFacade().setStateFlmem(getState());
+
+
+        //   getFacade().setCityFlmem(getCityFl());
+
+
+            Calendar cal=Calendar.getInstance();
+            int currentyear=cal.get(Calendar.YEAR);
+
+            String afro = getAgefromFl();
+
+            int afroint = Integer.parseInt(afro);
+
+
+            String ato = getAgetoFl();
+
+            int atoint = Integer.parseInt(ato);
+
+
+
+           int afroyear =   currentyear-afroint;
+
+           int atoyear = currentyear-atoint;
+
+
+getFacade().setAgefromFlem(Integer.toString(atoyear));
+
+getFacade().setAgetoFlem(Integer.toString(afroyear));
+
+
+
+
+
+
+
+
+            }else{
+
+
+
+
+
+      Members proxymem = getFacade().findMember();
+
+              //  String proxyzip = proxymem.getZipcode();
+
+
+            float fftt = calculateLatitudeRadius(getRadius());
+
+            float ffnn = calculateLongitudeRadius(getRadius());
+
+
+
+            getFacade().setCityFlmem(getCityFl());
+            getFacade().setStateFlmem(getState());
+
+
+            getFacade().setZipdatathree(getZipcodeSearchTwo());
+
+
+ itemszip = getItemszip();
+  List<Uszipcodesdb> blitems = (List<Uszipcodesdb>)itemszip.getWrappedData();
+
+
+          Uszipcodesdb ii =  blitems.get(0);
+
+        //  Uszipcodesdb ii = getFacade().findRangeZip();
+
+
+
+            float fflat = (ii.getLatitude()) + fftt;
+
+            getFacade().setFlatone(fflat);
+
+            float iitt = (ii.getLatitude()) - fftt;
+
+            getFacade().setFlattwo(iitt);
+
+            float fflon = (ii.getLongitude()) + ffnn;
+
+            getFacade().setFlonone(fflon);
+
+            float iinn = (ii.getLongitude()) - ffnn;
+
+            getFacade().setFlontwo(iinn);
+
+            //end of zipcode radius data processing
+            String gen = getGenderFl();
+
+            getFacade().setGenderFlmem(gen);
+
+            getFacade().setSeekingFlmem(getSeekingFl());
+
+            getFacade().setLookingFlmem(getLookingFl());
+
+        //    getFacade().setEthnicityFlmem(getEthnicityFl());
+
+      //      getFacade().setSignFlmem(getSignFl());
+
+         //   getFacade().setStateFlmem(getState());
+
+
+        //   getFacade().setCityFlmem(getCityFl());
+
+
+            Calendar cal=Calendar.getInstance();
+            int currentyear=cal.get(Calendar.YEAR);
+
+            String afro = getAgefromFl();
+
+            int afroint = Integer.parseInt(afro);
+
+
+            String ato = getAgetoFl();
+
+            int atoint = Integer.parseInt(ato);
+
+
+
+           int afroyear =   currentyear-afroint;
+
+           int atoyear = currentyear-atoint;
+
+
+getFacade().setAgefromFlem(Integer.toString(atoyear));
+
+getFacade().setAgetoFlem(Integer.toString(afroyear));
+
+
+
+            }
+
+
+
+           //   String ss = getZipcodeSearchTwo();
+
+
+
+
+       //     JsfUtil.addSuccessMessage(ResourceBundle.getBundle("Resource/Bundle").getString("MembersCreated"));
+
+
+//  return prepareListFl();
+  return "/members/ListFl";
+
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("Resource/Bundle").getString("PersistenceErrorOccured"));
+            return null;
+        }
+    }
+
+
+  
+
+  public Members getSelectedMem() {
+        if (currentmem == null) {
+
+         //   currentmem = new Mem();
+
+            selectedItemIndex = -1;
+        }
+        return currentmem;
+    }
+
+
+
+
+    public String prepareCreateTwo() {
+//creates data to populate for CreateMsg.
+
+        String username2 = getFacade().getUsernamelogin();
+
+        if (username2 == null) {
+
+            username2 = getFacade().getUsernamecreate();
+
+        }
+
+
+String checkblock = getFacade4().findBlockedTwoReplyPh();
+
+if(checkblock.equals("/mailsettings/blockuser")){
+    return  "/mailsettings/blockuser";
+}else{
+
+
+
+        Members mmbr = getFacade().findMember();
+
+        Long sfrid = mmbr.getUserid();
+
+
+        String subwants = mmbr.getLookingFor();
+
+
+
+        Mailsettings submailset2 = getFacade4().findMailSettingsCheck();
+
+
+              boolean hmie =  submailset2.getHavemessagedintenct();
+
+
+
+              if(hmie==true){
+
+
+                  getFacadeSendhistoryintimate().setSendhisidlookup(sfrid);
+            String gtshilookup =    getFacadeSendhistoryintimate().findSendhistoryCheck();
+
+            if(gtshilookup.equals("sendhistoryintimateexists")){
+
+                return"/mailsettings/blockperhassent4intimate";
+
+            }
+
+
+
+              }
+
+
+
+
+//gender mail setting  comparison begin.
+        String submailgen = submailset2.getGender();
+
+        if (submailgen.equals("Male") && mmbr.getGender().equals("Female")) {
+
+            return "/mailsettings/blockpergender";
+
+        } else if (submailgen.equals("Female") && mmbr.getGender().equals("Male")) {
+
+
+            return "/mailsettings/blockpergender";
+
+        }
+
+//end of  mail settings gender comparison
+
+
+        //begin compare mail settings drugs
+if ( (mmbr.getDrugs().equals("Often")|| mmbr.getDrugs().equals("Socially")) && submailset2.getUsedrugs()== true){
+
+
+    return "/mailsettings/blockperusedrugs";
+
+}
+
+       //end. compare mail settings drugs.
+
+
+
+if (  ( mmbr.getSmoker().equals("Occassionally") || mmbr.getSmoker().equals("Often")) && submailset2.getSmoke()== true){
+
+    return "/mailsettings/blockpersmoker";
+
+}
+
+
+
+ if(mmbr.getMarried().equals("Married") && submailset2.getEmail1()==true) {
+
+     return "/mailsettings/blockpermarried";
+ }
+
+
+
+if(submailset2.getEmail2()==true && submailset2.getHavemessagedintenct()== true){
+
+    return"/mailsettings/blockperhassent4intimate";
+
+}
+
+
+
+
+        //begin age comaprison mail settings.
+
+
+
+            Calendar cali = new  GregorianCalendar();
+
+            int currentyear = (short) cali.get(Calendar.YEAR);
+
+
+            int subbirthyear = Integer.parseInt(mmbr.getBirthYear());
+
+
+            int currentagemem =  (currentyear - subbirthyear);
+
+
+            int byearfloor =  submailset2.getAgefrom();
+
+
+            int byearceil =  submailset2.getAgeto();
+
+
+            if ((currentagemem < byearfloor) || (currentagemem > byearceil) ){
+
+                return "/mailsettings/blockperage";
+
+            }
+
+            //end age comparison mail settings.
+
+
+
+
+
+            //start radius75 mail setting check.
+
+            if( submailset2.getWithin().equals("75 miles")){
+
+
+
+              float fftt = calculateLatitudeRadius(75);
+
+              float ffnn = calculateLongitudeRadius(75);
+
+
+
+            Members mailsetmem = getFacade4().findMailSetMember();
+
+            String mailsetzip = mailsetmem.getZipcode();
+
+
+             getFacade4().setZipdatafour(mailsetzip);
+
+             Uszipcodesdb mailsetziptwo = getFacade4().findMailZipcode();
+
+
+            float mailsetlat =  mailsetziptwo.getLatitude();
+
+            float mailsetlon = mailsetziptwo.getLongitude();
+
+
+        float mailsetlatplus = mailsetlat + fftt;
+
+        float mailsetlonplus = mailsetlon + ffnn;
+
+        float mailsetlatminus = mailsetlat - fftt;
+
+        float mailsetlonminus = mailsetlon - ffnn;
+
+
+        if( ((mmbr.getLat()<mailsetlatminus)||(mmbr.getLat()>mailsetlatplus))||((mmbr.getLon()<mailsetlonminus)||(mmbr.getLon()>mailsetlonplus)) ){
+
+            return "/mailsettings/blockperradius75";
+
+
+        }
+
+
+
+        }
+
+            //end radius75 mail setting check
+
+
+
+
+
+
+
+        int subwantsref;
+
+        boolean checkwants = false;
+
+
+        if (subwants.equals("Hang Out")) {
+
+
+            subwantsref = 1;
+
+
+
+            Mailsettings submailset = getFacade4().findMailSettingsCheck();
+
+
+
+            if (submailset.getHangout() == true) {
+
+                return "/mailsettings/blockpage";
+            }
+
+
+        } else if (subwants.equals("Friends")) {
+
+
+            subwantsref = 2;
+
+
+
+
+            Mailsettings submailset = getFacade4().findMailSettingsCheck();
+
+
+
+            if (submailset.getFriendship() == true) {
+
+                return "/mailsettings/blockpage";
+            }
+
+
+
+
+
+
+        } else if (subwants.equals("Activity Partner")) {
+
+
+            subwantsref = 3;
+
+
+
+
+            Mailsettings submailset = getFacade4().findMailSettingsCheck();
+
+
+
+            if (submailset.getActivitypartner() == true) {
+
+                return "/mailsettings/blockpage";
+            }
+
+
+
+
+
+
+
+        } else if (subwants.equals("Dating")) {
+
+
+
+            subwantsref = 4;
+
+
+
+
+            Mailsettings submailset = getFacade4().findMailSettingsCheck();
+
+
+
+            if (submailset.getDating() == true) {
+
+                return "/mailsettings/blockpage";
+            }
+
+
+
+
+
+
+        } else if (subwants.equals("Long-term")) {
+
+
+            subwantsref = 5;
+
+
+
+
+            Mailsettings submailset = getFacade4().findMailSettingsCheck();
+
+
+
+            if (submailset.getLongterm() == true) {
+
+                return "/mailsettings/blockpage";
+            }
+
+
+
+
+
+        } else if (subwants.equals("Intimate Encounter")) {
+
+
+            subwantsref = 6;
+
+
+
+
+            Mailsettings submailset = getFacade4().findMailSettingsCheck();
+
+
+
+            if (submailset.getIntimateencounter() == true) {
+
+                return "/mailsettings/blockpage";
+            }
+
+
+
+
+
+
+        } else if (subwants.equals("Talk/E-mail")) {
+
+
+            subwantsref = 7;
+
+
+
+
+            Mailsettings submailset = getFacade4().findMailSettingsCheck();
+
+
+
+            if (submailset.getTalkemail() == true) {
+
+                return "/mailsettings/blockpage";
+            }
+
+
+
+
+
+        } else if (subwants.equals("Other Relationship")) {
+
+
+            subwantsref = 8;
+
+
+
+
+            Mailsettings submailset = getFacade4().findMailSettingsCheck();
+
+
+
+            if (submailset.getOtherrelationship() == true) {
+
+                return "/mailsettings/blockpage";
+            }
+
+
+
+
+
+        }
+
+
+
+
+        currentin = new Inbox();
+
+        currentin.setRemoveinmsg(false);
+
+
+        currentin.setImageurl(mmbr.getImageurl());
+
+        currentin.setSentFrom(username2);
+
+
+//gets stored from prepareviewtwo
+        currentin.setSentTo(getFacade4().getCurrentUsrn());
+
+//gets stored from prepareviewtwo
+        currentin.setSendtoid(getFacade4().getCurrentUsrid());
+
+
+        currentin.setSendfromid(sfrid);
+
+
+
+        selectedItemIndex = -1;
+        recreateModelSent();
+        return "CreateSndMsg";
+
+
+        }
+//top brace above is the end of ths very first if else that goes with the checkblock function.
+
+    }
+
+
+
+
+   private void recreateModelSent() {
+        itemssent = null;
+    }
+
+
+
+
+
+
+   private SendhistoryintimateFacade getFacadeSendhistoryintimate() {
+        return ejbFacadeSendhistoryintimate;
+    }
+
+
+
+
+
+
+private HasviewedprofiletwoFacade getFacadeHasviewedprofiletwo() {
+
+        return ejbFacadeHasviewedprofiletwo;
+
+
+    }
+
+
+
+
+
+
+
+
+    private UmightlikeFacade getFacadeumightlike() {
+
+        return ejbFacadeumightlike;
+
+    }
+
+
+
+
+
+
+
+    private MembersFacade getFacade() {
+        return ejbFacade;
+    }
+
+
+
+    private PhotosFacade getFacade4() {
+        return ejbFacade4;
+    }
+
+
+
+     private InboxFacade getFacadeIn() {
+        return ejbFacadeIn;
+    }
+
+
+   private SentFacade getFacadeSent() {
+
+        return ejbFacadeSent;
+
+    }
+
+
+
+    private MailsettingsFacade getFacademail() {
+        return ejbFacademail;
+    }
+
+
+
+      private BlockedtwoFacade getFacadeBlockedtwo() {
+
+        return ejbFacadeBlockedtwo;
+
+    }
+
+
+
+
+    public float calculateLatitudeRadius(int radius) {
+        // 1 latitude degree = 68.70795454545454 miles
+        // 1 latitude mile = 0.014554355556290625173426834100111 degrees
+        return (float) (0.014554d * radius);
+    }
+
+    public float calculateLongitudeRadius(int radius) {
+        // 1 logitude degree = 69.16022727272727 miles
+        // 1 logitude mile = 0.014459177469972560994758974186 degrees
+        return (float) (0.014459d * radius);
+    }
+
+
+
+
+
+
+
+
+    public String prepareViewTwo() {
+
+ current = (Members) getItemslistfl().getRowData();
+
+getFacade().setHasviwedid(current.getUserid());
+
+
+String hsvp = getFacade().findHasViewedProfileDuplicate();
+
+
+
+
+if(hsvp.equals("nohvpduplicate")){
+
+
+
+            currentHasviewedprofiletwo = new Hasviewedprofiletwo();
+
+            Members sssidtwo = getFacade().findMember();
+
+
+            currentHasviewedprofiletwo.setIdcurrent(current.getUserid());
+            currentHasviewedprofiletwo.setIdhvperson(sssidtwo.getUserid());
+            currentHasviewedprofiletwo.setUsername(sssidtwo.getUsername());
+            currentHasviewedprofiletwo.setImageurl(sssidtwo.getImageurl());
+            currentHasviewedprofiletwo.setNow(sssidtwo.getNow());
+            currentHasviewedprofiletwo.setCity(sssidtwo.getCity());
+
+
+            try {
+
+            getFacadeHasviewedprofiletwo().create(currentHasviewedprofiletwo);
+
+         //   JsfUtil.addSuccessMessage(ResourceBundle.getBundle("Resource/Bundle").getString("HasviewedprofileCreated"));
+        //    return prepareCreate();
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("ResourceThree/Bundle").getString("PersistenceErrorOccured"));
+         //   return null;
+        }
+
+
+
+           //possible else statement here.
+
+        }
+
+
+
+
+
+if(getItemsumightlike().getRowCount()<20){
+
+
+currentumightlike = new Umightlike();
+
+currentumightlike.setId(112321321L );
+currentumightlike.setIdcurrent(getFacade().getLnguserid());
+currentumightlike.setIdfavperson(current.getUserid());
+currentumightlike.setUsername("111");
+currentumightlike.setNow("offline");
+currentumightlike.setImageurl("111");
+currentumightlike.setCity("111");
+
+
+
+ try {
+            getFacadeumightlike().create(currentumightlike);
+         //   JsfUtil.addSuccessMessage(ResourceBundle.getBundle("Resource/Bundle").getString("UmightlikeCreated"));
+
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("Resource/Bundle").getString("PersistenceErrorOccured"));
+
+        }
+
+
+
+
+}
+
+
+
+
+
+if( getItemsumightlike().getRowCount()==20 ){
+
+
+itemsumightlike = getItemsumightlike();
+
+
+List<Umightlike> blitems = (List<Umightlike>)itemsumightlike.getWrappedData();
+
+
+  currentumightlike =  blitems.get(0);
+
+
+   try {
+            getFacadeumightlike().remove(currentumightlike);
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("Resource/Bundle").getString("UmightlikeDeleted"));
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("Resource/Bundle").getString("PersistenceErrorOccured"));
+        }
+
+
+
+currentumightlike = new Umightlike();
+
+currentumightlike.setId(112321321L );
+currentumightlike.setIdcurrent(getFacade().getLnguserid());
+currentumightlike.setIdfavperson(current.getUserid());
+currentumightlike.setUsername("111");
+currentumightlike.setNow("offline");
+currentumightlike.setImageurl("111");
+currentumightlike.setCity("111");
+
+
+
+ try {
+            getFacadeumightlike().create(currentumightlike);
+         //   JsfUtil.addSuccessMessage(ResourceBundle.getBundle("Resource/Bundle").getString("UmightlikeCreated"));
+
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("Resource/Bundle").getString("PersistenceErrorOccured"));
+
+        }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+           getFacade4().setFavoritesimageurl(current.getImageurl());
+
+           getFacade4().setFavoritescity(current.getCity());
+
+
+
+
+      Long ssrrdd = current.getUserid();
+
+        getFacade4().setViewid(ssrrdd);
+
+        getFacade4().setSendhistidchk(ssrrdd);
+
+
+
+
+// below two fields sets username and userid to retrieve for message population.
+        getFacade4().setCurrentUsrn(current.getUsername());
+
+        getFacade4().setCurrentUsrid(current.getUserid());
+
+
+        //end of final else statement braces?
+
+
+
+      //  selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+
+        getFacade4().findPgPhFour();
+
+        int fbfb = getFacade4().getFlumbeta();
+
+        if (fbfb == 1) {
+            setRetph2("vv1");
+        } else if (fbfb == 2) {
+            setRetph2("vv1");
+        } else if (fbfb == 3) {
+            setRetph2("vv2");
+        } else if (fbfb == 4) {
+            setRetph2("vv3");
+        } else if (fbfb == 5) {
+            setRetph2("vv4");
+        } else if (fbfb == 6) {
+            setRetph2("vv5");
+        } else if (fbfb == 7) {
+            setRetph2("vv6");
+        } else if (fbfb == 8) {
+            setRetph2("vv7");
+        } else if (fbfb == 9) {
+            setRetph2("vv8");
+        }
+
+
+        return getRetph2();
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+ public DataModel getItemsumightlike() {
+        if (itemsumightlike == null) {
+            itemsumightlike = getPaginationThree().createPageDataModel();
+        }
+
+
+        return itemsumightlike;
+    }
+
+
+
+
+    
+
+
+public DataModel getItemsumightlikemain() {
+  
+if(itemsumightlikemain==null){
+
+itemsumightlikemain = getPaginationFour().createPageDataModel();
+
+
+    }
+
+    //    }
+
+        return itemsumightlikemain;
+
+    }
+
+
+
+
+
+    public PaginationHelper getPaginationlistfl() {
+        if (paginationlistfl == null) {
+            paginationlistfl = new PaginationHelper(10) {
+
+                @Override
+                public int getItemsCount() {
+                    return getFacade().count();
+                }
+
+                @Override
+                public DataModel createPageDataModel() {
+                    return new ListDataModel(getFacade().findRangeFl(new int[]{getPageFirstItem(), getPageFirstItem()+getPageSize()}));
+                }
+            };
+        }
+        return paginationlistfl;
+    }
+
+
+
+
+
+
+
+
+
+    public PaginationHelper getPagination() {
+        if (pagination == null) {
+            pagination = new PaginationHelper(10) {
+
+                @Override
+                public int getItemsCount() {
+                    return getFacade().count();
+                }
+
+                @Override
+                public DataModel createPageDataModel() {
+                    return new ListDataModel(getFacade().findRangeumight(new int[]{getPageFirstItem(), getPageFirstItem()+getPageSize()}));
+                }
+            };
+        }
+        return pagination;
+    }
+
+
+
+
+    
+
+
+
+
+     public PaginationHelper getPaginationTwo() {
+        if (paginationTwo == null) {
+            paginationTwo = new PaginationHelper(10) {
+
+                @Override
+                public int getItemsCount() {
+                    return getFacade().count();
+                }
+
+                @Override
+                public DataModel createPageDataModel() {
+                    return new ListDataModel(getFacade().findRangeFl(new int[]{getPageFirstItem(), getPageFirstItem()+getPageSize()}));
+                }
+            };
+        }
+        return paginationTwo;
+    }
+
+
+
+
+
+
+      public PaginationHelper getPaginationZip() {
+        if (paginationzip == null) {
+            paginationzip = new PaginationHelper(10) {
+
+                @Override
+                public int getItemsCount() {
+                    return getFacade().count();
+                }
+
+                @Override
+                public DataModel createPageDataModel() {
+                    return new ListDataModel(getFacade().findcitytwo(new int[]{getPageFirstItem(), getPageFirstItem() + getPageSize()}));
+                }
+            };
+        }
+        return paginationzip;
+    }
+
+
+
+
+
+
+
+      public PaginationHelper getPaginationThree() {
+        if (paginationThree == null) {
+            paginationThree = new PaginationHelper(25) {
+
+                @Override
+                public int getItemsCount() {
+                    return getFacade().count();
+                }
+
+                @Override
+                public DataModel createPageDataModel() {
+                    return new ListDataModel(getFacade().findumightlike(new int[]{getPageFirstItem(), getPageFirstItem() + getPageSize()}));
+                }
+            };
+        }
+        return paginationThree;
+    }
+
+
+
+  public PaginationHelper getPaginationFour() {
+        if (paginationFour == null) {
+            paginationFour = new PaginationHelper(10) {
+
+                @Override
+                public int getItemsCount() {
+                    return getFacade().count();
+                }
+
+                @Override
+                public DataModel createPageDataModel() {
+                    return new ListDataModel(getFacade().findmemholdgen(new int[]{getPageFirstItem(), getPageFirstItem() + getPageSize()}));
+                }
+            };
+        }
+        return paginationFour;
+    }
+
+
+
+
+
+
+    public String prepareList() {
+        recreateModel();
+        return "List";
+    }
+
+    public String prepareView() {
+        current = (Members)getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        return "View";
+    }
+
+    public String prepareCreate() {
+        current = new Members();
+        selectedItemIndex = -1;
+        return "Create";
+    }
+
+
+
+
+    //not in use
+    public String create() {
+
+        try {
+
+        
+
+getFacademail().create(currentmail);
+
+
+
+
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("Resource/Bundle").getString("MembersCreated"));
+            return "memcreatepicupload";
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("Resource/Bundle").getString("PersistenceErrorOccured"));
+            return null;
+        }
+    }
+
+
+
+
+
+
+
+
+ public String createTest() {
+        try {
+            getFacadeIn().create(currentin);
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("Resource/Bundle").getString("InboxCreated"));
+            return "/inbox/ListUsr";
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("Resource/Bundle").getString("PersistenceErrorOccured"));
+            return null;
+        }
+    }
+
+
+
+
+
+
+    public String createMsgTwo() {
+        try {
+
+
+            getFacadeIn().create(currentin); // create for inbox message.
+
+
+            String dd = currentin.getId();
+            String rrdd = currentin.getReplyToId();
+            // long ssdd = current.getSendToid();
+
+            long ssdd = currentin.getSendtoid();
+
+
+
+
+
+            String cururl = currentin.getImageurl();
+
+
+            String ssff = currentin.getSentFrom();
+
+
+            String sstt = currentin.getSentTo();
+
+            getFacade().setSenntwo(sstt);
+
+            Members sssidtwo = getFacade().findMemNomTwo();
+
+
+
+            getFacade().setSenn(ssff);
+            //be careful here
+
+            Members sssid = getFacade().findMemNom();
+
+            Long stuid = sssid.getUserid();
+
+
+
+            String ssbb = currentin.getSubject();
+            String ssdt = currentin.getMessageDate();
+            String mt = currentin.getMsgText();
+            String stst = currentin.getStatus();
+
+
+
+
+            senttwo = new Sent();
+
+            senttwo.setId(dd);
+
+            senttwo.setRemovesntmsg(false);
+
+            //picture must be of person sent to not person sent from.
+            senttwo.setImageurl(sssidtwo.getImageurl());
+
+
+            senttwo.setReplyToId(rrdd);
+            //currentsent.setSendFromid(ssdd);
+
+            senttwo.setSendfromid(stuid);
+
+
+            senttwo.setSendtoid(ssdd);
+
+
+            senttwo.setSentFrom(ssff);
+            senttwo.setSentTo(sstt);
+            senttwo.setSubject(ssbb);
+            senttwo.setMessageDate(ssdt);
+            senttwo.setMsgText(mt);
+            senttwo.setStatus(stst);
+            senttwo.setNow("offline");
+
+
+
+
+
+
+
+if(sssidtwo.getLookingFor().equals("Intimate Encounter")){
+
+
+        getFacadeSendhistoryintimate().setSendhisidlookup(stuid);
+
+String  shistest = getFacadeSendhistoryintimate().findSendhistorylookup();
+
+
+if(shistest.equals("nosendhistoryintimate")){
+
+currentSendhistoryintimate = new Sendhistoryintimate();
+currentSendhistoryintimate.setShiid(stuid);
+currentSendhistoryintimate.setSentuser(ssdd);
+
+
+
+  try {
+            getFacadeSendhistoryintimate().create(currentSendhistoryintimate);
+            //JsfUtil.addSuccessMessage(ResourceBundle.getBundle("Resource/Bundle").getString("SendhistoryintimateCreated"));
+          //  return prepareCreate();
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("Resource/Bundle").getString("PersistenceErrorOccured"));
+           // return null;
+        }
+
+}
+
+
+
+
+            }
+
+
+
+
+
+            getFacadeSent().create(senttwo);
+
+            recreateModelSent();
+
+
+            JsfUtil.addSuccessMessage("Mesage was sent");
+            return "InboxList";
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("Resource/Bundle").getString("PersistenceErrorOccured"));
+            return null;
+        }
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+ public String createMsg() {
+        try {
+
+
+              String dd = currentin.getId();
+            String rrdd = currentin.getReplyToId();
+           // long ssdd = current.getSendToid();
+            long ssdd = currentin.getSendtoid();
+
+
+
+
+            String ssff = currentin.getSentFrom();
+            String sstt = currentin.getSentTo();
+
+
+            getFacade().setSenn(ssff);
+            //be careful here
+          Members sssid =  getFacade().findMemNom();
+
+         Long stuid = sssid.getUserid();
+
+
+
+            String ssbb = currentin.getSubject();
+            String ssdt = currentin.getMessageDate();
+            String mt = currentin.getMsgText();
+            String stst = currentin.getStatus();
+
+
+
+             senttwo = new Sent();
+
+             senttwo.setRemovesntmsg(false);
+
+            senttwo.setId(dd);
+
+            senttwo.setReplyToId(rrdd);
+
+            senttwo.setImageurl(currentin.getImageurl());
+
+            //currentsent.setSendFromid(ssdd);
+            senttwo.setSendfromid(stuid);
+
+
+            senttwo.setSendtoid(ssdd);
+
+
+            senttwo.setSentFrom(ssff);
+            senttwo.setSentTo(sstt);
+            senttwo.setSubject(ssbb);
+            senttwo.setMessageDate(ssdt);
+            senttwo.setMsgText(mt);
+            senttwo.setStatus(stst);
+
+            senttwo.setNow("offline");
+
+           getFacadeIn().create(currentin);
+
+            getFacadeSent().create(senttwo);
+
+
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("Resource/Bundle").getString("InboxCreated"));
+            return getRetph2();
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("Resource/Bundle").getString("PersistenceErrorOccured"));
+            return null;
+        }
+    }
+
+
+
+
+
+
+    public String prepareEdit() {
+        current = (Members)getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        return "Edit";
+    }
+
+
+
+     public String prepareEditTwo() {
+
+       // currenttwo = (Members) getItems().getRowData();
+
+                currenttwo =  (Members) getFacade().findMember();
+
+      // selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        return "/members/viewEditMember";
+    }
+
+
+
+
+
+
+
+    public String destroy() {
+        current = (Members)getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        performDestroy();
+        recreateModel();
+        return "List";
+    }
+
+    public String destroyAndView() {
+        performDestroy();
+        recreateModel();
+        updateCurrentItem();
+        if (selectedItemIndex >= 0) {
+            return "View";
+        } else {
+            // all items were removed - go back to list
+            recreateModel();
+            return "List";
+        }
+    }
+
+    private void performDestroy() {
+        try {
+            getFacade().remove(current);
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("Resource/Bundle").getString("MembersDeleted"));
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("Resource/Bundle").getString("PersistenceErrorOccured"));
+        }
+    }
+
+    private void updateCurrentItem() {
+        int count = getFacade().count();
+        if (selectedItemIndex >= count) {
+            // selected index cannot be bigger than number of items:
+            selectedItemIndex = count-1;
+            // go to previous page if last page disappeared:
+            if (pagination.getPageFirstItem() >= count) {
+                pagination.previousPage();
+            }
+        }
+        if (selectedItemIndex >= 0) {
+            current = getFacade().findRange(new int[]{selectedItemIndex, selectedItemIndex+1}).get(0);
+        }
+    }
+
+    public DataModel getItems() {
+        if (items == null) {
+            items = getPagination().createPageDataModel();
+        }
+        return items;
+    }
+
+
+
+     public DataModel getItemsTwo() {
+        if (itemstwo == null) {
+            itemstwo = getPaginationTwo().createPageDataModel();
+        }
+        return itemstwo;
+    }
+
+
+
+
+
+       public DataModel getItemslistfl() {
+
+           
+        if (itemslistfl == null) {
+            itemslistfl = getPaginationlistfl().createPageDataModel();
+        }
+        return itemslistfl;
+
+    }
+
+
+
+
+      
+
+
+
+    private void recreateModel() {
+        items = null;
+    }
+
+
+    public String next() {
+        getPagination().nextPage();
+        recreateModel();
+        return "List";
+    }
+
+    public String previous() {
+        getPagination().previousPage();
+        recreateModel();
+        return "List";
+    }
+
+
+
+     private void recreateModellistfl() {
+        itemslistfl = null;
+    }
+
+
+
+     public String nextlistfl() {
+        getPaginationlistfl().nextPage();
+        recreateModellistfl();
+        return "/members/ListFl";
+    }
+
+    public String previouslistfl() {
+        getPaginationlistfl().previousPage();
+        recreateModellistfl();
+        return "/members/ListFl";
+    }
+
+
+
+
+
+
+
+    private void recreateModelFour() {
+        itemsumightlikemain = null;
+    }
+
+
+
+    public String nextFour() {
+        getPaginationFour().nextPage();
+        recreateModelFour();
+        return "/umightlike/ListUsrtwo";
+    }
+
+    public String previousFour() {
+        getPaginationFour().previousPage();
+        recreateModelFour();
+        return "/umightlike/ListUsrtwo";
+    }
+
+
+
+
+
+
+
+    public SelectItem[] getItemsAvailableSelectMany() {
+        return JsfUtil.getSelectItems(ejbFacade.findAll(), false);
+    }
+
+    public SelectItem[] getItemsAvailableSelectOne() {
+        return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+     public String login() {
+        try {
+
+            getFacade().setUsernamelogin(getUsername());
+
+            String bb = getFacade().findlogin();
+
+            String cc = "welcome";
+
+           if (bb.equals(cc)) {
+
+               long jj = getFacade().getLnguserid();
+
+   //check projsix login fundtion for details on below.
+
+
+              getFacade4().setCheckid(jj);
+
+
+              getFacade4().setSearchRadId(jj);
+
+
+              getFacadeIn().setLlnnid(jj);
+
+
+              getFacadeSent().setSentmemid(jj);
+
+              getFacademail().setMailloginid(jj);
+
+              getFacadeBlockedtwo().setCheckblockid(jj);
+
+
+  getFacade().updateOnlineNow();
+
+
+                return "yeslogin";
+
+            } else {
+
+                return "nologin";
+           }
+
+        } catch (Exception e) {
+           // JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("Resources/Bundle").getString("PersistenceErrorOccured"));
+             JsfUtil.addErrorMessage(e, "please try again");
+            return null;
+        }
+    }
+
+
+
+
+    public String logout() {
+
+         getFacade().updateOfflineNow();
+
+
+        username = null;
+
+
+
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        session.invalidate();
+
+
+
+        return "/login";
+
+    }
+
+
+
+
+
+    private UszipcodesdbFacade getFacade3() {
+        return ejbFacade3;
+    }
+
+
+
+
+
+
+
+   
+
+
+
+
+
+    
+
+
+
+
+
+
+    /**
+     * @return the username
+     */
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * @param username the username to set
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    /**
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+   
+
+   
+  
+
+   
+
+   
+
+   
+
+   
+
+    /**
+     * @return the usrNamNew
+     */
+    public HtmlInputText getUsrNamNew() {
+        return usrNamNew;
+    }
+
+    /**
+     * @param usrNamNew the usrNamNew to set
+     */
+    public void setUsrNamNew(HtmlInputText usrNamNew) {
+        this.usrNamNew = usrNamNew;
+    }
+
+    /**
+     * @return the checkusernamenew
+     */
+    public String getCheckusernamenew() {
+        return checkusernamenew;
+    }
+
+    /**
+     * @param checkusernamenew the checkusernamenew to set
+     */
+    public void setCheckusernamenew(String checkusernamenew) {
+        this.checkusernamenew = checkusernamenew;
+    }
+
+   
+
+
+
+    /**
+     * @return the retph2
+     */
+    public String getRetph2() {
+        return retph2;
+    }
+
+    /**
+     * @param retph2 the retph2 to set
+     */
+    public void setRetph2(String retph2) {
+        this.retph2 = retph2;
+    }
+
+    /**
+     * @return the yearnow
+     */
+    public String getYearnow() {
+        return yearnow;
+    }
+
+    /**
+     * @param yearnow the yearnow to set
+     */
+    public void setYearnow(String yearnow) {
+        this.yearnow = yearnow;
+    }
+
+    /**
+     * @return the zipcodeSearchTwo
+     */
+    public String getZipcodeSearchTwo() {
+        return zipcodeSearchTwo;
+    }
+
+    /**
+     * @param zipcodeSearchTwo the zipcodeSearchTwo to set
+     */
+    public void setZipcodeSearchTwo(String zipcodeSearchTwo) {
+        this.zipcodeSearchTwo = zipcodeSearchTwo;
+    }
+
+    /**
+     * @return the radius
+     */
+    public int getRadius() {
+        return radius;
+    }
+
+    /**
+     * @param radius the radius to set
+     */
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
+
+    /**
+     * @return the genderFl
+     */
+    public String getGenderFl() {
+        return genderFl;
+    }
+
+    /**
+     * @param genderFl the genderFl to set
+     */
+    public void setGenderFl(String genderFl) {
+        this.genderFl = genderFl;
+    }
+
+    /**
+     * @return the seekingFl
+     */
+    public String getSeekingFl() {
+        return seekingFl;
+    }
+
+    /**
+     * @param seekingFl the seekingFl to set
+     */
+    public void setSeekingFl(String seekingFl) {
+        this.seekingFl = seekingFl;
+    }
+
+    /**
+     * @return the lookingFl
+     */
+    public String getLookingFl() {
+        return lookingFl;
+    }
+
+    /**
+     * @param lookingFl the lookingFl to set
+     */
+    public void setLookingFl(String lookingFl) {
+        this.lookingFl = lookingFl;
+    }
+
+    /**
+     * @return the agefromFl
+     */
+    public String getAgefromFl() {
+        return agefromFl;
+    }
+
+    /**
+     * @param agefromFl the agefromFl to set
+     */
+    public void setAgefromFl(String agefromFl) {
+        this.agefromFl = agefromFl;
+    }
+
+    /**
+     * @return the agetoFl
+     */
+    public String getAgetoFl() {
+        return agetoFl;
+    }
+
+    /**
+     * @param agetoFl the agetoFl to set
+     */
+    public void setAgetoFl(String agetoFl) {
+        this.agetoFl = agetoFl;
+    }
+
+    /**
+     * @return the state
+     */
+    public String getState() {
+        return state;
+    }
+
+    /**
+     * @param state the state to set
+     */
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    /**
+     * @return the cityFl
+     */
+    public String getCityFl() {
+        return cityFl;
+    }
+
+    /**
+     * @param cityFl the cityFl to set
+     */
+    public void setCityFl(String cityFl) {
+        this.cityFl = cityFl;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @FacesConverter(forClass=Members.class)
+    public static class MembersControllerConverter implements Converter {
+
+        public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
+            if (value == null || value.length() == 0) {
+                return null;
+            }
+            MembersControllerFive controller = (MembersControllerFive)facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "membersControllerFive");
+            return controller.ejbFacade.find(getKey(value));
+        }
+
+        java.lang.Long getKey(String value) {
+            java.lang.Long key;
+            key = Long.valueOf(value);
+            return key;
+        }
+
+        String getStringKey(java.lang.Long value) {
+            StringBuffer sb = new StringBuffer();
+            sb.append(value);
+            return sb.toString();
+        }
+
+        public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
+            if (object == null) {
+                return null;
+            }
+            if (object instanceof Members) {
+                Members o = (Members) object;
+                return getStringKey(o.getUserid());
+            } else {
+                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: "+MembersController.class.getName());
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+    <h:body>
+
+        <ui:composition template="/templates/templatecreate.xhtml">
+
+<ui:define name="title">Sign up to meet singles | Hitmeupdate </ui:define>
+
+
+
+            <ui:define   name="contentten">
+
+
+                <h:form>
+
+
+                    <h:panelGrid cellpadding="0"  cellspacing="40px"    columns="1">
+
+                        <h:outputText style=" font-weight: 500; color: red"  id="checkpasswordnew" value="#{membersController.checkpasswordnew}">
+
+
+                        </h:outputText>
+
+                        <h:outputText style=" font-weight: 500; color: red"  id="checkusernamenew" value="#{membersController.checkusernamenew}">
+
+                        </h:outputText>
+
+
+                        <h:outputText style=" font-weight: 500; color: red"  id="zipcodevalid" value="#{membersController.zipcodevalid}">
+
+                        </h:outputText>
+
+
+                    </h:panelGrid>
+
+
+                    <h:panelGrid  cellpadding="0"  cellspacing="40px"    columns="4">
+
+
+                        <h:outputLabel style="color:black;  font-weight: bold" value="#{bundle.CreateMembersLabel_username}" for="username" />
+                        <p:inputText   style="font-size: larger;" id="username" value="#{membersController.selected.username}"   binding="#{membersController.usrNamNew}"    title="#{bundle.CreateMembersTitle_username}" required="true" requiredMessage="#{bundle.CreateMembersRequiredMessage_username}">
+
+
+                            <f:ajax event="blur"  render="checkusernamenew" listener="#{membersController.checkUsrNew}"   />
+
+
+
+                        </p:inputText>
+
+
+
+                        <h:outputLabel style="color:black; font-weight: bold"  value="#{bundle.CreateMembersLabel_password}" for="password" />
+                        <p:inputText style="font-size: larger; "  id="password" value="#{membersController.selected.password}"   binding="#{membersController.usrPasswordNew}"   title="#{bundle.CreateMembersTitle_password}" required="true" requiredMessage="#{bundle.CreateMembersRequiredMessage_password}">
+
+
+                            <f:ajax event="blur"  render="checkpasswordnew" listener="#{membersController.checkUsrNewTwo}"   />
+
+
+
+
+
+
+
+                        </p:inputText>
+
+
+
+
+                        <h:outputLabel style="color:black; font-weight: bold"  value="#{bundle.CreateMembersLabel_email}" for="email" />
+                        <p:inputText  style=" font-size: larger;  " id="email" value="#{membersController.selected.email}" title="#{bundle.CreateMembersTitle_email}" required="true" requiredMessage="#{bundle.CreateMembersRequiredMessage_email}"/>
+
+
+
+                        <h:outputLabel  style="color:black; font-weight: bold" value="#{bundle.CreateMembersLabel_birthMonth}" for="birthMonth" />
+
+
+                        <p:selectOneMenu  style=" font-size: larger; font-weight: bold;" id = "birth_month" value="#{membersController.selected.birthMonth}" required="true" requiredMessage="#{bundle.CreateMembersRequiredMessage_birthMonth}"  >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.b_month}"/>
+                        </p:selectOneMenu>
+
+
+
+                        <h:outputLabel style="color:black; font-weight: bold"  value="#{bundle.CreateMembersLabel_birthDay}" for="birthDay" />
+
+
+                        <p:selectOneMenu  style=" font-size: larger; font-weight: bold;" id = "birth_day" value="#{membersController.selected.birthDay}"  required="true" requiredMessage="#{bundle.CreateMembersRequiredMessage_birthDay}"   >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.b_day}"/>
+                        </p:selectOneMenu>
+
+
+
+
+
+
+                        <h:outputLabel  style="color:black; font-weight: bold" value="#{bundle.CreateMembersLabel_birthYear}" for="birthYear" />
+
+
+                        <p:selectOneMenu style="  font-size: larger; font-weight: bold;"  id = "birth_year" value="#{membersController.selected.birthYear}"  required="true" requiredMessage="#{bundle.CreateMembersRequiredMessage_birthYear}"     >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.b_year}"/>
+                        </p:selectOneMenu>
+
+
+
+                        <h:outputLabel  style="color:black; font-weight: bold" value="I would like to meet a:" for="seekingA" />
+
+                        <p:selectOneMenu style=" font-size: larger; font-weight: bold;"  id = "seekingA" value="#{membersController.selected.seekingA}" required="true" requiredMessage="#{bundle.CreateMembersRequiredMessage_seekingA}"    >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.gend}"/>
+                        </p:selectOneMenu>
+
+
+
+                        <h:outputLabel style="color:black; font-weight: bold"  value="#{bundle.CreateMembersLabel_zipcode}" for="zipcode" />
+
+                        <p:inputText  style="font-size: larger; "  id="inputzip"     value="#{membersController.selected.zipcode}"     binding="#{membersController.inputZip}"   required="true" requiredMessage="#{bundle.CreateMembersRequiredMessage_zipcode}"  >
+
+                            <f:ajax event="blur" render="inputcity inputstate zipcodevalid" listener= "#{membersController.zipAutoFillListener}" />
+
+
+
+                        </p:inputText>
+
+
+
+
+
+
+
+                        <h:outputLabel  style="color:black;  font-weight: bold;"  value="#{bundle.CreateMembersLabel_city}" for="city:" />
+
+                        <p:inputText style="font-size: larger; "  id="inputcity"      value="#{membersController.selected.city}"  binding="#{membersController.inputCity}"   required="true" requiredMessage="#{bundle.CreateMembersRequiredMessage_city}"      />
+
+
+
+
+
+
+
+                        <h:outputLabel style="color:black; font-weight: bold"   value="#{bundle.CreateMembersLabel_gender}" for="gender" />
+
+
+                        <p:selectOneMenu style=" font-size: larger; font-weight: bold;"  id = "gender" value="#{membersController.selected.gender}" required="true" requiredMessage="#{bundle.CreateMembersRequiredMessage_gender}"     >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.gend}"/>
+                        </p:selectOneMenu>
+
+
+
+
+
+                        <h:outputLabel style="color:black; font-weight: bold"  value="#{bundle.CreateMembersLabel_states}" for="states" />
+
+                        <p:inputText style="font-size: larger; "  id="inputstate"     value="#{membersController.selected.states}"   binding="#{membersController.inputState}"  required="true" requiredMessage="#{bundle.CreateMembersRequiredMessage_states}"  />
+
+
+
+
+                        <h:outputLabel style=" color:black; font-weight: bold;"  value="I am looking for:" for="lookingFor" />
+
+                        <p:selectOneMenu style=" font-size: larger; font-weight: bold;"  id = "lookingFor" value="#{membersController.selected.lookingFor}" required="true" requiredMessage="#{bundle.CreateMembersRequiredMessage_lookingFor}"  >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.wants}"/>
+                        </p:selectOneMenu>
+
+
+
+
+
+                    </h:panelGrid>
+
+
+
+
+
+                    <h:panelGrid cellpadding="0"  cellspacing="40px"    columns="2">
+
+
+
+                        <h:outputLabel style="color:black;  font-weight: bold;"   value="Hit me up if " for="headline" />
+                        <p:inputText style=" width: 580px; font-size: larger; "  id="headline" value="#{membersController.selected.headline}" title="#{bundle.CreateMembersTitle_headline}" required="true" requiredMessage="#{bundle.CreateMembersRequiredMessage_headline}"/>
+
+
+                        <h:outputLabel style="color:black;  font-weight: bold;" value="Don't hit me up if" for="percent1" />
+                        <h:inputText   style=" width: 580px; font-size: larger; "     id="percent1" value="#{membersController.selected.percent1}" title="#{bundle.CreateMembersTitle_percent1}" required="true" requiredMessage="#{bundle.CreateMembersRequiredMessage_percent1}"/>
+
+
+
+
+                    </h:panelGrid>
+
+                    <br />
+                    <h:commandButton styleClass="button" action="#{membersController.create}" value="Create Account" />
+                    <br />
+
+
+
+                    <br />
+
+                </h:form>
+
+                <h:form>
+
+                    <h:outputText style=" color:#2681fc; " value="By choosing to continue, I certify I am at least 18 years old and have read and agree to Hitmeupdate.com's " /><h:commandLink style="color:#2681fc; " target="_blank" value="Terms of Use " action="/footerpages/terms.xhtml"/>  <h:outputText value="and " style=" color:#2681fc;" ></h:outputText> <h:commandLink style=" color:#2681fc; " target="_blank" value="Privacy Policy" action="/footerpages/privacy.xhtml"/>
+
+                </h:form>
+
+
+
+
+            </ui:define>
+
+
+
+        </ui:composition>
+
+    </h:body>
+
+</html>

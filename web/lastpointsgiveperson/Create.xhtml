@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateLastpointsgivepersonTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateLastpointsgivepersonLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{lastpointsgivepersonController.selected.id}" title="#{bundle.CreateLastpointsgivepersonTitle_id}" required="true" requiredMessage="#{bundle.CreateLastpointsgivepersonRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateLastpointsgivepersonLabel_idpersonpointsgive}" for="idpersonpointsgive" />
+                    <h:inputText id="idpersonpointsgive" value="#{lastpointsgivepersonController.selected.idpersonpointsgive}" title="#{bundle.CreateLastpointsgivepersonTitle_idpersonpointsgive}" required="true" requiredMessage="#{bundle.CreateLastpointsgivepersonRequiredMessage_idpersonpointsgive}"/>
+                    <h:outputLabel value="#{bundle.CreateLastpointsgivepersonLabel_idpersonpointsreceive}" for="idpersonpointsreceive" />
+                    <h:inputText id="idpersonpointsreceive" value="#{lastpointsgivepersonController.selected.idpersonpointsreceive}" title="#{bundle.CreateLastpointsgivepersonTitle_idpersonpointsreceive}" required="true" requiredMessage="#{bundle.CreateLastpointsgivepersonRequiredMessage_idpersonpointsreceive}"/>
+                    <h:outputLabel value="#{bundle.CreateLastpointsgivepersonLabel_pointsPhotos}" for="pointsPhotos" />
+                    <h:inputText id="pointsPhotos" value="#{lastpointsgivepersonController.selected.pointsPhotos}" title="#{bundle.CreateLastpointsgivepersonTitle_pointsPhotos}" />
+                    <h:outputLabel value="#{bundle.CreateLastpointsgivepersonLabel_pointsProfile}" for="pointsProfile" />
+                    <h:inputText id="pointsProfile" value="#{lastpointsgivepersonController.selected.pointsProfile}" title="#{bundle.CreateLastpointsgivepersonTitle_pointsProfile}" />
+                    <h:outputLabel value="#{bundle.CreateLastpointsgivepersonLabel_pointsFirstmessage}" for="pointsFirstmessage" />
+                    <h:inputText id="pointsFirstmessage" value="#{lastpointsgivepersonController.selected.pointsFirstmessage}" title="#{bundle.CreateLastpointsgivepersonTitle_pointsFirstmessage}" />
+                    <h:outputLabel value="#{bundle.CreateLastpointsgivepersonLabel_pointsFunny}" for="pointsFunny" />
+                    <h:inputText id="pointsFunny" value="#{lastpointsgivepersonController.selected.pointsFunny}" title="#{bundle.CreateLastpointsgivepersonTitle_pointsFunny}" />
+                    <h:outputLabel value="#{bundle.CreateLastpointsgivepersonLabel_pointsInteresting}" for="pointsInteresting" />
+                    <h:inputText id="pointsInteresting" value="#{lastpointsgivepersonController.selected.pointsInteresting}" title="#{bundle.CreateLastpointsgivepersonTitle_pointsInteresting}" />
+                    <h:outputLabel value="#{bundle.CreateLastpointsgivepersonLabel_pointsPersonality}" for="pointsPersonality" />
+                    <h:inputText id="pointsPersonality" value="#{lastpointsgivepersonController.selected.pointsPersonality}" title="#{bundle.CreateLastpointsgivepersonTitle_pointsPersonality}" />
+                    <h:outputLabel value="#{bundle.CreateLastpointsgivepersonLabel_pointsFirstdate}" for="pointsFirstdate" />
+                    <h:inputText id="pointsFirstdate" value="#{lastpointsgivepersonController.selected.pointsFirstdate}" title="#{bundle.CreateLastpointsgivepersonTitle_pointsFirstdate}" />
+                    <h:outputLabel value="#{bundle.CreateLastpointsgivepersonLabel_pointsDateidea}" for="pointsDateidea" />
+                    <h:inputText id="pointsDateidea" value="#{lastpointsgivepersonController.selected.pointsDateidea}" title="#{bundle.CreateLastpointsgivepersonTitle_pointsDateidea}" />
+                    <h:outputLabel value="#{bundle.CreateLastpointsgivepersonLabel_pointsVerifyprofile}" for="pointsVerifyprofile" />
+                    <h:inputText id="pointsVerifyprofile" value="#{lastpointsgivepersonController.selected.pointsVerifyprofile}" title="#{bundle.CreateLastpointsgivepersonTitle_pointsVerifyprofile}" />
+                    <h:outputLabel value="#{bundle.CreateLastpointsgivepersonLabel_datelastptsgiven}" for="datelastptsgiven" />
+                    <h:inputText id="datelastptsgiven" value="#{lastpointsgivepersonController.selected.datelastptsgiven}" title="#{bundle.CreateLastpointsgivepersonTitle_datelastptsgiven}" required="true" requiredMessage="#{bundle.CreateLastpointsgivepersonRequiredMessage_datelastptsgiven}"/>
+                    <h:outputLabel value="#{bundle.CreateLastpointsgivepersonLabel_badge}" for="badge" />
+                    <h:inputText id="badge" value="#{lastpointsgivepersonController.selected.badge}" title="#{bundle.CreateLastpointsgivepersonTitle_badge}" />
+                    <h:outputLabel value="#{bundle.CreateLastpointsgivepersonLabel_badgeimageurl}" for="badgeimageurl" />
+                    <h:inputText id="badgeimageurl" value="#{lastpointsgivepersonController.selected.badgeimageurl}" title="#{bundle.CreateLastpointsgivepersonTitle_badgeimageurl}" />
+                    <h:outputLabel value="#{bundle.CreateLastpointsgivepersonLabel_totalpointsgivensofar}" for="totalpointsgivensofar" />
+                    <h:inputText id="totalpointsgivensofar" value="#{lastpointsgivepersonController.selected.totalpointsgivensofar}" title="#{bundle.CreateLastpointsgivepersonTitle_totalpointsgivensofar}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{lastpointsgivepersonController.create}" value="#{bundle.CreateLastpointsgivepersonSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{lastpointsgivepersonController.prepareList}" value="#{bundle.CreateLastpointsgivepersonShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateLastpointsgivepersonIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

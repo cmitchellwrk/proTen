@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewUszipcodesdbTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewUszipcodesdbLabel_zipcode}"/>
+                    <h:outputText value="#{uszipcodesdbController.selected.zipcode}" title="#{bundle.ViewUszipcodesdbTitle_zipcode}"/>
+                    <h:outputText value="#{bundle.ViewUszipcodesdbLabel_city}"/>
+                    <h:outputText value="#{uszipcodesdbController.selected.city}" title="#{bundle.ViewUszipcodesdbTitle_city}"/>
+                    <h:outputText value="#{bundle.ViewUszipcodesdbLabel_state}"/>
+                    <h:outputText value="#{uszipcodesdbController.selected.state}" title="#{bundle.ViewUszipcodesdbTitle_state}"/>
+                    <h:outputText value="#{bundle.ViewUszipcodesdbLabel_latitude}"/>
+                    <h:outputText value="#{uszipcodesdbController.selected.latitude}" title="#{bundle.ViewUszipcodesdbTitle_latitude}"/>
+                    <h:outputText value="#{bundle.ViewUszipcodesdbLabel_longitude}"/>
+                    <h:outputText value="#{uszipcodesdbController.selected.longitude}" title="#{bundle.ViewUszipcodesdbTitle_longitude}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{uszipcodesdbController.destroyAndView}" value="#{bundle.ViewUszipcodesdbDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewUszipcodesdbEditLink}"/>
+                <br />
+                <h:commandLink action="#{uszipcodesdbController.prepareCreate}" value="#{bundle.ViewUszipcodesdbCreateLink}" />
+                <br />
+                <h:commandLink action="#{uszipcodesdbController.prepareList}" value="#{bundle.ViewUszipcodesdbShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewUszipcodesdbIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

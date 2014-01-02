@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+           
+        </ui:define>
+        <ui:define name="body">
+        <h:form styleClass="jsfcrud_list_form">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:outputText escape="false" value="#{bundle.ListPhotosEmpty}" rendered="#{photosController.items.rowCount == 0}"/>
+            <h:panelGroup rendered="#{photosController.items.rowCount > 0}">
+                <h:outputText value="#{photosController.pagination.pageFirstItem + 1}..#{photosController.pagination.pageLastItem + 1}/#{photosController.pagination.itemsCount}"/>&nbsp;
+                <h:commandLink action="#{photosController.previous}" value="#{bundle.Previous} #{photosController.pagination.pageSize}" rendered="#{photosController.pagination.hasPreviousPage}"/>&nbsp;
+                <h:commandLink action="#{photosController.next}" value="#{bundle.Next} #{photosController.pagination.pageSize}" rendered="#{photosController.pagination.hasNextPage}"/>&nbsp;
+                <h:dataTable value="#{photosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_photouserid}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.photouserid}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl1a}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl1a}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl1b}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl1b}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl2a}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl2a}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl2b}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl2b}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl3a}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl3a}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl3b}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl3b}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl4a}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl4a}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl4b}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl4b}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl5a}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl5a}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl5b}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl5b}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl6a}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl6a}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl6b}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl6b}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl7a}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl7a}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl7b}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl7b}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl8a}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl8a}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl8b}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl8b}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl9a}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl9a}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl9b}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl9b}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl10a}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl10a}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl10b}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl10b}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl11a}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl11a}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl11b}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl11b}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl12a}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl12a}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl12b}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl12b}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl13a}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl13a}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl13b}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl13b}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl14a}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl14a}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl14b}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl14b}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl15a}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl15a}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl15b}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl15b}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl16a}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl16a}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPhotosTitle_imageurl16b}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imageurl16b}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{photosController.prepareView}" value="#{bundle.ListPhotosViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{photosController.prepareEdit}" value="#{bundle.ListPhotosEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{photosController.destroy}" value="#{bundle.ListPhotosDestroyLink}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:panelGroup>
+            <br />
+            <h:commandLink action="#{photosController.prepareCreate}" value="#{bundle.ListPhotosCreateLink}"/>
+            <br />
+            <br />
+            <h:commandLink value="#{bundle.ListPhotosIndexLink}" action="/index" immediate="true" />
+        </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

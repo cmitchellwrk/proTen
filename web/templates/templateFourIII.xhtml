@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+    <h:head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title><ui:insert name="title">csstest</ui:insert></title>
+
+
+        <h:outputStylesheet name="css/defaultIII.css"/>
+
+
+
+    </h:head>
+
+
+
+
+
+    <h:body>
+
+
+
+
+
+
+        <div id="header-wrapper">
+
+
+
+            <div id="header" class="container">
+
+
+                <div id="logo">
+                    <h1><a href="#">HITMEUPDATE</a></h1>
+
+                </div>
+
+
+
+
+                <h:form   >
+                    <h:outputText style=" font-weight: bold;color:#2681fc ;  " value="Username:"/>
+                    <p:inputText style=" font-size: larger "     id="username" value="#{membersController.username}">
+
+                    </p:inputText>
+
+
+                    <h:outputText style=" font-weight: bold;color:#2681fc ;   " value="Password:"/>
+                    <p:inputText  style=" font-size: larger "  id="password" value="#{membersController.password}">
+
+                    </p:inputText>
+
+                    <br></br>
+
+                    <h:commandButton styleClass="button" action="#{membersController.login}" type="submit" value="Login"   />
+                    <h:outputText style=" font-weight: bold;color:#2681fc ;  " value="Sign in here. "/>
+                     <h:outputText  value="  "/>
+
+               
+                     <h:commandLink style="color:#2681fc;    text-decoration:none; font-weight:bold;   " action="/footerpages/passwordfind.xhtml" value="Forgot your password?"/>
+                
+
+                </h:form>
+
+ 
+
+             
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+        <div id="banner">
+
+
+
+            <div id="slider">
+
+
+
+                <!-- content -->
+                <div id="contentten">
+                     <h:outputText style=" font-weight:bold;color: #00cc00; font-size: large;    " value="Get started today. Sign up below."/>
+                    <ui:insert  name="contentten">Default value for Content</ui:insert>
+
+                    <!-- TABS -->
+                    <!-- the tabs -->
+
+                    <!-- tab "panes" -->
+
+                    <!-- ENDS TABS -->
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <div id="wrapper">
+            <div id="featured" class="container">
+                <h2 class="title">It's 100% free, simple and fun!</h2>
+                <div id="fbox1"> <img src="images/pic04.jpg" width="235" height="235" alt="" />
+                    <h2> 1)Sign up above</h2>
+                    <p>Just fill out a few simple pieces of information.</p>
+                </div>
+                <div id="fbox2"> <img src="images/pic05.jpg" width="235" height="235" alt="" />
+                    <h2> 2)Upload your photos</h2>
+                    <p>Upload some good photos of yourself.</p>
+                </div>
+                <div id="fbox3"> <img src="images/pic06.jpg" width="235" height="235" alt="" />
+                    <h2> 3)Browse other members</h2>
+                    <p>Search our members based on specific criterion.</p>
+                </div>
+                <div id="fbox4"> <img src="images/pic07.jpg" width="235" height="235" alt="" />
+                    <h2> 4)Hit them Up</h2>
+                    <p>Hit them up and give them points too.</p>
+                </div>
+            </div>
+
+
+
+            <div id="page" class="container">
+
+
+                <div id="content">
+                    <img src="images/pic08.jpg" width="235" height="235" alt="" />
+                    <h2>Why Hitmeupdate?</h2>
+                    <p>Hitmeupdate is a 100% free online dating site for singles who are tired of dealing with the other dating sites out there. At Hitmeupdate we don't limit who can see you based on how good looking we think you are. We won't delete you profile for no reason. We provide all the features of any other site and we don't charge for anything. Noone should pay for online dating. We want to introduce you to the right people in your city and make it fun, simple and easy. </p>
+                </div>
+                <div id="sidebar">
+                    <div>
+
+
+
+                        
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div id="footer2">
+
+            <h:form>
+
+                <ul id="menu3">
+
+
+
+                    <li>
+
+
+                        <h:commandLink style=" color:#2681fc; " value="about" action="/footerpages/about.xhtml" ></h:commandLink>
+
+
+                    </li>
+                    <li>
+
+
+
+                        <h:commandLink style=" color:#2681fc; " value="terms" action="/footerpages/terms.xhtml"></h:commandLink>
+
+
+                    </li>
+
+                    <li>
+
+                        <h:commandLink style=" color:#2681fc; " value="contact" action="/footerpages/contact.xhtml"></h:commandLink>
+
+
+
+                    </li>
+
+                    <li>
+
+
+                        <h:commandLink style=" color:#2681fc; " value="online safety" action="/footerpages/safety.xhtml"></h:commandLink>
+
+
+                    </li>
+
+                    <li>
+
+
+                        <h:commandLink style=" color:#2681fc; " value="privacy policy" action="/footerpages/privacy.xhtml"></h:commandLink>
+
+
+                    </li>
+
+
+                </ul>
+
+            </h:form>
+
+        </div>
+
+
+
+
+
+
+
+
+        <div id="footer">
+
+
+            <p>Copyright (c) 2013 Hitmeupdate.com. All rights reserved. </p>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    </h:body>
+
+
+
+</html>

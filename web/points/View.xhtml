@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPointsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPointsLabel_id}"/>
+                    <h:outputText value="#{pointsController.selected.id}" title="#{bundle.ViewPointsTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewPointsLabel_idpersonpointsreceive}"/>
+                    <h:outputText value="#{pointsController.selected.idpersonpointsreceive}" title="#{bundle.ViewPointsTitle_idpersonpointsreceive}"/>
+                    <h:outputText value="#{bundle.ViewPointsLabel_pointsPhotos}"/>
+                    <h:outputText value="#{pointsController.selected.pointsPhotos}" title="#{bundle.ViewPointsTitle_pointsPhotos}"/>
+                    <h:outputText value="#{bundle.ViewPointsLabel_pointsProfile}"/>
+                    <h:outputText value="#{pointsController.selected.pointsProfile}" title="#{bundle.ViewPointsTitle_pointsProfile}"/>
+                    <h:outputText value="#{bundle.ViewPointsLabel_pointsFirstmessage}"/>
+                    <h:outputText value="#{pointsController.selected.pointsFirstmessage}" title="#{bundle.ViewPointsTitle_pointsFirstmessage}"/>
+                    <h:outputText value="#{bundle.ViewPointsLabel_pointsFunny}"/>
+                    <h:outputText value="#{pointsController.selected.pointsFunny}" title="#{bundle.ViewPointsTitle_pointsFunny}"/>
+                    <h:outputText value="#{bundle.ViewPointsLabel_pointsInteresting}"/>
+                    <h:outputText value="#{pointsController.selected.pointsInteresting}" title="#{bundle.ViewPointsTitle_pointsInteresting}"/>
+                    <h:outputText value="#{bundle.ViewPointsLabel_pointsPersonality}"/>
+                    <h:outputText value="#{pointsController.selected.pointsPersonality}" title="#{bundle.ViewPointsTitle_pointsPersonality}"/>
+                    <h:outputText value="#{bundle.ViewPointsLabel_pointsFirstdate}"/>
+                    <h:outputText value="#{pointsController.selected.pointsFirstdate}" title="#{bundle.ViewPointsTitle_pointsFirstdate}"/>
+                    <h:outputText value="#{bundle.ViewPointsLabel_pointsDateidea}"/>
+                    <h:outputText value="#{pointsController.selected.pointsDateidea}" title="#{bundle.ViewPointsTitle_pointsDateidea}"/>
+                    <h:outputText value="#{bundle.ViewPointsLabel_pointsVerifyprofile}"/>
+                    <h:outputText value="#{pointsController.selected.pointsVerifyprofile}" title="#{bundle.ViewPointsTitle_pointsVerifyprofile}"/>
+                    <h:outputText value="#{bundle.ViewPointsLabel_badge}"/>
+                    <h:outputText value="#{pointsController.selected.badge}" title="#{bundle.ViewPointsTitle_badge}"/>
+                    <h:outputText value="#{bundle.ViewPointsLabel_badgeimageurl}"/>
+                    <h:outputText value="#{pointsController.selected.badgeimageurl}" title="#{bundle.ViewPointsTitle_badgeimageurl}"/>
+                    <h:outputText value="#{bundle.ViewPointsLabel_totalscore}"/>
+                    <h:outputText value="#{pointsController.selected.totalscore}" title="#{bundle.ViewPointsTitle_totalscore}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{pointsController.destroyAndView}" value="#{bundle.ViewPointsDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewPointsEditLink}"/>
+                <br />
+                <h:commandLink action="#{pointsController.prepareCreate}" value="#{bundle.ViewPointsCreateLink}" />
+                <br />
+                <h:commandLink action="#{pointsController.prepareList}" value="#{bundle.ViewPointsShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="pointslist" action="/points/List.xhtml" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,799 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+
+<faces-config version="2.0"
+    xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+    <application>
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>memcreatepicupload</from-outcome>
+            <to-view-id>/memcreateuploadpic.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>yeslogin</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>/login</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>/members/viewEditMember</from-outcome>
+            <to-view-id>/members/viewEditMember.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>blockpage</from-outcome>
+            <to-view-id>/mailsettings/blockpage.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>/mailsettings/blockuser</from-outcome>
+            <to-view-id>/mailsettings/blockuser.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>nologin</from-outcome>
+            <to-view-id>/loginfail.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>CreateSndMsg</from-outcome>
+            <to-view-id>/inbox/CreateSndMsg.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>x20</from-outcome>
+            <to-view-id>/ListNoPhoto.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>x1</from-outcome>
+            <to-view-id>/members/newmemberupload.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>x2</from-outcome>
+            <to-view-id>/photos/yourphotos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>x3</from-outcome>
+            <to-view-id>/photos/yourphotos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>x4</from-outcome>
+            <to-view-id>/photos/yourphotos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>x5</from-outcome>
+            <to-view-id>/photos/yourphotos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>x6</from-outcome>
+            <to-view-id>/photos/yourphotos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>x7</from-outcome>
+            <to-view-id>/photos/yourphotos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>x8</from-outcome>
+            <to-view-id>/photos/yourphotos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>x9</from-outcome>
+            <to-view-id>/photos/yourphotos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>pp1</from-outcome>
+            <to-view-id>/members/p1.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>pp2</from-outcome>
+            <to-view-id>/members/p2.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>pp3</from-outcome>
+            <to-view-id>/members/p3.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>pp4</from-outcome>
+            <to-view-id>/members/p4.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>pp5</from-outcome>
+            <to-view-id>/members/p5.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>pp6</from-outcome>
+            <to-view-id>/members/p6.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>pp7</from-outcome>
+            <to-view-id>/members/p7.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>pp8</from-outcome>
+            <to-view-id>/members/p8.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>pp9</from-outcome>
+            <to-view-id>/members/pnophoto.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+
+
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv1</from-outcome>
+            <to-view-id>/members/ViewOne.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv2</from-outcome>
+            <to-view-id>/members/ViewTwo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv3</from-outcome>
+            <to-view-id>/members/ViewThree.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv4</from-outcome>
+            <to-view-id>/members/ViewFour.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv5</from-outcome>
+            <to-view-id>/members/ViewFive.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv6</from-outcome>
+            <to-view-id>/members/ViewSix.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv7</from-outcome>
+            <to-view-id>/members/ViewSeven.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv8</from-outcome>
+            <to-view-id>/members/ViewEight.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv9</from-outcome>
+            <to-view-id>/members/ViewNoPhoto.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>hh1</from-outcome>
+            <to-view-id>/hasviewedprofiletwo/ViewOne.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>hh2</from-outcome>
+            <to-view-id>/hasviewedprofiletwo/ViewTwo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>hh3</from-outcome>
+            <to-view-id>/hasviewedprofiletwo/ViewThree.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>hh4</from-outcome>
+            <to-view-id>/hasviewedprofiletwo/ViewFour.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>hh5</from-outcome>
+            <to-view-id>/hasviewedprofiletwo/ViewFive.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>hh6</from-outcome>
+            <to-view-id>/hasviewedprofiletwo/ViewSix.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>hh7</from-outcome>
+            <to-view-id>/hasviewedprofiletwo/ViewSeven.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>hh8</from-outcome>
+            <to-view-id>/hasviewedprofiletwo/ViewEight.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>hh9</from-outcome>
+            <to-view-id>/hasviewedprofiletwo/ViewNoPhoto.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+
+
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv1in</from-outcome>
+            <to-view-id>/inbox/VIn1.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv2in</from-outcome>
+            <to-view-id>/inbox/VIn2.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv3in</from-outcome>
+            <to-view-id>/inbox/VIn3.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv4in</from-outcome>
+            <to-view-id>/inbox/VIn4.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv5in</from-outcome>
+            <to-view-id>/inbox/VIn5.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv6in</from-outcome>
+            <to-view-id>/inbox/VIn6.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv7in</from-outcome>
+            <to-view-id>/inbox/VIn7.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv8in</from-outcome>
+            <to-view-id>/inbox/VIn8.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv9in</from-outcome>
+            <to-view-id>/inbox/VInNoPhoto.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv1st</from-outcome>
+            <to-view-id>/sent/VSt1.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv2st</from-outcome>
+            <to-view-id>/sent/VSt2.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv3st</from-outcome>
+            <to-view-id>/sent/VSt3.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv4st</from-outcome>
+            <to-view-id>/sent/VSt4.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv5st</from-outcome>
+            <to-view-id>/sent/VSt5.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv6st</from-outcome>
+            <to-view-id>/sent/VSt6.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv7st</from-outcome>
+            <to-view-id>/sent/VSt7.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv8st</from-outcome>
+            <to-view-id>/sent/VSt8.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>vv9st</from-outcome>
+            <to-view-id>/sent/VStNoPhoto.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>List5b</from-outcome>
+            <to-view-id>/photos/ListFiveb.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>List7b</from-outcome>
+            <to-view-id>/photos/ListSevenb.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>List6b</from-outcome>
+            <to-view-id>/photos/ListSixb.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>List3b</from-outcome>
+            <to-view-id>/photos/ListThreeb.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>List4b</from-outcome>
+            <to-view-id>/photos/ListFourb.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>ListOneb</from-outcome>
+            <to-view-id>/photos/ListOneb.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>ListTwo</from-outcome>
+            <to-view-id>/photos/ListTwob.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+<navigation-rule>
+        <navigation-case>
+            <from-outcome>indexother</from-outcome>
+            <to-view-id>/indexadditional.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+        <navigation-rule>
+        <navigation-case>
+            <from-outcome>ListFl</from-outcome>
+            <to-view-id>/members/ListFl.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+        <navigation-rule>
+        <navigation-case>
+            <from-outcome>InboxList</from-outcome>
+            <to-view-id>/inbox/ListUsr.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+
+        <resource-bundle>
+            <base-name>Resource/Bundle</base-name>
+            <var>bundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>ResourceTwo/Bundle</base-name>
+            <var>bundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>ResourceTwo/Bundle</base-name>
+            <var>bundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>ResourceTwo/Bundle</base-name>
+            <var>bundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>ResourceThree/Bundle</base-name>
+            <var>bundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>/ResourceFour/Bundle</base-name>
+            <var>bundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>Resourcefive/Bundle</base-name>
+            <var>bundle</var>
+        </resource-bundle>
+    </application>
+</faces-config>

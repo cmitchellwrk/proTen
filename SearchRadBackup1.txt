@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+
+        </ui:define>
+
+
+
+        <ui:define name="body">
+
+
+
+
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+
+
+                <h:panelGrid  cellpadding="0"  cellspacing="40px"     columns="2">
+
+
+                    <h:outputLabel value="I am a:" for="gender" />
+
+
+                    <p:selectOneMenu style="width:50%" id = "gender" value="#{membersControllerThree.genderFl}" required="true" >
+                        <f:selectItems value="#{MemberLoginBean.gend}"/>
+                    </p:selectOneMenu>
+
+
+                    <h:outputLabel value="seeking a :" for="seekingA" />
+
+                    <p:selectOneMenu style="width:50%" id = "seekingA" value="#{membersControllerThree.seekingFl}" required="true" >
+                        <f:selectItems value="#{MemberLoginBean.gend}"/>
+                    </p:selectOneMenu>
+
+
+                    <h:outputLabel value="looking for:" for="lookingFor" />
+
+                    <p:selectOneMenu style="width:100%" id = "lookingFor" value="#{membersControllerThree.lookingFl}" required="true" >
+                        <f:selectItems value="#{MemberLoginBean.wants}"/>
+                    </p:selectOneMenu>
+
+
+                     <h:outputLabel value="from age:" for="ageFrom" />
+
+                     <p:selectOneMenu style="width:100%" id = "ageFromr" value="#{membersControllerThree.agefromFl}" required="true" >
+                        <f:selectItems value="#{MemberLoginBean.age_from}"/>
+                    </p:selectOneMenu>
+
+
+
+                      <h:outputLabel value="to age:" for="ageTo" />
+
+                      <p:selectOneMenu style="width:100%" id = "ageTo" value="#{membersControllerThree.agetoFl}" required="true" >
+                          <f:selectItems value="#{MemberLoginBean.age_to}"/>
+                    </p:selectOneMenu>
+
+
+
+
+
+                    <h:outputLabel value="sign" for="sign" />
+
+                    <p:selectOneMenu style="width:65%" id = "sign" value="#{membersControllerThree.signFl}" required="true" >
+                        <f:selectItems value="#{MemberLoginBean.signs}"/>
+                    </p:selectOneMenu>
+
+
+
+                    <h:outputLabel value="ethnicity" for="ethnicity" />
+                    <p:selectOneMenu style="width:90%" id = "ethnicity" value="#{membersControllerThree.ethnicityFl}" required="true" >
+                        <f:selectItems value="#{MemberLoginBean.ethnic}"/>
+                    </p:selectOneMenu>
+
+
+
+
+                    <h:outputLabel value="within " for="within" />
+                    <p:selectOneMenu style=" width:50%" id = "radius" value="#{membersControllerThree.radius}" required="true" >
+                        <f:selectItems value="#{MemberLoginBean.miles}"/>
+                    </p:selectOneMenu>
+
+
+
+
+
+                    <h:outputLabel value="city " for="city" />
+
+                 <p:inputText id="city" value="#{membersControllerThree.zipcodeSearchTwo}"/>
+
+
+
+
+                    <h:outputLabel value="state " for="state" />
+                    <p:selectOneMenu style=" width:100%" id = "state" value="#{membersControllerThree.state}" required="true" >
+                        <f:selectItems value="#{MemberLoginBean.state}"/>
+                    </p:selectOneMenu>
+
+
+
+
+
+                    <h:outputLabel value="Zip Code:"/>
+
+
+                    <p:inputText id="inputzip" value="#{membersControllerThree.zipcodeSearchTwo}"/>
+
+                    <br/>
+
+                    <br/>
+
+
+
+                    <br/>
+                    <h:commandButton action="#{membersControllerThree.create}" value="SEARCH"/>
+
+                    <br/>
+
+
+                </h:panelGrid>
+
+                <br />
+
+                <br />
+                <br />
+
+                <br />
+                <h:commandLink value="#{bundle.CreateMembersIndexLink}" action="/index" immediate="true" />
+            </h:form>
+
+
+
+
+        </ui:define>
+    </ui:composition>
+
+</html>

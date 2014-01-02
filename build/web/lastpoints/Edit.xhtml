@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditLastpointsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditLastpointsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{lastpointsController.selected.id}" title="#{bundle.EditLastpointsTitle_id}" required="true" requiredMessage="#{bundle.EditLastpointsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditLastpointsLabel_idpersonpointsgive}" for="idpersonpointsgive" />
+                    <h:inputText id="idpersonpointsgive" value="#{lastpointsController.selected.idpersonpointsgive}" title="#{bundle.EditLastpointsTitle_idpersonpointsgive}" required="true" requiredMessage="#{bundle.EditLastpointsRequiredMessage_idpersonpointsgive}"/>
+                    <h:outputLabel value="#{bundle.EditLastpointsLabel_idpersonpointsreceive}" for="idpersonpointsreceive" />
+                    <h:inputText id="idpersonpointsreceive" value="#{lastpointsController.selected.idpersonpointsreceive}" title="#{bundle.EditLastpointsTitle_idpersonpointsreceive}" required="true" requiredMessage="#{bundle.EditLastpointsRequiredMessage_idpersonpointsreceive}"/>
+                    <h:outputLabel value="#{bundle.EditLastpointsLabel_totalpointslast}" for="totalpointslast" />
+                    <h:inputText id="totalpointslast" value="#{lastpointsController.selected.totalpointslast}" title="#{bundle.EditLastpointsTitle_totalpointslast}" />
+                    <h:outputLabel value="#{bundle.EditLastpointsLabel_datelastptsgiven}" for="datelastptsgiven" />
+                    <h:inputText id="datelastptsgiven" value="#{lastpointsController.selected.datelastptsgiven}" title="#{bundle.EditLastpointsTitle_datelastptsgiven}" required="true" requiredMessage="#{bundle.EditLastpointsRequiredMessage_datelastptsgiven}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{lastpointsController.update}" value="#{bundle.EditLastpointsSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditLastpointsViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{lastpointsController.prepareList}" value="#{bundle.EditLastpointsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditLastpointsIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+    <h:body>
+
+        <ui:composition template="/templates/templatered.xhtml">
+
+<ui:define name="title">Delete singles account | Hitmeupdate </ui:define>
+
+
+            <ui:define   name="contentten">
+
+
+                <br>
+
+                </br>
+
+                <br>
+
+                </br>
+
+
+
+                <h:outputText style=" color: #2681fc; margin-left:0px" value="Click the button below to delete your acount">
+
+                </h:outputText>
+
+                <br>
+
+                </br>
+
+
+                <h:form>
+
+
+                    <h:messages style="color:#e33b06;"  />
+
+
+
+                    <h:panelGrid  cellpadding="0"  cellspacing="40px"    columns="2">
+
+
+                        <h:outputText style=" color: #2681fc; " value="Username:"/>
+
+
+                        <h:inputText id="usernamedelete" value="#{membersController.selecteddeletefeedback.usernamedelete}" title="#{bundle.CreateDeletedfeedbackTitle_usernamedelete}" required="true" requiredMessage="#{bundle.CreateDeletedfeedbackRequiredMessage_usernamedelete}"/>
+
+
+
+
+
+
+                        <h:outputText style=" color: #2681fc; " value="Password:"/>
+
+
+
+                        <h:inputText id="passworddelete" value="#{membersController.selecteddeletefeedback.passworddelete}" title="#{bundle.CreateDeletedfeedbackTitle_passworddelete}" required="true" requiredMessage="#{bundle.CreateDeletedfeedbackRequiredMessage_passworddelete}"/>
+
+
+
+
+
+
+
+                        <h:outputText style=" color: #2681fc; " value="Why are you deleting your account?"/>
+
+
+
+                        <p:selectOneMenu  style=" font-size: larger; font-weight: bold; width:400px;" id = "reasondelete" value="#{membersController.selecteddeletefeedback.reasonfordelete}"  requiredMessage="#{bundle.CreateDeletedfeedbackRequiredMessage_reasonfordelete}"  required="true" >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.reasondelete}"/>
+                        </p:selectOneMenu>
+
+
+
+
+
+
+                        <h:outputText style=" color: #2681fc;" value="Number of dates you went on from this site:"/>
+
+
+
+                        <p:selectOneMenu  style=" font-size: larger; font-weight: bold;width:400px; " id = "howmanydates"  requiredMessage="#{bundle.CreateDeletedfeedbackRequiredMessage_howmanydates}"   value="#{membersController.selecteddeletefeedback.howmanydates}"  required="true" >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.numofdates}"/>
+                        </p:selectOneMenu>
+
+
+
+
+
+
+                        <h:outputText style=" color: #2681fc; margin-left:0px" value="Would you recommend this site?"/>
+
+
+
+                        <p:selectOneMenu  style=" font-size: larger; font-weight: bold;width:400px; " id = "recommendation" value="#{membersController.selecteddeletefeedback.recommendation}"          required="true" >
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{MemberLoginBean.recomendation}"/>
+                        </p:selectOneMenu>
+
+
+
+
+
+
+                        <h:outputText style=" color: #2681fc;" value="Any suggestions to help us improve?"/>
+
+
+
+                    <p:inputTextarea style="font-size: larger; "  rows="14" cols="70" id="suggestions" value="#{membersController.selecteddeletefeedback.suggestions}" title="#{bundle.CreateDeletedfeedbackTitle_suggestions}" required="true" requiredMessage="#{bundle.CreateDeletedfeedbackRequiredMessage_suggestions}"/>
+
+
+
+
+                    </h:panelGrid>
+
+
+
+
+                    <h:commandButton  style=" color: #2681fc; margin-left:0px"  action="#{membersController.deleteacct}" value="Delete My Account">
+
+                    </h:commandButton>
+
+
+
+                </h:form>
+
+            </ui:define>
+
+
+        </ui:composition>
+
+
+    </h:body>
+
+</html>
+
+
+
+
+
+
+

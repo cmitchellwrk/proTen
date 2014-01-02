@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+    <h:body>
+
+    	<ui:composition template="/templatecsstest.xhtml">
+
+
+
+
+            <ui:define   name="contentten">
+
+
+
+
+
+                <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel style="color:black"  value="#{bundle.EditInboxLabel_id}" for="id" />
+                    <h:inputText  style="color:black" id="id" value="#{inboxControllerTwo.selected.id}" title="#{bundle.EditInboxTitle_id}" required="true" requiredMessage="#{bundle.EditInboxRequiredMessage_id}"/>
+                    <h:outputLabel style="color:black"  value="#{bundle.EditInboxLabel_removeinmsg}" for="removeinmsg" />
+                    <h:inputText  style="color:black" id="removeinmsg" value="#{inboxControllerTwo.selected.removeinmsg}" title="#{bundle.EditInboxTitle_removeinmsg}" required="true" requiredMessage="#{bundle.EditInboxRequiredMessage_removeinmsg}"/>
+                    <h:outputLabel style="color:black"  value="#{bundle.EditInboxLabel_replyToId}" for="replyToId" />
+                    <h:inputText  style="color:black"  id="replyToId" value="#{inboxControllerTwo.selected.replyToId}" title="#{bundle.EditInboxTitle_replyToId}" required="true" requiredMessage="#{bundle.EditInboxRequiredMessage_replyToId}"/>
+                    <h:outputLabel style="color:black"  value="#{bundle.EditInboxLabel_imageurl}" for="imageurl" />
+                    <h:inputText  style="color:black"  id="imageurl" value="#{inboxControllerTwo.selected.imageurl}" title="#{bundle.EditInboxTitle_imageurl}" required="true" requiredMessage="#{bundle.EditInboxRequiredMessage_imageurl}"/>
+                    <h:outputLabel style="color:black"  value="#{bundle.EditInboxLabel_sendtoid}" for="sendtoid" />
+                    <h:inputText style="color:black"   id="sendtoid" value="#{inboxControllerTwo.selected.sendtoid}" title="#{bundle.EditInboxTitle_sendtoid}" required="true" requiredMessage="#{bundle.EditInboxRequiredMessage_sendtoid}"/>
+                    <h:outputLabel style="color:black"  value="#{bundle.EditInboxLabel_sendfromid}" for="sendfromid" />
+                    <h:inputText  style="color:black" id="sendfromid" value="#{inboxControllerTwo.selected.sendfromid}" title="#{bundle.EditInboxTitle_sendfromid}" required="true" requiredMessage="#{bundle.EditInboxRequiredMessage_sendfromid}"/>
+                    <h:outputLabel style="color:black"  value="#{bundle.EditInboxLabel_sentFrom}" for="sentFrom" />
+                    <h:inputText  style="color:black" id="sentFrom" value="#{inboxControllerTwo.selected.sentFrom}" title="#{bundle.EditInboxTitle_sentFrom}" required="true" requiredMessage="#{bundle.EditInboxRequiredMessage_sentFrom}"/>
+                    <h:outputLabel style="color:black"  value="#{bundle.EditInboxLabel_sentTo}" for="sentTo" />
+                    <h:inputText style="color:black"  id="sentTo" value="#{inboxControllerTwo.selected.sentTo}" title="#{bundle.EditInboxTitle_sentTo}" required="true" requiredMessage="#{bundle.EditInboxRequiredMessage_sentTo}"/>
+                    <h:outputLabel style="color:black"  value="#{bundle.EditInboxLabel_subject}" for="subject" />
+                    <h:inputText style="color:black"  id="subject" value="#{inboxControllerTwo.selected.subject}" title="#{bundle.EditInboxTitle_subject}" required="true" requiredMessage="#{bundle.EditInboxRequiredMessage_subject}"/>
+                    <h:outputLabel style="color:black"  value="#{bundle.EditInboxLabel_messageDate}" for="messageDate" />
+                    <h:inputText  style="color:black" id="messageDate" value="#{inboxControllerTwo.selected.messageDate}" title="#{bundle.EditInboxTitle_messageDate}" required="true" requiredMessage="#{bundle.EditInboxRequiredMessage_messageDate}"/>
+
+                    <h:outputLabel style="color:black"  value="#{bundle.EditInboxLabel_msgText}" for="msgText" />
+                    <h:inputTextarea   style="color:black"  rows="20" cols="70" id="msgText" value="#{inboxControllerTwo.selected.msgText}" title="#{bundle.EditInboxTitle_msgText}" required="true" requiredMessage="#{bundle.EditInboxRequiredMessage_msgText}"/>
+
+                    <h:outputLabel style="color:black"  value="#{bundle.EditInboxLabel_status}" for="status" />
+                    <h:inputText style="color:black"  id="status" value="#{inboxControllerTwo.selected.status}" title="#{bundle.EditInboxTitle_status}" required="true" requiredMessage="#{bundle.EditInboxRequiredMessage_status}"/>
+                    <h:outputLabel style="color:black"  value="#{bundle.EditInboxLabel_now}" for="now" />
+                    <h:inputText style="color:black"  id="now" value="#{inboxControllerTwo.selected.now}" title="#{bundle.EditInboxTitle_now}" required="true" requiredMessage="#{bundle.EditInboxRequiredMessage_now}"/>
+
+                
+                </h:panelGrid>
+
+
+                <h:commandLink action="#{inboxControllerTwo.update}" value="#{bundle.EditInboxSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditInboxViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{inboxController.prepareList}" value="#{bundle.EditInboxShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditInboxIndexLink}" action="/index" immediate="true" />
+            </h:form>
+
+
+
+
+
+
+            </ui:define>
+
+
+
+
+
+
+
+
+
+
+
+
+    	</ui:composition>
+
+    </h:body>
+
+</html>

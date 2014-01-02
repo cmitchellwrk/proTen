@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+
+    <h:body>
+
+    	<ui:composition template="/templates/templatered.xhtml">
+
+
+<ui:define name="title">Search singles | Hitmeupdate </ui:define>
+
+
+            <ui:define   name="contentten">
+
+
+            <h:form styleClass="jsfcrud_list_form">
+
+                
+
+
+  <h:form>
+                        <h:panelGrid   columns="18">
+
+
+                            <h:outputLabel value="I am a:" for="gender" style=" color:#2681fc   " />
+                            <p:selectOneMenu style=" width:100% " id = "gender" value="#{membersControllerSix.genderFl}" required="true" >
+                                <f:selectItems value="#{MemberLoginBean.gend}"/>
+                            </p:selectOneMenu>&nbsp;&nbsp;
+
+
+                            <h:outputLabel value="seeking a :" for="seekingA" style="color:#2681fc  "   />
+
+                            <p:selectOneMenu style=" width:100%" id = "seekingA" value="#{membersControllerSix.seekingFl}" required="true" >
+                                <f:selectItems value="#{MemberLoginBean.gend}"/>
+                            </p:selectOneMenu>&nbsp;&nbsp;
+
+
+
+                            <h:outputLabel value="ethnicity :" for="ethnicity" style="color:#2681fc   "   />
+
+                            <p:selectOneMenu style=" width:100%" id = "ethnicity" value="#{membersControllerSix.ethnicityFl}" required="true" >
+                                <f:selectItems value="#{MemberLoginBean.ethnic}"/>
+                            </p:selectOneMenu>&nbsp;&nbsp;
+
+
+                            <h:outputLabel value="looking for:" for="lookingFor" style="color:#2681fc   "   />
+
+                            <p:selectOneMenu style="width:100%" id = "lookingFor" value="#{membersControllerSix.lookingFl}" required="true" >
+                                <f:selectItems value="#{MemberLoginBean.wants}"/>
+                            </p:selectOneMenu>&nbsp;&nbsp;
+
+
+                            <h:outputLabel value="from age:" for="ageFrom" style="color:#2681fc   "   />
+
+                            <p:selectOneMenu style="width:60px" id = "ageFromr" value="#{membersControllerSix.agefromFl}" required="true" >
+                                <f:selectItems value="#{MemberLoginBean.age_from}"/>
+                            </p:selectOneMenu>&nbsp;&nbsp;
+
+
+                            <h:outputLabel value="to age:" for="ageTo" style=" color:#2681fc  "   />
+
+                            <p:selectOneMenu style="width:60px;" id = "ageTo" value="#{membersControllerSix.agetoFl}" required="true" >
+                                <f:selectItems value="#{MemberLoginBean.age_to}"/>
+                            </p:selectOneMenu>
+
+
+
+
+                        </h:panelGrid>
+
+
+
+
+
+
+
+                        <h:panelGrid     columns="12">
+
+
+
+                            <h:outputLabel value="within" for="within"  style="color:#2681fc   "  />
+
+                            <p:selectOneMenu style=" width:75px;" id = "radius" value="#{membersControllerSix.radius}" required="true" >
+                                <f:selectItems value="#{MemberLoginBean.miles}"/>
+                            </p:selectOneMenu>&nbsp;&nbsp;
+
+
+
+                            <h:outputLabel value="Zip Code:" style=" color:#2681fc  "  />
+
+
+                            <p:inputText id="inputzip" value="#{membersControllerSix.zipcodeSearchTwo}"/>&nbsp;&nbsp;
+
+
+
+                            <h:outputLabel value="city " for="city" style=" color:#2681fc  "   />
+
+                            <p:inputText id="city" value="#{membersControllerSix.cityFl}"/>&nbsp;&nbsp;
+
+
+
+                            <h:outputLabel value="state " for="state"  style=" color:#2681fc "  />
+                            <p:selectOneMenu style=" width:150%" id = "state" value="#{membersControllerSix.state}" required="true" >
+                                <f:selectItems value="#{MemberLoginBean.state}"/>
+                            </p:selectOneMenu>&nbsp;&nbsp;
+
+
+                        </h:panelGrid>
+
+
+
+                        <br/>
+                        <br/>
+                        <h:commandButton  styleClass="button"   action="#{membersControllerSix.createsearch}" value="SEARCH"/>
+
+
+
+
+
+                    </h:form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListMembersEmpty}" rendered="#{membersControllerFive.items.rowCount == 0}"/>
+
+
+                <h:panelGroup rendered="#{membersControllerSix.itemslistflTwo.rowCount > 0}">
+                    <h:outputText value="#{membersControllerSix.paginationlistflTwo.pageFirstItem + 1}..#{membersControllerSix.paginationlistflTwo.pageLastItem + 1}/#{membersControllerSix.paginationlistflTwo.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{membersControllerSix.previouslistflTwo}" value="#{bundle.Previous} #{membersControllerSix.paginationlistflTwo.pageSize}" rendered="#{membersControllerSix.paginationlistflTwo.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{membersControllerSix.nextlistflTwo}" value="#{bundle.Next} #{membersControllerSix.paginationlistflTwo.pageSize}" rendered="#{membersControllerSix.paginationlistflTwo.hasNextPage}"/>&nbsp;
+
+
+                    <p:dataTable value="#{membersControllerSix.itemslistflTwo}" var="item"     style=" border-color: #37b2d1; border-collapse: collapse; border: 0px;width:1000px">
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_userid}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.userid}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_username}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.username}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_password}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.password}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_now}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.now}"/>
+                        </p:column>
+
+
+
+                        <p:column>
+
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_imageurl}"/>
+                            </f:facet>
+
+                            <h:commandLink action="#{membersControllerSix.prepareViewTwo}" >
+
+                            <h:graphicImage    height="95"  width ="95"    url ="#{item.imageurl}">
+
+
+                            </h:graphicImage>
+
+
+                            </h:commandLink>
+
+                        </p:column>
+
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_city}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.city}"/>
+                        </p:column>
+
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_lat}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lat}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMembersTitle_lon}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lon}"/>
+                        </p:column>
+
+
+
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Hit me up if"/>
+                            </f:facet>
+                            <h:outputText value="#{item.headline}"/>
+                        </p:column>
+
+
+
+
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{membersControllerThree.prepareViewTwo}" value="#{bundle.ListMembersViewLink}"/>
+                            <h:outputText value=" "/>
+
+
+                        </p:column>
+                    </p:dataTable>
+
+
+                </h:panelGroup>
+
+                <br />
+                <br />
+
+
+
+            </h:form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ui:define>
+
+
+
+
+
+
+
+
+
+
+
+
+    	</ui:composition>
+
+    </h:body>
+
+</html>

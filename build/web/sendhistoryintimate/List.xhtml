@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListSendhistoryintimateTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+        <h:form styleClass="jsfcrud_list_form">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:outputText escape="false" value="#{bundle.ListSendhistoryintimateEmpty}" rendered="#{sendhistoryintimateController.items.rowCount == 0}"/>
+            <h:panelGroup rendered="#{sendhistoryintimateController.items.rowCount > 0}">
+                <h:outputText value="#{sendhistoryintimateController.pagination.pageFirstItem + 1}..#{sendhistoryintimateController.pagination.pageLastItem + 1}/#{sendhistoryintimateController.pagination.itemsCount}"/>&nbsp;
+                <h:commandLink action="#{sendhistoryintimateController.previous}" value="#{bundle.Previous} #{sendhistoryintimateController.pagination.pageSize}" rendered="#{sendhistoryintimateController.pagination.hasPreviousPage}"/>&nbsp;
+                <h:commandLink action="#{sendhistoryintimateController.next}" value="#{bundle.Next} #{sendhistoryintimateController.pagination.pageSize}" rendered="#{sendhistoryintimateController.pagination.hasNextPage}"/>&nbsp;
+                <h:dataTable value="#{sendhistoryintimateController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListSendhistoryintimateTitle_id}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListSendhistoryintimateTitle_shiid}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.shiid}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListSendhistoryintimateTitle_sentuser}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.sentuser}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{sendhistoryintimateController.prepareView}" value="#{bundle.ListSendhistoryintimateViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{sendhistoryintimateController.prepareEdit}" value="#{bundle.ListSendhistoryintimateEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{sendhistoryintimateController.destroy}" value="#{bundle.ListSendhistoryintimateDestroyLink}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:panelGroup>
+            <br />
+            <h:commandLink action="#{sendhistoryintimateController.prepareCreate}" value="#{bundle.ListSendhistoryintimateCreateLink}"/>
+            <br />
+            <br />
+            <h:commandLink value="#{bundle.ListSendhistoryintimateIndexLink}" action="/index" immediate="true" />
+        </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
